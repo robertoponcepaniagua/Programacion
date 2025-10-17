@@ -9,6 +9,8 @@ public class ejercicio8 {
         Scanner sc = new Scanner(System.in);
         int a= 0;   //Altura media
         int at= 0;   //Suma de todas las alturas de todas las personas
+        int inf =0;  //inferior a la media
+        int may =0;  //mayor a la media
         System.out.print("Elige cuantas personas quieres para calcular la media de su altura: ");
         int n = sc.nextInt();
         int[] array = new int[n];
@@ -19,9 +21,11 @@ public class ejercicio8 {
         }
         a = at / array.length;
         for (int i = 0; i < array.length; i++) {
-            if (array[i]<a) {
-                //calcular la altura inferior a la media con if
-            }
+            if (array[i] < a) {   //calcular la altura inferior a la media con if
+                inf++;
+            } else if (array[i] > a)
+                may++;
         }
+        System.out.println("La media de las "+array.length+" personas es: "+a+" y "+inf+" personas tienen una altura inferior a la media y "+may+" tienen una altura superior a la media");
     }
 }
