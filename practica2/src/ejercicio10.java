@@ -19,7 +19,7 @@ public class ejercicio10 {
             arraym[i][1] = String.valueOf(nota);
         }
         //buscar el alumno
-        System.out.println("Escribe el nombre de un alumno para ver su nota: ");
+        System.out.print("Escribe el nombre de un alumno para ver su nota: ");
         String NombreBuscado = sc.nextLine();
 
         boolean encontrado = false;

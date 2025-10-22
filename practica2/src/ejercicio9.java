@@ -13,7 +13,7 @@ public class ejercicio9 {
         Scanner sc = new Scanner(System.in);
         int[] array = new int[10];
         for (int i = 0; i < array.length; i++) {
-            System.out.print("["+i+"] Escribe 10 números enteros ");
+            System.out.print("Escribe 10 números enteros ");
             array[i] = sc.nextInt();
         }
         int max = array[0];

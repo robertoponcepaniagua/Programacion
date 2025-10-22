@@ -10,7 +10,7 @@ public class ejercicio4 {
         }
         double media = (double) suma / a.length;
 
-        System.out.println("Suma : "+suma);
-        System.out.println("Media : "+media);
+        System.out.println("La suma del 1 al 100 incrementalmente es : "+suma);
+        System.out.println("La media de la suma es : "+media);
     }
 }

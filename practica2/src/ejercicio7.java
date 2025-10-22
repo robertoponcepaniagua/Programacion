@@ -28,6 +28,6 @@ public class ejercicio7 {
             }
         }
         System.out.println("De "+positivos+" números positivos introducidos, la media es: "+mediapositivos);
-        System.out.println("De "+negativos+" números positivos introducidos, la media es: "+medianegativos);
+        System.out.println("De "+negativos+" números negativos introducidos, la media es: "+medianegativos);
     }
 }
