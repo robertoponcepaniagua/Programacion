@@ -8,8 +8,8 @@ public class ejercicio1 {
         //Crea un array de 10 posiciones de números con valores pedidos por teclado
         Scanner sc = new Scanner(System.in);
         int[] arrayInt = new int[10];
-        for(int i = 0; i < 10; i++) {
-            System.out.println("Introduce el siguiente valor: ");
+        for(int i = 0; i < arrayInt.length; i++) {
+            System.out.println("Introduce el valor para la posición " + i + ":");
             arrayInt[i] = sc.nextInt();
         }
         //Muestra por consola el índice y el valor
