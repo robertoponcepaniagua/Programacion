@@ -22,7 +22,7 @@ public class ejercicio15 {
             int numero = sc.nextInt();
 
             // Añadir el número solo si no está ya en la lista (eliminando duplicados)
-            if (!listaNumeros.contains(numero)) {
+            if () {
                 listaNumeros.add(numero);
             }
         }
