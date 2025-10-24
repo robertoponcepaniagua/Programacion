@@ -9,7 +9,7 @@ public class ejercicio14 {
         //Luego pida un nombre a buscar y diga si está en la lista o no, mostrando también en qué posición se encuentra si existe.
 
         // Crear una lista de Strings (ArrayList<String>)
-        ArrayList<String> listaNumeros = new ArrayList<>();
+        ArrayList<String> listanombres = new ArrayList<>();
 
         // Pida al usuario nombres por teclado hasta que introduzca "fin"
         System.out.print("Escribe nombres, cuando quieras parar pon fin: ");
@@ -22,7 +22,7 @@ public class ejercicio14 {
             if (nombre.equalsIgnoreCase("fin")) {
                 break; // Salir del bucle si el usuario escribe "fin"
             }
-            listaNumeros.add(nombre); // Agregar el nombre a la lista
+            listanombres.add(nombre); // Agregar el nombre a la lista
         }
 
         // Pedir el nombre a buscar
@@ -33,8 +33,8 @@ public class ejercicio14 {
         boolean encontrado = false;
 
         // Recorrer la lista para buscar el nombre
-        for (int i = 0; i < listaNumeros.size(); i++) {
-            if (buscar.equalsIgnoreCase(listaNumeros.get(i))) {
+        for (int i = 0; i < listanombres.size(); i++) {
+            if (buscar.equalsIgnoreCase(listanombres.get(i))) {
                 System.out.println("El nombre " + buscar + " está en la lista, en la posición: " + i);
                 encontrado = true; // Si encontramos el nombre, cambiamos la variable a true
                 break; // Salir del bucle porque ya encontramos el nombre
