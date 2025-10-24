@@ -27,7 +27,6 @@ public class ejercicio15 {
             }
         }
         // Ordenar la lista de menor a mayor
-        Collections.sort(listaNumeros);
 
         // Mostrar la lista ordenada por pantalla
         System.out.println("Lista ordenada sin duplicados: " + listaNumeros);
