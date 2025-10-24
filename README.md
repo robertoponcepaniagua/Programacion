@@ -4,7 +4,7 @@
 **Nombre:** Roberto Ponce Paniagua  
 ---
 
-## 🧩 Descripción
+## Descripción
 
 Este repositorio contiene las prácticas realizadas durante la asignatura de **Programación**.  
 Cada práctica está organizada en su propia carpeta e incluye el código fuente y los archivos de configuración necesarios.  
