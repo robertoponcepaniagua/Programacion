@@ -2,7 +2,7 @@
 **Curso 2025/2026**  
 **Alumno:** Roberto Ponce Paniagua
 ---
-![Java Logo](../java-ar21.svg)
+![Java Logo](java-ar21.svg)
 ---
 
 ## 📚 Descripción
@@ -37,27 +37,27 @@ practica02/
 ## 📝 Ejercicios
 
 ### 1️ Arrays básicos
-- [ejercicio01.java](ejercicio1.java)
-- [ejercicio02.java](ejercicio2.java)
-- [ejercicio03.java](ejercicio3.java)
-- [ejercicio04.java](ejercicio4.java)
-- [ejercicio05.java](ejercicio5.java)
+- [ejercicio01.java](src/ejercicio1.java)
+- [ejercicio02.java](src/ejercicio2.java)
+- [ejercicio03.java](src/ejercicio3.java)
+- [ejercicio04.java](src/ejercicio4.java)
+- [ejercicio05.java](src/ejercicio5.java)
 
 ### 2 Procesamiento con condiciones
-- [ejercicio06.java](ejercicio6.java)
-- [ejercicio07.java](ejercicio7.java)
-- [ejercicio08.java](ejercicio8.java)
+- [ejercicio06.java](src/ejercicio6.java)
+- [ejercicio07.java](src/ejercicio7.java)
+- [ejercicio08.java](src/ejercicio8.java)
 
 ### 3️ Arrays combinados y bidimensionales
-- [ejercicio09.java](ejercicio9.java)
-- [ejercicio10.java](ejercicio10.java)
-- [ejercicio11.java](ejercicio11.java)
-- [ejercicio12.java](ejercicio12.java)
+- [ejercicio09.java](src/ejercicio9.java)
+- [ejercicio10.java](src/ejercicio10.java)
+- [ejercicio11.java](src/ejercicio11.java)
+- [ejercicio12.java](src/ejercicio12.java)
 
 ### 4️ Transición a listas dinámicas (ArrayList)
-- [ejercicio13.java](ejercicio13.java)
-- [ejercicio14.java](ejercicio14.java)
-- [ejercicio15.java](ejercicio15.java)
+- [src/ejercicio13.java](src/ejercicio13.java)
+- [ejercicio14.java](src/ejercicio14.java)
+- [ejercicio15.java](src/ejercicio15.java)
 
 ---
 
