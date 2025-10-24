@@ -2,7 +2,7 @@
 **Curso 2025/2026**  
 **Alumno:** Roberto Ponce Paniagua
 ---
-![Java Logo](../java-ar21.svg)
+![Java Logo](java-ar21.svg)
 ---
 
 ##  Descripción
