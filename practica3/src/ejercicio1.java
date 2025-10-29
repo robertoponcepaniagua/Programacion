@@ -19,13 +19,13 @@ public class ejercicio1 {
         //Introducimos un salto de página si no la fila 0 queda pegado con las columnas
         System.out.println();
         //Cuerpo
-        //Creamos 2 for para recorrer el array [i][j]
-        for (int i = 0; i < doub.length; i++) {
+        for (int i = 0; i < doub.length; i++) {     //Creamos 2 for para recorrer el array [i][j]  (filas y columnas)
             System.out.printf("%8s", "Fila " + i);
             for (int j = 0; j < doub[i].length; j++) {
-                System.out.printf("%11.1f", doub[i][j]);
-                if (doub[i][j] == 0.0) {
-                    System.out.printf("%11.1f", "");
+                if (doub[i][j] == 0.0 && !(i==0 && j==0)) {     // No muestra ceros excepto el primero [0][0]
+                    System.out.printf("%11.1s", "");
+                } else {
+                    System.out.printf("%11.1f", doub[i][j]);
                 }
             }
             System.out.println();
