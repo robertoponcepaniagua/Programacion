@@ -12,20 +12,20 @@ public class ejercicio1 {
                 {0.0, 0.0, -2.0, 9.0, 0.0, 11.0} //Fila 3
         };
         //Encabezado
-        System.out.printf("%-11s", "Array num");
+        System.out.printf(" | %-9s", "Array num");
         for (int i = 0; i < 6; i++) {
-            System.out.printf("%11s", "Columna " + i);
+            System.out.printf(" | %11s", "Columna " + i);
         }
         //Introducimos un salto de página si no la fila 0 queda pegado con las columnas
         System.out.println();
         //Cuerpo
         for (int i = 0; i < doub.length; i++) {     //Creamos 2 for para recorrer el array [i][j]  (filas y columnas)
-            System.out.printf("%8s", "Fila " + i);
+            System.out.printf(" | %8s", "Fila " + i);
             for (int j = 0; j < doub[i].length; j++) {
                 if (doub[i][j] == 0.0 && !(i==0 && j==0)) {     // No muestra ceros excepto el primero [0][0]
-                    System.out.printf("%11.1s", "");
+                    System.out.printf("  | %10.1s", "");
                 } else {
-                    System.out.printf("%11.1f", doub[i][j]);
+                    System.out.printf("  | %10.1f", doub[i][j]);
                 }
             }
             System.out.println();
