@@ -32,15 +32,34 @@ public class ejercicio5 {
             }
         }
 
-        // Imprimir la tabla
-        System.out.println("Tabla generada:");
+        // Imprimir las filas
         for (int i = 0; i < a.length; i++) {
-            System.out.print("Fila " + i + ": ");
+            // fila
+            System.out.printf("%-12s", "Fila " + i + ":");
+
             for (int j = 0; j < a[i].length; j++) {
-                System.out.printf("%5d ", a[i][j]);
+                System.out.printf("%-8d", a[i][j]);
             }
             System.out.println();
         }
+
+        // Línea separadora
+        System.out.println();
+
+        // Imprimir las columnas debajo de la tabla
+        System.out.printf("%-12s", ""); // espacio para alinear con "Fila x:"
+        for (int j = 0; j < columnas.length; j++) {
+            System.out.printf("%-8s", "Col " + j + ":");
+        }
+        System.out.println();
+
+        // Imprimir los valores de las columnas
+        System.out.printf("%-12s", "");
+        for (int j = 0; j < columnas.length; j++) {
+            System.out.printf("%-8d", columnas[j]);
+        }
+        System.out.println();
+        System.out.println();
 
         //max y min
         int max = a[0][0];
@@ -72,16 +91,5 @@ public class ejercicio5 {
 
         //Suma total
         System.out.println("La suma total "+sumatotal);
-
-        //Columnas y filas
-        System.out.println("Suma por columnas:");
-        for (int j = 0; j < columnas.length; j++) {
-            System.out.println("Columna " + j + ": " + columnas[j]);
-        }
-
-        System.out.println("Suma por filas:");
-        for (int i = 0; i < filas.length; i++) {
-            System.out.println("Fila " + i + ": " + filas[i]);
-        }
     }
 }
