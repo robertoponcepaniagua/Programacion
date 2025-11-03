@@ -17,9 +17,6 @@ public class ejercicio5 {
         int[] columnas = new int[10];
         int[] filas = new int[6];
 
-        int menor = 0;
-        int mayor = 1000;
-
         //Rellenamos eñ array con números enteros positivos comprendidos entre 0 y 1000
         for (int i = 0; i <a.length; i++) {
             for (int j = 0; j < a[i].length; j++) {
@@ -32,34 +29,38 @@ public class ejercicio5 {
             }
         }
 
-        // Imprimir las filas
+        // Imprimir la tabla
+        System.out.println("Tabla generada:");
+
+// Encabezado de columnas
+        System.out.printf("%-10s", ""); // espacio para la etiqueta de fila
+        for (int j = 0; j < a[0].length; j++) {
+            System.out.printf("%8s", "Col" + j);
+        }
+        System.out.printf("%12s%n", "Suma fila");
+
+// Filas con sus valores y suma
         for (int i = 0; i < a.length; i++) {
-            // fila
-            System.out.printf("%-12s", "Fila " + i + ":");
-
+            System.out.printf("%-10s", "Fila " + i);
             for (int j = 0; j < a[i].length; j++) {
-                System.out.printf("%-8d", a[i][j]);
+                System.out.printf("%8d", a[i][j]);
             }
-            System.out.println();
+            System.out.printf("%12d%n", filas[i]);
         }
 
-        // Línea separadora
-        System.out.println();
+// Línea separadora
+        System.out.print("----------");
+        for (int j = 0; j < a[0].length; j++) {
+            System.out.print("--------");
+        }
+        System.out.println("------------");
 
-        // Imprimir las columnas debajo de la tabla
-        System.out.printf("%-12s", ""); // espacio para alinear con "Fila x:"
+// Totales de columnas
+        System.out.printf("%-10s", "Total");
         for (int j = 0; j < columnas.length; j++) {
-            System.out.printf("%-8s", "Col " + j + ":");
+            System.out.printf("%8d", columnas[j]);
         }
-        System.out.println();
-
-        // Imprimir los valores de las columnas
-        System.out.printf("%-12s", "");
-        for (int j = 0; j < columnas.length; j++) {
-            System.out.printf("%-8d", columnas[j]);
-        }
-        System.out.println();
-        System.out.println();
+        System.out.printf("%12d%n", sumatotal);
 
         //max y min
         int max = a[0][0];
