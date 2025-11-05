@@ -1,9 +1,8 @@
-import java.util.ArrayList;
 import java.util.Scanner;
 
 public class ejercicio7 {
     public static void main(String[] args) {
-        //Modifica el programa del Ejercicio 6 para que:
+        // Modifica el programa del Ejercicio 6 para que:
         //1. Los números NO se repitan (como en el ejercicio anterior).
         //2. Los números estén comprendidos en un rango dinámico (el usuario introduce el
         //valor mínimo y máximo).
@@ -13,36 +12,49 @@ public class ejercicio7 {
         //○ Una representación gráfica en consola de cada fila, donde cada número se
         //represente con un número de * proporcional a su valor dentro del rango
         //dado (por ejemplo, si el rango es 10-20 y aparece el 15, se mostrarán 5 *).
+
         Scanner sc = new Scanner(System.in);
-        int rango = sc.nextInt();
 
-        ArrayList<Integer> lista = new ArrayList<>();
+        System.out.println("Escribe el valor maximo del rango elegido");
+        int valormax = sc.nextInt();
+        System.out.println("Escribe el valor mínimo del rango elegido");
+        int valormin = sc.nextInt();
 
-        int[][] a = new int[3][7];
-        int[][] temp = new int[3][7];
-        //suma total
-        int sumatotal= 0;
 
-        //suma columnas y filas
-        int[] columnas = new int[7];
-        int[] filas = new int[3];
+        int[][] a = new int[valormax][valormin];
+        int[][] temp = new int[valormax][valormin];
+
+        // Suma total
+        int sumatotal = 0;
+
+        // Suma columnas y filas
+        int[] columnas = new int[10];
+        int[] filas = new int[6];
+
 
         // Rellenamos temp con números del 20 al 40
         int index = 20;
         for (int i = 0; i < temp.length; i++) {
             for (int j = 0; j < temp[i].length; j++) {
-                temp[i][j] = index++;
+                if (index <= 40) {
+                    temp[i][j] = index++;
+                } else {
+                    temp[i][j] = 0; // Rellenar con 0 si se excede el rango
+                }
             }
         }
 
         // Mezclamos temp
         for (int i = 0; i < temp.length; i++) {
             for (int j = 0; j < temp[i].length; j++) {
-                int pos = (int) (Math.random() * 21);
-                int fil = pos / 7;
-                int col = pos % 7;
+                //Da un número random entre 20 y 60
+                int pos = (int) (Math.random() * 60);
+                //fil calcula la fila del número random y col calcula la columna del número random, se divide por el número
+                //de columnas
+                int fil = pos / 10;
+                int col = pos % 10;
 
-                // intercambiar
+                // Intercambiar
                 int aux = temp[i][j];
                 temp[i][j] = temp[fil][col];
                 temp[fil][col] = aux;
@@ -92,18 +104,18 @@ public class ejercicio7 {
         }
         System.out.printf("%12d%n", sumatotal);
 
-        //max y min
+        // Max y Min
         int max = a[0][0];
         int filamax = 0;
-        int columnamax= 0;
+        int columnamax = 0;
         int min = a[0][0];
         int filamin = 0;
-        int columnamin= 0;
+        int columnamin = 0;
 
-        for (int i = 0; i <a.length; i++) {
+        for (int i = 0; i < a.length; i++) {
             for (int j = 0; j < a[i].length; j++) {
-                //max y min
-                if (a[i][j] < min) {
+                // Max y Min
+                if (a[i][j] < min && a[i][j] != 0) {
                     min = a[i][j];
                     filamin = i;
                     columnamin = j;
@@ -116,11 +128,11 @@ public class ejercicio7 {
             }
         }
 
-        //posición del número máximo y mínimo
-        System.out.println("El número maximo es ["+max+"] en la posición ["+filamax+"]["+columnamax+"]");
-        System.out.println("El número mínimo es ["+min+"] en la posición ["+filamin+"]["+columnamin+"]");
+        // Posición del número máximo y mínimo
+        System.out.println("El número máximo es [" + max + "] en la posición [" + filamax + "][" + columnamax + "]");
+        System.out.println("El número mínimo es [" + min + "] en la posición [" + filamin + "][" + columnamin + "]");
 
-        //Suma total
-        System.out.println("La suma total "+sumatotal);
+        // Suma total
+        System.out.println("La suma total es " + sumatotal);
     }
 }
