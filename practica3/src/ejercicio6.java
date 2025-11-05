@@ -89,14 +89,14 @@ public class ejercicio6 {
         int max = a[0][0];
         int filamax = 0;
         int columnamax = 0;
-        int min = a[0][0];
+        int min = 41;
         int filamin = 0;
         int columnamin = 0;
 
         for (int i = 0; i < a.length; i++) {
             for (int j = 0; j < a[i].length; j++) {
                 // Max y Min
-                if (a[i][j] < min && a[i][j] != 0) {
+                if (a[i][j] != 0 && a[i][j] < min) {
                     min = a[i][j];
                     filamin = i;
                     columnamin = j;
