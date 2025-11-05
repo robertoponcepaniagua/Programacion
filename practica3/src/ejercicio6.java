@@ -1,34 +1,41 @@
 public class ejercicio6 {
     public static void main(String[] args) {
-        //Modifica el programa anterior de tal forma que no se repita ningún número en el array
-        //además de que tiene que estar comprendido en un rango entre 20-40
+        // Modifica el programa anterior para que el array sea de [6][10]
+        // y las posiciones restantes se rellenen con 0 si no hay suficientes números entre 20-40.
 
-        int[][] a = new int[3][7];
-        int[][] temp = new int[3][7];
+        int[][] a = new int[6][10];
+        int[][] temp = new int[6][10];
 
-        //suma total
-        int sumatotal= 0;
+        // Suma total
+        int sumatotal = 0;
 
-        //suma columnas y filas
-        int[] columnas = new int[7];
-        int[] filas = new int[3];
+        // Suma columnas y filas
+        int[] columnas = new int[10];
+        int[] filas = new int[6];
 
         // Rellenamos temp con números del 20 al 40
         int index = 20;
         for (int i = 0; i < temp.length; i++) {
             for (int j = 0; j < temp[i].length; j++) {
-                temp[i][j] = index++;
+                if (index <= 40) {
+                    temp[i][j] = index++;
+                } else {
+                    temp[i][j] = 0; // Rellenar con 0 si se excede el rango
+                }
             }
         }
 
         // Mezclamos temp
         for (int i = 0; i < temp.length; i++) {
             for (int j = 0; j < temp[i].length; j++) {
-                int pos = (int) (Math.random() * 21);
-                int fil = pos / 7;
-                int col = pos % 7;
+                //Da un número random entre 20 y 60
+                int pos = (int) (Math.random() * 60);
+                //fil calcula la fila del número random y col calcula la columna del número random, se divide por el número
+                //de columnas
+                int fil = pos / 10;
+                int col = pos % 10;
 
-                // intercambiar
+                // Intercambiar
                 int aux = temp[i][j];
                 temp[i][j] = temp[fil][col];
                 temp[fil][col] = aux;
@@ -78,18 +85,18 @@ public class ejercicio6 {
         }
         System.out.printf("%12d%n", sumatotal);
 
-        //max y min
+        // Max y Min
         int max = a[0][0];
         int filamax = 0;
-        int columnamax= 0;
+        int columnamax = 0;
         int min = a[0][0];
         int filamin = 0;
-        int columnamin= 0;
+        int columnamin = 0;
 
-        for (int i = 0; i <a.length; i++) {
+        for (int i = 0; i < a.length; i++) {
             for (int j = 0; j < a[i].length; j++) {
-                //max y min
-                if (a[i][j] < min) {
+                // Max y Min
+                if (a[i][j] < min && a[i][j] != 0) {
                     min = a[i][j];
                     filamin = i;
                     columnamin = j;
@@ -102,11 +109,11 @@ public class ejercicio6 {
             }
         }
 
-        //posición del número máximo y mínimo
-        System.out.println("El número maximo es ["+max+"] en la posición ["+filamax+"]["+columnamax+"]");
-        System.out.println("El número mínimo es ["+min+"] en la posición ["+filamin+"]["+columnamin+"]");
+        // Posición del número máximo y mínimo
+        System.out.println("El número máximo es [" + max + "] en la posición [" + filamax + "][" + columnamax + "]");
+        System.out.println("El número mínimo es [" + min + "] en la posición [" + filamin + "][" + columnamin + "]");
 
-        //Suma total
-        System.out.println("La suma total "+sumatotal);
+        // Suma total
+        System.out.println("La suma total es " + sumatotal);
     }
 }
