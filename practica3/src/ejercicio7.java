@@ -14,7 +14,9 @@ public class ejercicio7 {
         //dado (por ejemplo, si el rango es 10-20 y aparece el 15, se mostrarán 5 *).
 
         Scanner sc =new Scanner(System.in);
+        System.out.print("Escribe valor mínimo: ");
         int minr = sc.nextInt();
+        System.out.print("Escribe valor maximo: ");
         int maxr = sc.nextInt();
         int rango = maxr - minr + 1;
 
@@ -28,7 +30,19 @@ public class ejercicio7 {
         int[] columnas = new int[10];
         int[] filas = new int[6];
 
-        // Rellenamos temp con números del 20 al 40
+        //Media aritmetica
+        int media_aritmetica = (maxr + minr) / 2;
+
+        //Comprobamos que el rango es adecuado para el array
+        if (rango > 60) {
+            System.out.println("Porfavor elige otros números min y maximos recuerda el rango es de 60");
+            System.out.print("Escribe valor mínimo. ");
+            minr = sc.nextInt();
+            System.out.print("Escribe valor maximo: ");
+            maxr = sc.nextInt();
+        }
+
+        // Rellenamos temp con números
         int index = minr;
         for (int i = 0; i < temp.length; i++) {
             for (int j = 0; j < temp[i].length; j++) {
@@ -66,7 +80,24 @@ public class ejercicio7 {
                 columnas[j] += a[i][j];
             }
         }
-
+        int[] siesprimo = new int[60];
+        //Números Primos
+        for (int i = 0; i < a.length; i++) {
+            int[] primo = new int[2];
+            for (int j = 0; j < a[i].length; j++) {
+                int num = a[i][j];
+                if (num % 1 == 0 && num % num == 0) {
+                    primo [0] = 1;
+                    primo [1] = num;
+                    boolean esprimo = true;
+                }
+                for (int k = 0; k < num; k++) {
+                    if (primo[0] == 1 && primo[1] == a[i][j]) {
+                        siesprimo[i] = primo[1];
+                    }
+                }
+            }
+        }
         // Imprimir la tabla
         System.out.println("Tabla generada:");
 
@@ -123,12 +154,17 @@ public class ejercicio7 {
                 }
             }
         }
-
+        System.out.println();
+        System.out.println("La media Aritmetica es: "+media_aritmetica);
         // Posición del número máximo y mínimo
         System.out.println("El número máximo es [" + max + "] en la posición [" + filamax + "][" + columnamax + "]");
         System.out.println("El número mínimo es [" + min + "] en la posición [" + filamin + "][" + columnamin + "]");
 
         // Suma total
         System.out.println("La suma total es " + sumatotal);
+
+        for (int i = 0; i < a.length; i++) {
+            System.out.println("Los números primos son: "+siesprimo);
+        }
     }
 }
