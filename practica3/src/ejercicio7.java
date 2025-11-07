@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class ejercicio7 {
     public static void main(String[] args) {
-        // Modifica el programa del Ejercicio 6 para que:
+        //Modifica el programa del Ejercicio 6 para que:
         //1. Los números NO se repitan (como en el ejercicio anterior).
         //2. Los números estén comprendidos en un rango dinámico (el usuario introduce el
         //valor mínimo y máximo).
@@ -13,16 +13,15 @@ public class ejercicio7 {
         //represente con un número de * proporcional a su valor dentro del rango
         //dado (por ejemplo, si el rango es 10-20 y aparece el 15, se mostrarán 5 *).
 
-        Scanner sc = new Scanner(System.in);
+        Scanner sc =new Scanner(System.in);
+        System.out.print("Escribe valor mínimo: ");
+        int minr = sc.nextInt();
+        System.out.print("Escribe valor maximo: ");
+        int maxr = sc.nextInt();
+        int rango = maxr - minr + 1;
 
-        System.out.println("Escribe el valor maximo del rango elegido");
-        int valormax = sc.nextInt();
-        System.out.println("Escribe el valor mínimo del rango elegido");
-        int valormin = sc.nextInt();
-
-
-        int[][] a = new int[valormax][valormin];
-        int[][] temp = new int[valormax][valormin];
+        int[][] a = new int[6][10];
+        int[][] temp = new int[6][10];
 
         // Suma total
         int sumatotal = 0;
@@ -31,12 +30,23 @@ public class ejercicio7 {
         int[] columnas = new int[10];
         int[] filas = new int[6];
 
+        //Media aritmetica
+        int media_aritmetica = (maxr + minr) / 2;
 
-        // Rellenamos temp con números del 20 al 40
-        int index = 20;
+        //Comprobamos que el rango es adecuado para el array
+        if (rango > 60) {
+            System.out.println("Porfavor elige otros números min y maximos recuerda el rango es de 60");
+            System.out.print("Escribe valor mínimo. ");
+            minr = sc.nextInt();
+            System.out.print("Escribe valor maximo: ");
+            maxr = sc.nextInt();
+        }
+
+        // Rellenamos temp con números
+        int index = minr;
         for (int i = 0; i < temp.length; i++) {
             for (int j = 0; j < temp[i].length; j++) {
-                if (index <= 40) {
+                if (index <= maxr) {
                     temp[i][j] = index++;
                 } else {
                     temp[i][j] = 0; // Rellenar con 0 si se excede el rango
@@ -70,7 +80,24 @@ public class ejercicio7 {
                 columnas[j] += a[i][j];
             }
         }
-
+        int[] siesprimo = new int[60];
+        //Números Primos
+        for (int i = 0; i < a.length; i++) {
+            int[] primo = new int[2];
+            for (int j = 0; j < a[i].length; j++) {
+                int num = a[i][j];
+                if (num % 1 == 0 && num % num == 0) {
+                    primo [0] = 1;
+                    primo [1] = num;
+                    boolean esprimo = true;
+                }
+                for (int k = 0; k < num; k++) {
+                    if (primo[0] == 1 && primo[1] == a[i][j]) {
+                        siesprimo[i] = primo[1];
+                    }
+                }
+            }
+        }
         // Imprimir la tabla
         System.out.println("Tabla generada:");
 
@@ -108,14 +135,14 @@ public class ejercicio7 {
         int max = a[0][0];
         int filamax = 0;
         int columnamax = 0;
-        int min = a[0][0];
+        int min = maxr;
         int filamin = 0;
         int columnamin = 0;
 
         for (int i = 0; i < a.length; i++) {
             for (int j = 0; j < a[i].length; j++) {
                 // Max y Min
-                if (a[i][j] < min && a[i][j] != 0) {
+                if (a[i][j] != 0 && a[i][j] < min) {
                     min = a[i][j];
                     filamin = i;
                     columnamin = j;
@@ -127,12 +154,17 @@ public class ejercicio7 {
                 }
             }
         }
-
+        System.out.println();
+        System.out.println("La media Aritmetica es: "+media_aritmetica);
         // Posición del número máximo y mínimo
         System.out.println("El número máximo es [" + max + "] en la posición [" + filamax + "][" + columnamax + "]");
         System.out.println("El número mínimo es [" + min + "] en la posición [" + filamin + "][" + columnamin + "]");
 
         // Suma total
         System.out.println("La suma total es " + sumatotal);
+
+        for (int i = 0; i < a.length; i++) {
+            System.out.println("Los números primos son: "+siesprimo);
+        }
     }
 }
