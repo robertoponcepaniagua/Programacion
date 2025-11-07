@@ -1,4 +1,3 @@
-import java.util.Formattable;
 import java.util.Scanner;
 
 public class ejercicio2 {
@@ -24,14 +23,12 @@ public class ejercicio2 {
         for (int j = 0; j < 5; j++) {
             max[j] = array[0][j];
         }
-        int[] sumacolumna = new int[5];
         // El programa mostrará las sumas parciales de filas y en las columnas el mayor número de la columna.
         for (int i = 0; i < 4; i++) {
             int sumafila = 0;
             for (int j = 0; j < 5; j++) {
                 System.out.printf("%-5d", array[i][j]);
                 sumafila += array[i][j];
-                sumacolumna[j] += array[i][j];
                 suma_total += array[i][j];
                 if (array[i][j] > max[j]) {
                     max[j] = array[i][j];
@@ -41,12 +38,9 @@ public class ejercicio2 {
         }
         System.out.println("--------------------------------");
         for (int j = 0; j < 5; j++) {
-            System.out.printf("%-5d", sumacolumna[j]);
+            System.out.printf("%-5d", max[j]);
         }
         System.out.printf("| %5d",suma_total);
         System.out.println();
-        for (int j = 0; j < 5; j++) {
-            System.out.println("El número más grande de la columna " + j + " es: " + max[j]);
-        }
     }
 }
