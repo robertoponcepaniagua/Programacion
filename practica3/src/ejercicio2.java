@@ -42,5 +42,6 @@ public class ejercicio2 {
         }
         System.out.printf("| %5d",suma_total);
         System.out.println();
+        //finalizado
     }
 }
