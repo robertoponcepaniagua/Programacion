@@ -17,7 +17,7 @@ public class ejercicio3 {
         // El array se rellena atumáticamente con números random
         for (int i = 0; i < 4; i++) {
             for (int j = 0; j < 5; j++) {
-                array[i][j] = random.nextInt(2000);
+                array[i][j] = random.nextInt(1999)+1;
             }
         }
         //esto inicia el array max con los primeros números del array
@@ -31,7 +31,6 @@ public class ejercicio3 {
             for (int j = 0; j < 5; j++) {
                 System.out.printf("%-5d", array[i][j]);
                 sumafila += array[i][j];
-                sumacolumna[j] += array[i][j];
                 suma_total += array[i][j];
                 //recorremos las columnas "j" para buscar el número más grande de estás
                 if (array[i][j] > max[j]) {
@@ -44,14 +43,10 @@ public class ejercicio3 {
         System.out.println("----------------------------------");
         //Sumar columnas
         for (int j = 0; j < 5; j++) {
-            System.out.printf("%-5d", sumacolumna[j]);
+            System.out.printf("%-5d",max[j] );
         }
         //Escribe la suma total del array
         System.out.printf(" | %6d",suma_total);
         System.out.println();
-        //Aquí muestra el número más grande del array
-        for (int j = 0; j < 5; j++) {
-            System.out.println("El número más grande de la columna " + j + " es: " + max[j]);
-        }
     }
 }
