@@ -22,7 +22,7 @@ public class ejercicio1 {
         for (int i = 0; i < doub.length; i++) {     //Creamos 2 for para recorrer el array [i][j]  (filas y columnas)
             System.out.printf("   %-10s", "Fila " + i);
             for (int j = 0; j < doub[i].length; j++) {
-                if (doub[i][j] == 0.0 && !(i==0 && j==0) && !(i==1 && j==4)) {     // No muestra ceros excepto el primero [0][0]
+                if (doub[i][j] == 0.0 && !(i==0 && j==0) && !(i==1 && j==4)) {     // No muestra ceros excepto el primero [0][0] y el [1][4]
                     System.out.printf(" | %11s", "");
                 } else {
                     System.out.printf(" | %6.1f%5s", doub[i][j],"");
