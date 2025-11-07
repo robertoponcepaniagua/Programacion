@@ -47,6 +47,7 @@ public class ejercicio4 {
         Thread.sleep(1000);
         System.out.printf(" | %6d",suma_total);
         System.out.println();
+        //terminado
     }
 }
 
