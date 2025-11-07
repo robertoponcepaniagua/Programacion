@@ -66,7 +66,11 @@ public class ejercicio6 {
         for (int i = 0; i < a.length; i++) {
             System.out.printf("%-10s", "Fila " + i);
             for (int j = 0; j < a[i].length; j++) {
-                System.out.printf("%8d", a[i][j]);
+                if (a[i][j] == 0) {
+                    System.out.printf("%8s", ""); // quitamos los 0
+                } else {
+                    System.out.printf("%8d", a[i][j]);
+                }
             }
             System.out.printf("%12d%n", filas[i]);
         }
