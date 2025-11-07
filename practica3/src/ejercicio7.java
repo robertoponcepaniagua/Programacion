@@ -202,7 +202,7 @@ public class ejercicio7 {
                 }
             }
         }
-        System.out.print("Primos ordenados: ");
+        System.out.print("Primos: ");
         for (int i = 0; i < ordenar.length; i++) {
             System.out.print(ordenar[i] + " ");
         }
