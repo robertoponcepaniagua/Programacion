@@ -48,5 +48,6 @@ public class ejercicio3 {
         //Escribe la suma total del array
         System.out.printf(" | %6d",suma_total);
         System.out.println();
+        //terminado
     }
 }
