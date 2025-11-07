@@ -80,24 +80,34 @@ public class ejercicio7 {
                 columnas[j] += a[i][j];
             }
         }
-        int[] siesprimo = new int[60];
         //Números Primos
+        int contar = 0;
+        int[] primos = new int[rango];
+
         for (int i = 0; i < a.length; i++) {
-            int[] primo = new int[2];
             for (int j = 0; j < a[i].length; j++) {
+
                 int num = a[i][j];
-                if (num % 1 == 0 && num % num == 0) {
-                    primo [0] = 1;
-                    primo [1] = num;
-                    boolean esprimo = true;
-                }
-                for (int k = 0; k < num; k++) {
-                    if (primo[0] == 1 && primo[1] == a[i][j]) {
-                        siesprimo[i] = primo[1];
+                boolean primo = true;
+
+                // Solo comprobamos si es mayor que 1
+                if (num > 1) {
+
+                    for (int k = 2; k < num; k++) {
+                        if (num % k == 0) {
+                            primo = false;
+                            break;
+                        }
+                    }
+
+                    if (primo) {
+                        primos[contar] = num;
+                        contar++;
                     }
                 }
             }
         }
+
         // Imprimir la tabla
         System.out.println("Tabla generada:");
 
@@ -112,7 +122,11 @@ public class ejercicio7 {
         for (int i = 0; i < a.length; i++) {
             System.out.printf("%-10s", "Fila " + i);
             for (int j = 0; j < a[i].length; j++) {
-                System.out.printf("%8d", a[i][j]);
+                if (a[i][j] == 0) {
+                    System.out.printf("%8s", ""); // quitamos los 0
+                } else {
+                    System.out.printf("%8d", a[i][j]);
+                }
             }
             System.out.printf("%12d%n", filas[i]);
         }
@@ -162,9 +176,35 @@ public class ejercicio7 {
 
         // Suma total
         System.out.println("La suma total es " + sumatotal);
-
-        for (int i = 0; i < a.length; i++) {
-            System.out.println("Los números primos son: "+siesprimo);
+        // ordenar primos
+        int contar2 = 0;
+        for (int i = 0; i < primos.length; i++) {
+            if (primos[i] > 1) {
+                contar2++; //contar cuantos espacios sin 0 hay
+            }
+        }
+        int[] ordenar = new int[contar2];
+        int pos = 0;
+        //meter los números a ordenar sin 0
+        for (int i = 0; i < primos.length; i++) {
+            if (primos[i] > 1) {
+                ordenar[pos] = primos[i];
+                pos++;
+            }
+        }
+        //ordenamos
+        for (int i = 0; i < ordenar.length; i++) {
+            for (int j = i + 1; j < ordenar.length; j++) {
+                if (ordenar[i] > ordenar[j]) {
+                    int aux = ordenar[i];
+                    ordenar[i] = ordenar[j];
+                    ordenar[j] = aux;
+                }
+            }
+        }
+        System.out.print("Primos ordenados: ");
+        for (int i = 0; i < ordenar.length; i++) {
+            System.out.print(ordenar[i] + " ");
         }
     }
 }
