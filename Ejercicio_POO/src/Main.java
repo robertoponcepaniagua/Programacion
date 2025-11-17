@@ -7,13 +7,24 @@ public class Main {
         System.out.println(user.getNombre());
 
         System.out.println(user.getEmail());
-        user.setEmail("roberto@hola");
+        user.setEmail("rponpan@hola");
         System.out.println(user.getEmail());
 
         System.out.println(user.toString());
 
-        //Usuario[] usuarios;
-        //validarRegistro();
+        Usuario usuario1= new Usuario("Paco","Gordon Figueroa","11356","Calle Almeria","pacopruebas@hola","pacopaco08");
+        Usuario usuario2= new Usuario("Cayetano","Ponce Paniagua","11405","Calle Joan","cponpan@hola","cayep12");
+        Usuario usuario3= new Usuario("Nay","Garrido Barbadilla","11485","Calle Alameda","naynay@hola","nayhola1234");
+        Usuario[] usuarios = {usuario1,usuario2,usuario3};
+        validarRegistro(usuarios);
     }
-    public static void validarRegistro(Usuario[] usuarios){}
+    public static void validarRegistro(Usuario[] usuarios){
+        for (int i = 0; i < usuarios.length; i++) {
+            if (usuarios[i].getCodigopostal().startsWith("28")) {
+                System.out.println("Codigo postal Valido");
+            } else {
+                System.out.println("Código Postal no valido");
+            }
+        }
+    }
 }

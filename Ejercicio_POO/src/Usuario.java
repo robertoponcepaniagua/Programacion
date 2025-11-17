@@ -35,13 +35,22 @@ public class Usuario {
     public String getApellidos() {
         return apellidos;
     }
+    public void setApellidos(String nuevoApellido) {
+        this.apellidos = nuevoApellido;
+    }
 
     public String getCodigopostal() {
         return codigopostal;
     }
+    public void setCodigopostal (String nuevoCodigopostal) {
+        this.codigopostal = nuevoCodigopostal;
+    }
 
     public String getDireccion() {
         return direccion;
+    }
+    public void setDireccion(String nuevoDireccion) {
+        this.direccion = nuevoDireccion;
     }
 
     public String getEmail() {
@@ -59,7 +68,9 @@ public class Usuario {
     public String getContrasena() {
         return contrasena;
     }
-
+    public void setContrasena (String nuevoContrasena) {
+        this.contrasena = nuevoContrasena;
+    }
     public boolean checkusuario(String email, String contrasena) {
         return this.email.equals(email) && this.contrasena.equals(contrasena);
     }
