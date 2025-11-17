@@ -16,12 +16,6 @@ public class Usuario {
         this.email = e;
         this.contrasena = p;
 
-        nombre = "Roberto";
-        apellidos = "Ponce Paniagua";
-        codigopostal = "11405";
-        direccion = "C/ Joan Miró 1, RES Europa, Portal 5 bj A";
-        email = "rponpan078@g.educaand.es";
-        contrasena = "1234";
     }
     //Metodo get
 
