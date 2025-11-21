@@ -15,4 +15,5 @@ public class Direccion {
         this.Localidad = Localidad;
         this.Provincia = Provincia;
     }
+
 }

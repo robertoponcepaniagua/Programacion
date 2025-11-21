@@ -1,6 +1,51 @@
 public class Area {
     private String Nombre;
-    private Integer Identificador;
+    private String Identificador;
     private Integer Planta;
+    private Hospital Hospital;
 
+
+
+    //Constructor
+    public Area(String Nombre, String Identificador, Integer Planta, Hospital Hospital) {
+        this.Nombre = Nombre;
+        this.Identificador = Identificador;
+        this.Planta = Planta;
+        this.Hospital = Hospital;
+    }
+
+
+    //Metodo get / set
+
+    //Nombre
+    public String getNombre() {
+        return Nombre;
+    }
+    public void setNombre(String NuevoNombre) {
+        this.Nombre = NuevoNombre;
+    }
+
+    //Identificador
+    public String getIdentificador() {
+        return Identificador;
+    }
+    public void setIdentificador(String NuevoIdentificador) {
+        this.Identificador = NuevoIdentificador;
+    }
+
+    //Planta
+    public Integer getPlanta() {
+        return Planta;
+    }
+    public void setPlanta(Integer NuevaPlanta) {
+        this.Planta = NuevaPlanta;
+    }
+
+    //Hospital
+    public Hospital getHospital() {
+        return Hospital;
+    }
+    public void setHospital(Hospital NuevoHospital) {
+        this.Hospital = NuevoHospital;
+    }
 }
