@@ -8,11 +8,11 @@ public class Hospital {
     private Direccion Direccion;
 
     //Constructor
-    public Hospital(String Nombre, String CIF) {
+    public Hospital(String Nombre, String CIF, List<Area> Areas, Direccion Direccion) {
         this.Nombre = Nombre;
         this.CIF = CIF;
         this.Areas = Areas;
-
+        this.Direccion = Direccion;
     }
 
 
@@ -35,4 +35,18 @@ public class Hospital {
     }
 
     //Areas
+    public List<Area> getAreas() {
+        return Areas;
+    }
+    public void setAreas(List<Area> areas) {
+        Areas = areas;
+    }
+
+    //Dirección
+    public Direccion getDireccion() {
+        return Direccion;
+    }
+    public void setDireccion(Direccion direccion) {
+        Direccion = direccion;
+    }
 }

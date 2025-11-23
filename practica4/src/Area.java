@@ -3,15 +3,17 @@ public class Area {
     private String Identificador;
     private Integer Planta;
     private Hospital Hospital;
+    private Integer numMedicos;
 
 
 
     //Constructor
-    public Area(String Nombre, String Identificador, Integer Planta, Hospital Hospital) {
+    public Area(String Nombre, String Identificador, Integer Planta, Hospital Hospital, Integer numMedicos) {
         this.Nombre = Nombre;
         this.Identificador = Identificador;
         this.Planta = Planta;
         this.Hospital = Hospital;
+        this.numMedicos = numMedicos;
     }
 
 
@@ -47,5 +49,16 @@ public class Area {
     }
     public void setHospital(Hospital NuevoHospital) {
         this.Hospital = NuevoHospital;
+    }
+
+    //Medicos
+    public Integer getNumMedicos() {
+        return numMedicos;
+    }
+    public void setNumMedicos(Integer numMedicos) {
+        this.numMedicos = numMedicos;
+    }
+    public void incrementarmedicos() {
+        this.numMedicos++;
     }
 }
