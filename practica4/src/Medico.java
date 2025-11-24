@@ -95,7 +95,7 @@ public class Medico {
     }
 
     //Calcular Impuestos Anuales
-    public int calcularImpuestosAnuales(double tasaImpositiva) {
+    public double calcularImpuestosAnuales(double tasaImpositiva) {
         return Sueldo_Bruto * tasaImpositiva;
     }
 
@@ -105,6 +105,8 @@ public class Medico {
     }
 
     public double proximoAumento (double porcentajeAumento, int aniosRequeridos) {
-
+        if (getAniosAntiguedad() >= aniosRequeridos) {
+            getSueldo_Bruto() * (porcentajeAumento / 100);
+        }
     }
 }
