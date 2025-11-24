@@ -1,17 +1,17 @@
-import java.util.List;
+import java.util.ArrayList;
 
 public class Hospital {
     //Atributos
     private String Nombre;
     private String CIF;
-    private List<Area> Areas;
+    private ArrayList<Area> Areas;
     private Direccion Direccion;
 
     //Constructor
-    public Hospital(String Nombre, String CIF, List<Area> Areas, Direccion Direccion) {
+    public Hospital(String Nombre, String CIF, ArrayList<Area> Areas, Direccion Direccion) {
         this.Nombre = Nombre;
         this.CIF = CIF;
-        this.Areas = Areas;
+        this.Areas = new ArrayList<>(); //Creamos el ArrayList Areas en el constructor
         this.Direccion = Direccion;
     }
 
@@ -35,10 +35,10 @@ public class Hospital {
     }
 
     //Areas
-    public List<Area> getAreas() {
+    public ArrayList<Area> getAreas() {
         return Areas;
     }
-    public void setAreas(List<Area> areas) {
+    public void setAreas(ArrayList<Area> areas) {
         Areas = areas;
     }
 

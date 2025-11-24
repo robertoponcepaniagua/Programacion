@@ -1,3 +1,6 @@
+import java.time.LocalDate;
+import java.util.Scanner;
+
 public class Medico {
 
     //Atributos
@@ -76,5 +79,32 @@ public class Medico {
     }
     public void setArea(Area area) {
         this.area = area;
+    }
+
+
+    //Metodos Sueldo neto
+    public double calcularSueldoNeto(double retencion) {
+        double SueldoNeto = this.Sueldo_Bruto * (retencion/100);
+        return SueldoNeto;
+    }
+
+    //Fechas de Antiguedad
+    public int getAniosAntiguedad() {
+        int antiguedad = 2025 - getFecha_de_inicio();
+        return antiguedad;
+    }
+
+    //Calcular Impuestos Anuales
+    public int calcularImpuestosAnuales(double tasaImpositiva) {
+        return Sueldo_Bruto * tasaImpositiva;
+    }
+
+    //Mayor de Edad ? Si es mayor de edad o sea (Edad >= MayoriaDeEdad)
+    public boolean esMayorDeEdad (int MayoriaDeEdad) {
+        return MayoriaDeEdad >= 18;
+    }
+
+    public double proximoAumento (double porcentajeAumento, int aniosRequeridos) {
+
     }
 }

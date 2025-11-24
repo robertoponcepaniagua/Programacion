@@ -16,4 +16,45 @@ public class Direccion {
         this.Provincia = Provincia;
     }
 
+    //metodo Get / set
+
+    //Calle
+    public String getCalle() {
+        return Calle;
+    }
+    public void setCalle(String calle) {
+        Calle = calle;
+    }
+
+    //Codigo Postal
+    public Integer getCodigo_Postal() {
+        return Codigo_Postal;
+    }
+    public void setCodigo_Postal(Integer codigo_Postal) {
+        Codigo_Postal = codigo_Postal;
+    }
+
+    //Numero
+    public Integer getNumero() {
+        return Numero;
+    }
+    public void setNumero(Integer numero) {
+        Numero = numero;
+    }
+
+    //Localidad
+    public String getLocalidad() {
+        return Localidad;
+    }
+    public void setLocalidad(String localidad) {
+        Localidad = localidad;
+    }
+
+    //Provincia
+    public String getProvincia() {
+        return Provincia;
+    }
+    public void setProvincia(String provincia) {
+        Provincia = provincia;
+    }
 }

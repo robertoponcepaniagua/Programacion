@@ -8,12 +8,12 @@ public class Area {
 
 
     //Constructor
-    public Area(String Nombre, String Identificador, Integer Planta, Hospital Hospital, Integer numMedicos) {
+    public Area(String Nombre, String Identificador, Integer Planta, Hospital Hospital) {
         this.Nombre = Nombre;
         this.Identificador = Identificador;
         this.Planta = Planta;
         this.Hospital = Hospital;
-        this.numMedicos = numMedicos;
+        this.numMedicos = 0;
     }
 
 
