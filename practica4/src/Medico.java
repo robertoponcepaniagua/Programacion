@@ -104,9 +104,19 @@ public class Medico {
         return MayoriaDeEdad >= 18;
     }
 
+    //Cálculo de Aumento
     public double proximoAumento (double porcentajeAumento, int aniosRequeridos) {
         if (getAniosAntiguedad() >= aniosRequeridos) {
-            getSueldo_Bruto() * (porcentajeAumento / 100);
+            porcentajeAumento = getSueldo_Bruto() * porcentajeAumento;
+            double Sueldobrutoaumento = getSueldo_Bruto() + (porcentajeAumento / 100);
+            return Sueldobrutoaumento;
+        } else {
+            return getSueldo_Bruto();
         }
+    }
+
+    //Gestión de Area
+    public Area cambiarArea(Area nuevaArea) {
+        if ()
     }
 }
