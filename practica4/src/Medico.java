@@ -116,7 +116,10 @@ public class Medico {
     }
 
     //Gestión de Area
-    public Area cambiarArea(Area nuevaArea) {
-        if ()
+    public void cambiarArea(Area nuevaArea) {
+        getArea().decrementarmedicos();
+        area.decrementarmedicos();
+        nuevaArea.incrementarmedicos();
+        this.area = nuevaArea;
     }
 }
