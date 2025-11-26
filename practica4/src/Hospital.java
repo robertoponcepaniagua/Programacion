@@ -49,4 +49,13 @@ public class Hospital {
     public void setDireccion(Direccion direccion) {
         Direccion = direccion;
     }
+
+    //Conseguir el número total de médicos
+
+    public int  getNumeroTotalMedicos() {
+        int NumeroTotal;
+        for (int i = 0; i < getAreas().size(); i++) {
+            Are
+        }
+    }
 }

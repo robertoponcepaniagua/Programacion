@@ -77,12 +77,14 @@ public class Area {
     }
 
     //Calculo de Capacidad
-    public String calcularCapacidadRestante(int capacidadMaxima) {
+    public int calcularCapacidadRestante(int capacidadMaxima) {
         if (this.numMedicos <= capacidadMaxima) {
             int i = capacidadMaxima-this.numMedicos; //resto la capmax - el numMedicos
-            return "Faltan "+i;
+            System.out.println("Faltan: ");
+            return i;
         }
         int j = this.numMedicos-capacidadMaxima; // resto el numMedicos - capmax
-        return "Sobran "+ j +" medicos";
+        System.out.pr
+        return j;
     }
 }
