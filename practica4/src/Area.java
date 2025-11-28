@@ -70,7 +70,9 @@ public class Area {
     //Comprobación y Comparación médicos y areas, cómo tiene que devolver un texto he puesto String en vez de poner void
     public String compararMedicos(Area otraArea) {
         if (this.numMedicos > otraArea.getNumMedicos()) { //comparo de las 2 areas, cual tiene más médicos
-            return "El Area "+ this.Nombre +" es mayor que el Area "+ otraArea.getNombre();  //devuelvo cual tiene más medicos
+            return "El Area " + this.Nombre + " es mayor que el Area " + otraArea.getNombre();  //devuelvo cual tiene más medicos
+        }else if (this.numMedicos == otraArea.getNumMedicos()) {
+            return "El Area " + this.Nombre + " es igual que el Area " + otraArea.getNombre();
         } else {
             return "El Area "+ otraArea.getNombre() +" es mayor que el Area "+ this.Nombre;  //devuelvo cual tiene más medicos
         }
@@ -78,13 +80,6 @@ public class Area {
 
     //Calculo de Capacidad
     public int calcularCapacidadRestante(int capacidadMaxima) {
-        if (this.numMedicos <= capacidadMaxima) {
-            int i = capacidadMaxima-this.numMedicos; //resto la capmax - el numMedicos
-            System.out.println("Faltan: ");
-            return i;
-        }
-        int j = this.numMedicos-capacidadMaxima; // resto el numMedicos - capmax
-        System.out.pr
-        return j;
+        return capacidadMaxima - this.numMedicos;
     }
 }
