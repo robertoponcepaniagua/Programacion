@@ -51,11 +51,38 @@ public class Hospital {
     }
 
     //Conseguir el número total de médicos
-
     public int  getNumeroTotalMedicos() {
-        int NumeroTotal;
-        for (int i = 0; i < getAreas().size(); i++) {
-            Are
+        int total = 0;
+        for (int i = 0; i < Areas.size(); i++) { //Areas.size() numero de elementos que hay en el ArrayList
+            Area AreaActual = Areas.get(i);
+            total += AreaActual.getNumMedicos();
         }
+        return total;
+    }
+
+    //Cálculo de Proporción
+    public double getProporcionMedicosArea(String idArea) {
+        double proporcion = 0;
+        for (int i = 0; i < Areas.size(); i++) {
+            Area AreaActual = Areas.get(i);
+            if (AreaActual.getIdentificador().equals(idArea)) {
+                proporcion = (double) AreaActual.getNumMedicos() / getNumeroTotalMedicos();
+            }
+        }
+        return proporcion;
+    }
+
+
+    //Comprobación de Existencia
+    public boolean existeArea(String idArea) {
+        boolean existe = false;
+        for (int i = 0; i < Areas.size() ; i++) {
+            Area AreaActual = Areas.get(i);
+            if (AreaActual.getIdentificador().equals(idArea)) {
+                existe = true;
+                return existe;
+            }
+        }
+        return existe;
     }
 }
