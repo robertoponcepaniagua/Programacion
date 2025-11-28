@@ -4,8 +4,8 @@ public class Hospital {
     //Atributos
     private String Nombre;
     private String CIF;
-    private ArrayList<Area> Areas;
     private Direccion Direccion;
+    private ArrayList<Area> Areas;
 
     //Constructor
     public Hospital(String Nombre, String CIF, ArrayList<Area> Areas, Direccion Direccion) {
