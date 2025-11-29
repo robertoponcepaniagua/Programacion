@@ -1,4 +1,5 @@
 import javax.management.MalformedObjectNameException;
+import javax.swing.event.MouseInputAdapter;
 import java.util.Scanner;
 
 public class MenuGestor {
@@ -268,6 +269,16 @@ public class MenuGestor {
             System.out.println("Hospital no encontrado");
             return;
         }
+
+        System.out.print("Escribe el Identificador del Area: ");
+        String id = sc.nextLine();
+
+        if (!h.existeArea(id)) {
+            System.out.println("Area no encontrada en Hospital introducido");
+            return;
+        }
+        double proporcion = h.getProporcionMedicosArea(id);
+        System.out.println(proporcion);
     }
 
     //------------------10. Capacidad de Área------------------

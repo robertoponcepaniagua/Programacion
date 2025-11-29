@@ -53,6 +53,9 @@ public class Main {
         Medico m1 = new Medico("12345678Z","Roberto",20,"Masculino",2000.00,2024,a3);
         Medico m2 = new Medico("92445278L","Manuel",26,"Masculino",1670.00,2020,a2);
         Medico m3 = new Medico("56442311W","Cayetano",24,"Masculino",1780.00,2021,a1);
+        a1.incrementarmedicos();
+        a2.incrementarmedicos();
+        a3.incrementarmedicos();
 
         //Añadimos los Médicos
         medicos.add(m1);
@@ -62,7 +65,7 @@ public class Main {
         //Creación de Contratos
         Contrato c1 = new Contrato(2024,m1,h2);
         Contrato c2 = new Contrato(2020,m2,h2);
-        Contrato c3 = new Contrato(2021,m3,h2);
+        Contrato c3 = new Contrato(2021,m3,h1);
 
         //Añadimos los contratos
         contratos.add(c1);
