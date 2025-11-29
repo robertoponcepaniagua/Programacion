@@ -8,11 +8,11 @@ public class Hospital {
     private ArrayList<Area> Areas;
 
     //Constructor
-    public Hospital(String Nombre, String CIF, ArrayList<Area> Areas, Direccion Direccion) {
+    public Hospital(String Nombre, String CIF, Direccion Direccion) {
         this.Nombre = Nombre;
         this.CIF = CIF;
-        this.Areas = new ArrayList<>(); //Creamos el ArrayList Areas en el constructor
         this.Direccion = Direccion;
+        this.Areas = new ArrayList<>(); //Creamos el ArrayList Areas en el constructor
     }
 
 
@@ -85,4 +85,9 @@ public class Hospital {
         }
         return existe;
     }
+
+    public void agregarArea(Area a) {
+        this.Areas.add(a);
+    }
+
 }

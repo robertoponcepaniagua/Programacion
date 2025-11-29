@@ -22,10 +22,10 @@ public class Main {
 
         //Creamos las Direcciones con sus Hospitales
         Direccion d1 = new Direccion("Calle San Benito",3,11405,"Jerez de la Frontera","Cádiz");
-        Hospital h1 = new Hospital("Hospital Alas","CIF123",new ArrayList<>(),d1);
+        Hospital h1 = new Hospital("Hospital Alas","CIF123",d1);
 
         Direccion d2 = new Direccion("Calle Toro",2,11405,"Jerez de la Frontera","Cádiz");
-        Hospital h2 = new Hospital("Hospital Jol","CIF321",new ArrayList<>(),d2);
+        Hospital h2 = new Hospital("Hospital Jol","CIF321",d2);
 
         //Añadimos los hospitales h1 y h2 al ArrayList Hospitales
         hospitales.add(h1);
