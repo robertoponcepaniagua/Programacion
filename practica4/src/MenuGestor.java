@@ -1,3 +1,4 @@
+import javax.management.MalformedObjectNameException;
 import java.util.Scanner;
 
 public class MenuGestor {
@@ -174,7 +175,7 @@ public class MenuGestor {
     //--------------------------------------------MODIFICAR MEDICO-----------------------------------------------
     public void modificarMedico() {
 
-        Medico m = pedirMedico();
+        Medico m = pedirMedico();             //La función pedir medico está al final
         if (m == null) {
             System.out.println("Médico no encontrado.");
             return;
@@ -209,22 +210,64 @@ public class MenuGestor {
 
     //------------------5. Modificar Hospital------------------
     private void modificarHospital() {
+        Hospital h = pedirHospital();                           //la función pedir hospital está abajo
+        if (h == null) {
+            System.out.println("Hospital no encontrado");
+            return;
+        }
+
+        System.out.println("Elige lo que quieras modificar");
+        System.out.println("1. Nombre");
+        System.out.println("2. Dirección");
+
+        int opcion = sc.nextInt();
+        sc.nextLine();
 
     }
     //------------------6. Calcular Antigüedad------------------
     private void calcularAntiguedad() {
+        Medico m = pedirMedico();
+        if (m == null) {
+            System.out.println("Médico no encontrado.");
+            return;
+        }
+        System.out.println("Calculando Antiguedad...");
+        System.out.println("Años de antiguedad: " + m.getAniosAntiguedad());
     }
 
     //------------------7. Calcular Sueldo Neto-----------------
     private void calcularSueldoNeto() {
+        Medico m = pedirMedico();
+        if (m == null) {
+            System.out.println("Médico no encontrado.");
+            return;
+        }
+        double retencion;
+        System.out.println("Introduzca la retención: ");
+        retencion = sc.nextDouble();
+        double calculo = m.getSueldo_Bruto() - (m.getSueldo_Bruto() * (retencion / 100));
+        System.out.println("Sueldo Neto: "+ calculo);
     }
 
     //------------------8. Comprobar Edad-----------------------
     private void comprobarEdad() {
+        Medico m = pedirMedico();
+        if (m == null) {
+            System.out.println("Médico no encontrado.");
+            return;
+        }
+        System.out.println("Escribe la edad mínima: ");
+        int MayoriaDeEdad = sc.nextInt();
+        System.out.println("El Médico"+m.getNombre()+" es mayor o igual "+ m.esMayorDeEdad(MayoriaDeEdad));
     }
 
     //------------------9. Proporción de Médicos---------------
     private void proporcionMedicos() {
+        Hospital h = pedirHospital();
+        if (h == null) {
+            System.out.println("Hospital no encontrado");
+            return;
+        }
     }
 
     //------------------10. Capacidad de Área------------------
@@ -244,10 +287,29 @@ public class MenuGestor {
     //Funciones para código más claro
     public Medico pedirMedico() {
         System.out.print("Introduce el DNI del médico: ");
-        String dni = sc.nextLine().trim();
+        String dni = sc.nextLine();
         Medico m = Main.buscarMedico(dni);
-        if (m == null) System.out.println("Médico no encontrado.");
+        if (m == null) {
+            System.out.println("Médico no encontrado.");
+        }
         return m;
     }
-
+    public Hospital pedirHospital() {
+        System.out.print("Introduce el CIF del Hospital: ");
+        String cif = sc.nextLine();
+        Hospital h = Main.buscarHospital(cif);
+        if (h == null) {
+            System.out.println("Hospital no encontrado.");
+        }
+        return h;
+    }
+    public Area pedirArea() {
+        System.out.print("Introduce el Identificador de Area: ");
+        String identificador = sc.nextLine();
+        Area a = Main.buscarArea(identificador);
+        if (a == null) {
+            System.out.println("Area no encontrada.");
+        }
+        return a;
+    }
 }
