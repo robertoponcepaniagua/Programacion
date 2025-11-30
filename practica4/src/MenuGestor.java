@@ -156,7 +156,8 @@ public class MenuGestor {
         System.out.println("Sexo");
         String sexo = sc.nextLine();
         System.out.println("Sueldo Bruto");
-        double sueldobruto = Double.parseDouble(sc.nextLine().replace(",", "."));
+        double sueldobruto = sc.nextDouble();
+        sc.nextLine();
         System.out.println("Fecha de Inicio");
         Integer fechadeinicio = sc.nextInt();
         sc.nextLine();
@@ -176,7 +177,7 @@ public class MenuGestor {
 
         Medico m = pedirMedico();             //La función pedir medico está al final
         if (m == null) {
-            System.out.println("Médico no encontrado.");
+            System.out.println("Recuerda es un DNI de un médico existente");
             return;
         }
 
@@ -188,7 +189,7 @@ public class MenuGestor {
         sc.nextLine();
         if (opcion == 1) {
             System.out.println("Nuevo Sueldo Bruto: ");
-            double sueldobrutonuevo = Double.parseDouble(sc.nextLine().replace(",", "."));
+            double sueldobrutonuevo = sc.nextDouble();
             m.setSueldo_Bruto(sueldobrutonuevo);
             System.out.println("Sueldo actualizado");
         }
@@ -211,7 +212,7 @@ public class MenuGestor {
     private void modificarHospital() {
         Hospital h = pedirHospital();                           //la función pedir hospital está abajo
         if (h == null) {
-            System.out.println("Hospital no encontrado");
+            System.out.println("Recuerda es el CIF de un Hospital existente");
             return;
         }
 
@@ -255,7 +256,7 @@ public class MenuGestor {
     private void calcularAntiguedad() {
         Medico m = pedirMedico();
         if (m == null) {
-            System.out.println("Médico no encontrado.");
+            System.out.println("Recuerda es el DNI de un Medico existente.");
             return;
         }
         System.out.println("Calculando Antiguedad...");
@@ -266,7 +267,7 @@ public class MenuGestor {
     private void calcularSueldoNeto() {
         Medico m = pedirMedico();
         if (m == null) {
-            System.out.println("Médico no encontrado.");
+            System.out.println("Recuerda es el DNI de un Medico existente.");
             return;
         }
         double retencion;
@@ -280,7 +281,7 @@ public class MenuGestor {
     private void comprobarEdad() {
         Medico m = pedirMedico();
         if (m == null) {
-            System.out.println("Médico no encontrado.");
+            System.out.println("Recuerda es el DNI de un Medico existente.");
             return;
         }
         System.out.println("Escribe la edad mínima: ");
@@ -292,7 +293,7 @@ public class MenuGestor {
     private void proporcionMedicos() {
         Hospital h = pedirHospital();
         if (h == null) {
-            System.out.println("Hospital no encontrado");
+            System.out.println("Recuerda es el CIF de un Hospital existente");
             return;
         }
 
