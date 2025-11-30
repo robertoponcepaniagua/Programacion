@@ -77,13 +77,11 @@ public class MenuGestor {
 
     //---------------------------CREAR HOSPITAL------------------------------------
     private void crearHospital() {
-        System.out.println("Dime el Nombre del Hospital");
+        System.out.println("Dime el Nombre del Hospital: ");
         String Nombre = sc.nextLine();
-        sc.nextLine();
 
-        System.out.println("Dime el CIF del Hospital");
+        System.out.println("Dime el CIF del Hospital: ");
         String CIF = sc.nextLine();
-        sc.nextLine();
 
         System.out.println("--DIRECCIÓN--");
         System.out.println("Calle: ");
@@ -98,11 +96,11 @@ public class MenuGestor {
         String localidad = sc.nextLine();
         System.out.println("Provincia: ");
         String provincia = sc.nextLine();
-        sc.nextLine();
 
         Direccion dir = new Direccion(calle, numero, cp, localidad, provincia);
         Hospital h = new Hospital(Nombre, CIF, dir);
         Main.hospitales.add(h);
+        System.out.println("Hospital Creado correctamente");
     }
 
 
@@ -158,8 +156,7 @@ public class MenuGestor {
         System.out.println("Sexo");
         String sexo = sc.nextLine();
         System.out.println("Sueldo Bruto");
-        double sueldobruto = sc.nextDouble();
-        sc.nextLine();
+        double sueldobruto = Double.parseDouble(sc.nextLine().replace(",", "."));
         System.out.println("Fecha de Inicio");
         Integer fechadeinicio = sc.nextInt();
         sc.nextLine();
@@ -171,6 +168,7 @@ public class MenuGestor {
 
         Contrato c = new Contrato(fechadeinicio, m, a.getHospital());
         Main.contratos.add(c);
+        System.out.println("Medico Creado correctamente");
     }
 
     //--------------------------------------------MODIFICAR MEDICO-----------------------------------------------
@@ -283,19 +281,36 @@ public class MenuGestor {
 
     //------------------10. Capacidad de Área------------------
     private void capacidadAreas() {
+        Area a = pedirArea();
+        System.out.print("Cual es la capacidad máxima del Area? ");
+        int capacidadmaxima = sc.nextInt();
+        int capacidad = a.calcularCapacidadRestante(capacidadmaxima);
+        System.out.println("La capacidad del Area es: "+ capacidad);
     }
 
     //------------------11. Comparar Áreas---------------------
     private void compararAreas() {
-
+        Area a = pedirArea();
+        Area b = pedirArea();
+        if (a.getIdentificador().equals(b.getIdentificador())) {
+            System.out.println("No puedes comparar el mismo area");
+            return;
+        }
+        System.out.println(a.compararMedicos(b));
     }
 
     //------------------12. Contratos por Año------------------
     private void contratosAño() {
-
+        System.out.println("Escribe un año: ");
+        int fecha = sc.nextInt();
+        for (Contrato c : Main.contratos) {
+            if (c.esDeAnio(fecha)) {
+                System.out.println(c.toString());
+            }
+        }
     }
 
-    //Funciones para código más claro
+    //------------------------Funciones para código más claro-----------------------------------------------------------
     public Medico pedirMedico() {
         System.out.print("Introduce el DNI del médico: ");
         String dni = sc.nextLine();
