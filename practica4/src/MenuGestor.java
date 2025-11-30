@@ -285,7 +285,7 @@ public class MenuGestor {
         }
         System.out.println("Escribe la edad mínima: ");
         int MayoriaDeEdad = sc.nextInt();
-        System.out.println("El Médico"+m.getNombre()+" es mayor o igual "+ m.esMayorDeEdad(MayoriaDeEdad));
+        System.out.println("El Médico "+m.getNombre()+" es mayor o igual "+ m.esMayorDeEdad(MayoriaDeEdad));
     }
 
     //------------------9. Proporción de Médicos---------------
