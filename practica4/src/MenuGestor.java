@@ -188,7 +188,7 @@ public class MenuGestor {
         sc.nextLine();
         if (opcion == 1) {
             System.out.println("Nuevo Sueldo Bruto: ");
-            double sueldobrutonuevo = sc.nextDouble();
+            double sueldobrutonuevo = Double.parseDouble(sc.nextLine().replace(",", "."));
             m.setSueldo_Bruto(sueldobrutonuevo);
             System.out.println("Sueldo actualizado");
         }
@@ -221,7 +221,35 @@ public class MenuGestor {
 
         int opcion = sc.nextInt();
         sc.nextLine();
+        if (opcion == 1) {
+            System.out.println("Nuevo Nombre: ");
+            String nombrenuevo = sc.nextLine();
+            h.setNombre(nombrenuevo);
+            System.out.println("Nombre modificado correctamente");
+        }
+        if (opcion == 2) {
+            Direccion d = h.getDireccion();
 
+            System.out.println("Nueva Calle: ");
+            String calleNueva = sc.nextLine();
+            System.out.println("Nuevo Número: ");
+            int numeroNuevo = sc.nextInt();
+            sc.nextLine(); // limpiar buffer
+            System.out.println("Nuevo Código Postal: ");
+            int cpNuevo = sc.nextInt();
+            sc.nextLine();
+            System.out.println("Nueva Localidad: ");
+            String localidadNueva = sc.nextLine();
+            System.out.println("Nueva Provincia: ");
+            String provinciaNueva = sc.nextLine();
+
+            d.setCalle(calleNueva);
+            d.setNumero(numeroNuevo);
+            d.setCodigo_Postal(cpNuevo);
+            d.setLocalidad(localidadNueva);
+            d.setProvincia(provinciaNueva);
+            System.out.println("Dirección modificada correctamente.");
+        }
     }
     //------------------6. Calcular Antigüedad------------------
     private void calcularAntiguedad() {
