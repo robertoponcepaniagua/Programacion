@@ -53,4 +53,7 @@ public class Contrato {
         int dias = 365 * (fechahoy - this.FechaDeCreacion);
         return dias;
     }
+    public String toString() {
+        return "Fecha de creación: "+getFechaDeCreacion()+" Medico: "+getMedico().getNombre()+ " Hospital: "+getHospital().getNombre();
+    }
 }
