@@ -77,12 +77,12 @@ public class Habilidad {
 
     //-----------------------------------------------------------------------
     public void infoHabilidad() {
-        System.out.print(nombre);
-        System.out.print(descripcion);
-        System.out.print("Poder de la Habilidad: " + poder);
-        System.out.print("Tipo habilidad: " + tipoHabilidad);
-        System.out.print("Usos Actuales: " + usosActuales);
-        System.out.print("Usos Max " + usosMax);
+        System.out.println("Nombre: " + nombre);
+        System.out.println("Descripción: " + descripcion);
+        System.out.println("Poder de la Habilidad: " + poder);
+        System.out.println("Tipo habilidad: " + tipoHabilidad);
+        System.out.println("Usos Actuales: " + usosActuales);
+        System.out.println("Usos Max " + usosMax);
     }
     //Para restar el uso de las habilidades
     public void restarUso() {
