@@ -132,6 +132,5 @@ public class Personaje {
         }
     }
     public void atacar (Personaje pj) {
-        
     }
 }
