@@ -92,19 +92,15 @@ public class Clase {
         Velocidad = velocidad;
     }
 
-    public ArrayList<Habilidad> getHabilidad() {
-        return habilidades;
-    }
-
-    public void setHabilidad(ArrayList<Habilidad> habilidad) {
-        this.habilidades = habilidad;
-    }
-
     public ArrayList<Habilidad> getHabilidades() {
         return habilidades;
     }
 
     public void setHabilidades(ArrayList<Habilidad> habilidades) {
         this.habilidades = habilidades;
+    }
+
+    public void addHabilidades(Habilidad h) {
+        habilidades.add(h);
     }
 }
