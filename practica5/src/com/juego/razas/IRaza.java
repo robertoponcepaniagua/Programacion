@@ -1,5 +1,8 @@
 package com.juego.razas;
 
-public interface IRaza {
+import com.juego.modelo.Personaje;
 
+public interface IRaza {
+    void infoRaza();
+    void bonusRaza(Personaje pj);
 }
