@@ -2,6 +2,7 @@ package com.juego.modelo;
 
 import com.juego.clases.Clase;
 import com.juego.habilidades.Habilidad;
+import com.juego.razas.IRaza;
 import com.juego.razas.Raza;
 
 import java.util.ArrayList;
@@ -24,14 +25,11 @@ public class Personaje {
     private int velocidad;
 
     private Clase clase;
-    private Raza raza;
+    private IRaza raza;
 
-    public Personaje (String nombre, Clase clase, Raza raza) {
+    public Personaje (String nombre) {
         this.nombre = nombre;
         this.clase = clase;
-        this.raza = raza;
-
-
     }
     //GET Y SET
 
@@ -59,14 +57,13 @@ public class Personaje {
         this.clase = clase;
     }
 
-    public Raza getRaza() {
+    public IRaza getRaza() {
         return raza;
     }
 
-    public void setRaza(Raza raza) {
+    public void setRaza(IRaza raza) {
         this.raza = raza;
     }
-
 
     public int getVidaMax() {
         return vidaMax;
@@ -131,6 +128,7 @@ public class Personaje {
             System.out.print("♡");
         }
     }
+
     public void atacar (Personaje pj) {
     }
 }
