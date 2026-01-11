@@ -1,6 +1,7 @@
 package com.juego.clases;
 
 import com.juego.habilidades.Habilidad;
+import com.juego.modelo.Personaje;
 
 public class Mago extends Clase implements IClase{
 
@@ -16,5 +17,14 @@ public class Mago extends Clase implements IClase{
         addHabilidades(Descarga);
         addHabilidades(Sanar);
         addHabilidades(LlamaradaFinal);
+    }
+
+    @Override
+    public void bonusClase(Personaje pj) {
+        pj.setFuerza(pj.getFuerza() + getFuerza());
+        pj.setDefensa(pj.getDefensa() + getDefensa());
+        pj.setDestreza(pj.getDestreza() + getDestreza());
+        pj.setInteligencia(pj.getInteligencia() + getInteligencia());
+        pj.setVelocidad(pj.getVelocidad() + getVelocidad());
     }
 }
