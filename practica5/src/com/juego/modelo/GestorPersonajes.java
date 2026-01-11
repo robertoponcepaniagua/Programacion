@@ -1,10 +1,7 @@
 package com.juego.modelo;
 
 import com.juego.clases.*;
-import com.juego.razas.Elfo;
-import com.juego.razas.Enano;
-import com.juego.razas.Humano;
-import com.juego.razas.Raza;
+import com.juego.razas.*;
 
 import java.util.Scanner;
 
@@ -16,8 +13,15 @@ public class GestorPersonajes {
         Scanner sc = new Scanner(System.in);
         String nombrepj = sc.nextLine();
 
+        Personaje personaje = new Personaje(nombrepj);
+
         int opcion;
-        Raza razaElegida = null;
+        int eleccion = 0;
+
+        Humano razaH = null;
+        Enano razaEn = null;
+        Elfo razaEl = null;
+
         Clase claseElegida = null;
         do {
             System.out.println("Elige la Raza");
@@ -28,18 +32,24 @@ public class GestorPersonajes {
 
             switch (opcion) {
                 case 1:
-                    razaElegida = crearHumano();
+                    razaH = crearHumano();
+                    personaje.setRaza(razaH);
+                    eleccion++;
                     break;
                 case 2:
-                    razaElegida = crearElfo();
+                    razaEl = crearElfo();
+                    personaje.setRaza(razaEl);
+                    eleccion++;
                     break;
                 case 3:
-                    razaElegida = crearEnano();
+                    razaEn = crearEnano();
+                    personaje.setRaza(razaEn);
+                    eleccion++;
                     break;
                 default:
                     System.out.print("Opción no valida");
             }
-        } while (razaElegida == null);
+        } while (eleccion == 0);
 
 
         do {
@@ -85,21 +95,20 @@ public class GestorPersonajes {
 
         } while (claseElegida == null);
 
-        Personaje personaje = new Personaje(nombrepj,claseElegida,razaElegida);
         return personaje;
     }
 
     //-----------------------------------RAZAS------------------------------------------
-    public Raza crearHumano() {
-        Humano humano = new Humano();
+    public Humano crearHumano() {
+        Humano humano = new Humano(100, 5, 5, 5, 5, 5);
         return humano;
     }
-    public Raza crearElfo() {
-        Elfo elfo = new Elfo();
+    public Elfo crearElfo() {
+        Elfo elfo = new Elfo(110, 7, 6, 4, 4, 3);
         return elfo;
     }
-    public Raza crearEnano() {
-        Enano enano = new Enano();
+    public Enano crearEnano() {
+        Enano enano = new Enano(90, 4 , 3, 6, 7, 7);
         return enano;
     }
     //------------------------------------CLASES---------------------------------------
