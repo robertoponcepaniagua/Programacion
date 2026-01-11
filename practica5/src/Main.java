@@ -11,8 +11,5 @@ public class Main {
         System.out.println();
         Personaje pj2 = gestor.crearpj();
         System.out.println();
-
-        Vista vistapj = new Vista();
-        vistapj.elegirHabilidad(pj1);
     }
 }
