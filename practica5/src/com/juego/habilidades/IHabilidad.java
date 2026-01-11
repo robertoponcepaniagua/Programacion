@@ -1,5 +1,6 @@
 package com.juego.habilidades;
 
 public interface IHabilidad {
-    int usos();
+    //Para restar el uso de las habilidades
+    boolean usar();
 }

@@ -1,6 +1,6 @@
 package com.juego.habilidades;
 
-public class CuraCP implements IHabilidad {
+public class DanioCC implements IHabilidad {
     private String nombre;
     private String descripcion;
     private int poder;
@@ -8,7 +8,7 @@ public class CuraCP implements IHabilidad {
     private int usosMax;
     private String escalado;
 
-    public CuraCP (String nombre, String descripcion, int poder, String tipoHabilidad, int usosMax, String escalado) {
+    public DanioCC(String nombre, String descripcion, int poder, int usosMax, String escalado) {
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.poder = poder;
@@ -81,7 +81,11 @@ public class CuraCP implements IHabilidad {
     }
 
     @Override
-    public int usos() {
-        return 0;
+    public boolean usar() {
+        if (usosActuales > usosMax) {
+            usosActuales--;
+            return true;
+        }
+        return false;
     }
 }

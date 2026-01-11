@@ -8,7 +8,7 @@ public class DanioLD implements IHabilidad {
     private int usosMax;
     private String escalado;
 
-    public DanioLD (String nombre, String descripcion, int poder, String tipoHabilidad, int usosMax, String escalado) {
+    public DanioLD (String nombre, String descripcion, int poder, int usosMax, String escalado) {
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.poder = poder;
@@ -73,15 +73,13 @@ public class DanioLD implements IHabilidad {
         System.out.println("Usos Actuales: " + usosActuales);
         System.out.println("Usos Max " + usosMax);
     }
-    //Para restar el uso de las habilidades
-    public void restarUso() {
-        if (usosActuales > usosMax) {
-            usosActuales--;
-        }
-    }
 
     @Override
-    public int usos() {
-        return 0;
+    public boolean usar() {
+        if (usosActuales > usosMax) {
+            usosActuales--;
+            return true;
+        }
+        return false;
     }
 }
