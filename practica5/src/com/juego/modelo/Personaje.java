@@ -27,8 +27,9 @@ public class Personaje {
     private Clase clase;
     private IRaza raza;
 
-    public Personaje (String nombre) {
+    public Personaje (String nombre, IRaza raza, Clase clase) {
         this.nombre = nombre;
+        this.raza = raza;
         this.clase = clase;
     }
     //GET Y SET
