@@ -94,10 +94,8 @@ public class PrecargaDatos {
     }
 
     //---------------------------------------CREAR PJ--------------------------------------
-    private Personaje crearPersonaje(String nombre, Object raza, Object clase) {
-        Personaje pj = new Personaje(nombre);
-        pj.setRaza((IRaza) raza);
-        pj.setClase((Clase) clase);
+    private Personaje crearPersonaje(String nombre, IRaza raza, Clase clase) {
+        Personaje pj = new Personaje(nombre,raza,clase);
         return pj;
     }
 }

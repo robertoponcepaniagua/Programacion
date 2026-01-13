@@ -1,7 +1,12 @@
 package com.juego.modelo;
 
 import com.juego.clases.Clase;
+import com.juego.habilidades.Habilidad;
+import com.juego.habilidades.IHabilidad;
 import com.juego.presentacion.Vista;
+
+import java.util.List;
+import java.util.Scanner;
 
 public class Combate {
 

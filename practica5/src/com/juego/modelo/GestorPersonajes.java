@@ -13,7 +13,7 @@ public class GestorPersonajes {
         Scanner sc = new Scanner(System.in);
         String nombrepj = sc.nextLine();
 
-        Personaje personaje = new Personaje(nombrepj);
+
 
         int opcion;
         int eleccion = 0;
@@ -23,6 +23,7 @@ public class GestorPersonajes {
         Elfo razaEl = null;
 
         Clase claseElegida = null;
+        IRaza razaElegida = null;
         do {
             System.out.println("Elige la Raza");
             System.out.println("1. Humano");
@@ -32,24 +33,18 @@ public class GestorPersonajes {
 
             switch (opcion) {
                 case 1:
-                    razaH = crearHumano();
-                    personaje.setRaza(razaH);
-                    eleccion++;
+                    razaElegida = crearHumano();
                     break;
                 case 2:
-                    razaEl = crearElfo();
-                    personaje.setRaza(razaEl);
-                    eleccion++;
+                    razaElegida = crearElfo();
                     break;
                 case 3:
-                    razaEn = crearEnano();
-                    personaje.setRaza(razaEn);
-                    eleccion++;
+                    razaElegida = crearEnano();
                     break;
                 default:
                     System.out.print("Opción no valida");
             }
-        } while (eleccion == 0);
+        } while (razaElegida == null);
 
 
         do {
@@ -62,6 +57,7 @@ public class GestorPersonajes {
             System.out.println("6. Sacerdote");
             System.out.println("7. Mago");
             System.out.println("8. Bardo");
+
             opcion = sc.nextInt();
 
             switch (opcion) {
@@ -94,6 +90,8 @@ public class GestorPersonajes {
             }
 
         } while (claseElegida == null);
+
+        Personaje personaje = new Personaje(nombrepj, razaElegida, claseElegida);
 
         return personaje;
     }
