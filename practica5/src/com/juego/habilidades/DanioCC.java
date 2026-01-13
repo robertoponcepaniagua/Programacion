@@ -1,5 +1,7 @@
 package com.juego.habilidades;
 
+import com.juego.modelo.Personaje;
+
 public class DanioCC implements IHabilidad {
     private String nombre;
     private String descripcion;
@@ -66,6 +68,7 @@ public class DanioCC implements IHabilidad {
     }
 
     //-----------------------------------------------------------------------
+    @Override
     public void infoHabilidad() {
         System.out.println("Nombre: " + nombre);
         System.out.println("Descripción: " + descripcion);
@@ -81,11 +84,45 @@ public class DanioCC implements IHabilidad {
     }
 
     @Override
+    public void nombreHabilidad() {
+        System.out.println(nombre);
+    }
+
+    @Override
     public boolean usar() {
         if (usosActuales > usosMax) {
             usosActuales--;
             return true;
         }
         return false;
+    }
+
+    @Override
+    public int escaladoPoder(Personaje pj) {
+        double bonus = 0;
+
+        switch (escalado) {
+            case "fuerza":
+                bonus = pj.getFuerza() * 1.4;
+                break;
+
+            case "defensa":
+                bonus = pj.getDefensa() * 1.3;
+                break;
+
+            case "inteligencia":
+                bonus = pj.getInteligencia() * 1.4;
+                break;
+
+            case "destreza":
+                bonus = pj.getDestreza() * 1.3;
+                break;
+
+            case "velocidad":
+                bonus = pj.getVelocidad() * 1.3;
+                break;
+        }
+
+        return (int) Math.round(bonus);
     }
 }

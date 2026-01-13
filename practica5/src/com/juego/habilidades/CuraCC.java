@@ -1,5 +1,7 @@
 package com.juego.habilidades;
 
+import com.juego.modelo.Personaje;
+
 public class CuraCC implements IHabilidad {
     private String nombre;
     private String descripcion;
@@ -88,4 +90,39 @@ public class CuraCC implements IHabilidad {
         }
         return false;
     }
+
+    @Override
+    public void nombreHabilidad() {
+        System.out.println(nombre);
+    }
+
+    @Override
+    public int escaladoPoder(Personaje pj) {
+        double bonus = 0;
+
+        switch (escalado) {
+            case "fuerza":
+                bonus = pj.getFuerza() * 1.2;
+                break;
+
+            case "defensa":
+                bonus = pj.getDefensa() * 1.2;
+                break;
+
+            case "inteligencia":
+                bonus = pj.getInteligencia() * 1.5;
+                break;
+
+            case "destreza":
+                bonus = pj.getDestreza() * 1.3;
+                break;
+
+            case "velocidad":
+                bonus = pj.getVelocidad() * 1.25;
+                break;
+        }
+
+        return (int) Math.round(bonus);
+    }
+
 }
