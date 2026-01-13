@@ -1,3 +1,4 @@
+import com.juego.modelo.Combate;
 import com.juego.modelo.Personaje;
 import com.juego.modelo.GestorPersonajes;
 import com.juego.presentacion.Vista;
@@ -8,8 +9,6 @@ public class Main {
 
 
         Personaje pj1 = gestor.crearpj();
-        System.out.println();
-        Personaje pj2 = gestor.crearpj();
         System.out.println();
     }
 }
