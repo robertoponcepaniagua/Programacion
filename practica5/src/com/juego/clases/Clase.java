@@ -1,6 +1,7 @@
 package com.juego.clases;
 
 import com.juego.habilidades.Habilidad;
+import com.juego.habilidades.IHabilidad;
 import com.juego.razas.Raza;
 
 import java.util.ArrayList;
@@ -20,7 +21,7 @@ public class Clase {
     //Velocidad
     private int Velocidad;
     //Habilidades
-    private ArrayList<Habilidad> habilidades;
+    private ArrayList<IHabilidad> habilidades;
 
     public Clase(int vidaMax, int fuerza, int defensa, int destreza, int inteligencia, int velocidad) {
         this.VidaMax = vidaMax;
@@ -92,15 +93,15 @@ public class Clase {
         Velocidad = velocidad;
     }
 
-    public ArrayList<Habilidad> getHabilidades() {
+    public ArrayList<IHabilidad> getHabilidades() {
         return habilidades;
     }
 
-    public void setHabilidades(ArrayList<Habilidad> habilidades) {
+    public void setHabilidades(ArrayList<IHabilidad> habilidades) {
         this.habilidades = habilidades;
     }
 
-    public void addHabilidades(Habilidad h) {
+    public void addHabilidades(IHabilidad h) {
         habilidades.add(h);
     }
 }

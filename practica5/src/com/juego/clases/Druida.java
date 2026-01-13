@@ -1,5 +1,8 @@
 package com.juego.clases;
 
+import com.juego.habilidades.CuraCC;
+import com.juego.habilidades.DanioCC;
+import com.juego.habilidades.DanioLD;
 import com.juego.habilidades.Habilidad;
 import com.juego.modelo.Personaje;
 
@@ -8,13 +11,12 @@ public class Druida extends Clase implements IClase {
     public Druida () {
         super(100,2,2,0,1,2);
 
-        Habilidad Zarzal = new Habilidad("Zarzal opresor","Golpea el suelo, infligiendo daño mágico a los enemigos cercanos",20,"Daño Cuerpo a Cuerpo",5,"fuerza");
+        // Habilidades Druida
+        DanioCC ZarzalOpresor = new DanioCC("Zarzal opresor","Golpea el suelo, infligiendo daño mágico a los enemigos cercanos",20,5,"fuerza");
+        CuraCC Drenado = new CuraCC("Drenado","Drena la Fuerza vital del suelo para recuperar Vitalidad",15,3,"inteligencia");
+        DanioLD GarrasDeLaNaturaleza = new DanioLD("Garras de la naturaleza","Oleada colosal de zarzas y pinchos que avanza lentamente, otorgando grandes heridas",30,1,"inteligencia");
 
-        Habilidad Drenado = new Habilidad("Drenado","Drena la Fuerza vital del suelo para recuperar Vitalidad",15,"Cura Cuerpo a Cuerpo",3,"inteligencia");
-
-        Habilidad GarrasDeLaNaturaleza = new Habilidad("Garras de la naturaleza","oleada colosal de zarzas y pinchos que avanza lentamente, otrogando grandes heridas",30,"Daño a Distancia",1,"inteligencia");
-
-        addHabilidades(Zarzal);
+        addHabilidades(ZarzalOpresor);
         addHabilidades(Drenado);
         addHabilidades(GarrasDeLaNaturaleza);
     }
