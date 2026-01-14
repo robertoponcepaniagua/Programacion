@@ -80,13 +80,4 @@ public class Elfo implements IRaza {
         System.out.print("Destreza: "+getBaseDestreza());
         System.out.print("Velocidad: "+getBaseVelocidad());
     }
-
-    @Override
-    public void bonusRaza(Personaje pj) {
-        pj.setFuerza(pj.getFuerza() + getBaseFuerza());
-        pj.setDefensa(pj.getDefensa() + getBaseDefensa());
-        pj.setDestreza(pj.getDestreza() + getBaseDestreza());
-        pj.setInteligencia(pj.getInteligencia() + getBaseVelocidad());
-        pj.setVelocidad(pj.getVelocidad() + getBaseVelocidad());
-    }
 }
