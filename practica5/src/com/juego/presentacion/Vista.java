@@ -44,7 +44,20 @@ public class Vista {
         } while (habilidadElegida == null);
 
         System.out.print("Has elegido: ");
-        habilidadElegida.nombreHabilidad();;
+        System.out.println(habilidadElegida.nombreHabilidad());
         return habilidadElegida;
+    }
+
+    public void infoPersonaje (Personaje pj1) {
+        System.out.println(pj1.getNombre());
+        System.out.println(pj1.getRaza());
+        System.out.println(pj1.getClase());
+    }
+
+    public void infoPersonajeExtensa (Personaje pj1) {
+        System.out.println(pj1.getNombre());
+        System.out.println(pj1.getRaza());
+        System.out.println(pj1.getClase());
+
     }
 }
