@@ -102,11 +102,11 @@ public class GestorPersonajes {
         return humano;
     }
     public Elfo crearElfo() {
-        Elfo elfo = new Elfo(110, 7, 6, 4, 4, 3);
+        Elfo elfo = new Elfo(90, 4 , 3, 6, 7, 7);
         return elfo;
     }
     public Enano crearEnano() {
-        Enano enano = new Enano(90, 4 , 3, 6, 7, 7);
+        Enano enano = new Enano(110, 7, 6, 4, 4, 3);
         return enano;
     }
     //------------------------------------CLASES---------------------------------------
