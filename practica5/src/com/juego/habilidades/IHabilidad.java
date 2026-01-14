@@ -7,5 +7,8 @@ public interface IHabilidad {
     boolean usar();
     int escaladoPoder(Personaje pj);
     void infoHabilidad();
-    void nombreHabilidad();
+    String nombreHabilidad();
+
+    int getPoder();
+    String getTipo();
 }

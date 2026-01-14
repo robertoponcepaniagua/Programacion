@@ -84,8 +84,8 @@ public class DanioCC implements IHabilidad {
     }
 
     @Override
-    public void nombreHabilidad() {
-        System.out.println(nombre);
+    public String nombreHabilidad() {
+        return nombre;
     }
 
     @Override
@@ -124,5 +124,9 @@ public class DanioCC implements IHabilidad {
         }
 
         return (int) Math.round(bonus);
+    }
+    @Override
+    public String getTipo() {
+        return "DanioCC";
     }
 }
