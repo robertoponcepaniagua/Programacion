@@ -36,7 +36,7 @@ public class PrecargaDatos {
     //ARRAYLIST PARA GUARDAR PJ
     List<Personaje> personajes = new ArrayList<>();
 
-    public  void precargaPJ() {
+    public List<Personaje> precargaPJ() {
 
         personajes.add(crearPersonaje("Guerrero Elmet", humano, guerrero));
         personajes.add(crearPersonaje("Bardo Lyria", elfo, bardo));
@@ -49,6 +49,7 @@ public class PrecargaDatos {
         personajes.add(crearPersonaje("Guerrero Brak", enano, guerrero));
         personajes.add(crearPersonaje("Mago Selene", elfo, mago));
 
+        return personajes;
     }
     public void precargaHabilidades() {
         //Habilidades Bardo
@@ -97,5 +98,9 @@ public class PrecargaDatos {
     private Personaje crearPersonaje(String nombre, IRaza raza, Clase clase) {
         Personaje pj = new Personaje(nombre,raza,clase);
         return pj;
+    }
+    //---------------------------------------ACCEDER A ARRAYLIST--------------------------
+    public List<Personaje> getPersonajes() {
+        return personajes;
     }
 }

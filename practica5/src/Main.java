@@ -1,7 +1,10 @@
 import com.juego.modelo.Combate;
 import com.juego.modelo.Personaje;
 import com.juego.modelo.GestorPersonajes;
+import com.juego.modelo.PrecargaDatos;
 import com.juego.presentacion.Vista;
+
+import java.util.ArrayList;
 
 public class Main {
     public static void main(String [] args) {
