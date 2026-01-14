@@ -2,6 +2,7 @@ package com.juego.modelo;
 
 import com.juego.clases.Clase;
 import com.juego.habilidades.Habilidad;
+import com.juego.habilidades.IHabilidad;
 import com.juego.razas.IRaza;
 import com.juego.razas.Raza;
 
@@ -31,6 +32,11 @@ public class Personaje {
         this.nombre = nombre;
         this.raza = raza;
         this.clase = clase;
+
+        aplicarBonificaciones();
+
+        this.vida = this.vidaMax; //empieza con la vida llena
+
     }
     //GET Y SET
 
@@ -114,23 +120,35 @@ public class Personaje {
         this.velocidad = velocidad;
     }
 
-    public void Corazones() {
-        int MaxCorazones = vidaMax / 10; // Calculo cuantos corazones max tiene "♥"
-        int corazones = vida / (vidaMax / MaxCorazones); // bloques llenos dependiendo de la vida actual
-        int Corazonesvacios = MaxCorazones - corazones; // Corazones Vacios
+    public void corazones() {
+        int maxCorazones = vidaMax / 10;
+        int corazones = vida / (vidaMax / maxCorazones);
+        int corazonesVacios = maxCorazones - corazones;
 
-        //LLENO
-        for (int i = 0; i < corazones ; i++) {
+        for (int i = 0; i < corazones; i++) {
             System.out.print("♥");
         }
-
-        //VACIO
-        for (int i = 0; i < Corazonesvacios ; i++) {
+        for (int i = 0; i < corazonesVacios; i++) {
             System.out.print("♡");
         }
+        System.out.print("   HP: " + vida + "/" + vidaMax);
     }
 
-    public void atacar (Personaje pj) {
+    public void atacar(Personaje pj) {
 
+    }
+
+    public void aplicarBonificaciones() {
+
+        this.vidaMax = clase.getVidaMax() + raza.getVidaBase();
+        this.fuerza = clase.getFuerza() + raza.getBaseFuerza();
+        this.defensa = clase.getDefensa() + raza.getBaseDefensa();
+        this.inteligencia = clase.getInteligencia() + raza.getBaseInteligencia();
+        this.destreza = clase.getDestreza() + raza.getBaseDestreza();
+        this.velocidad = clase.getVelocidad() + raza.getBaseVelocidad();
+    }
+
+    public void recibirAtaque (IHabilidad h, int bonus) {
+        setVida(getVida() - (h.getPoder() + bonus));
     }
 }
