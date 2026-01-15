@@ -30,7 +30,7 @@ public class Combate {
 
 
     //-------------------------------------COMBATE-------------------------------
-    public void combate(Personaje pj1 ,Personaje pj2) {
+    public Personaje combate(Personaje pj1 ,Personaje pj2) {
 
         Personaje primero = masRapido(pj1, pj2);
         Personaje segundo = null; //Inicializamos con null
@@ -42,11 +42,21 @@ public class Combate {
         }
 
         //Mientras los 2 estén -----VIVOS---- sigue el combate, si uno de ellos muere termina.
-        while (pj1.getVida() > 0 && pj2.getVida() > 0) {
+        while (primero.getVida() > 0 && segundo.getVida() > 0) {
+            atacar(primero , segundo);
 
-            //Ataca el que más velocidad tiene que es primero
+            //El personaje ganador es el que sale de la pelea
+            if (segundo.getVida() <= 0) {
+                return primero;
+            }
 
+            atacar(segundo , primero);
+
+            if (primero.getVida() <= 0) {
+                return segundo;
+            }
         }
+        return null;
     }
     public void atacar(Personaje atacante, Personaje defensor) {
         Vista vista = new Vista();
@@ -59,10 +69,19 @@ public class Combate {
         switch (habilidadElegida.getTipo()) {
             case "DanioCC":
             case "DanioLD":
-            defensor.recibirAtaque(habilidadElegida , bonus);
+                defensor.recibirAtaque(habilidadElegida, bonus);
 
-            //IMPLEMENTAR INFORMACIÓN DE LOS ATAQUES, PODER CUANTO QUITA ETC....
-            System.out.println(atacante.getNombre() + "usa "+ habilidadElegida.nombreHabilidad() + "");
+                //IMPLEMENTAR INFORMACIÓN DE LOS ATAQUES, PODER CUANTO QUITA ETC....
+                System.out.println(atacante.getNombre() + "usa " + habilidadElegida.nombreHabilidad() + " el ataque quita de daño: " + (habilidadElegida.getPoder() + bonus));
+                break;
+
+            case "CuraCC":
+                atacante.curar(habilidadElegida, bonus);
+                System.out.println(atacante.getNombre() + " usa " + habilidadElegida.nombreHabilidad() +
+                        " y cura: " + (habilidadElegida.getPoder() + bonus));
+                break;
+            default:
+                System.out.println("Tipo de habilidad desconocido");
         }
     }
 }
