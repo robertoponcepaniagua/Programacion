@@ -60,4 +60,22 @@ public class Vista {
         System.out.println(pj1.getClase());
 
     }
+
+    public void corazones(Personaje pj) {
+        int maxCorazones = pj.getVidaMax() / 10;
+        int corazones = pj.getVida() / (pj.getVidaMax() / maxCorazones);
+        int corazonesVacios = maxCorazones - corazones;
+
+        for (int i = 0; i < corazones; i++) {
+            System.out.print("♥");
+        }
+        for (int i = 0; i < corazonesVacios; i++) {
+            System.out.print("♡");
+        }
+        System.out.print("   HP: " + pj.getVida() + "/" + pj.getVidaMax());
+    }
+
+    public void victoria(Personaje pj1) {
+        //HACER!!
+    }
 }
