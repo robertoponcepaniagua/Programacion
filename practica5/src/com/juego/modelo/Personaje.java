@@ -120,24 +120,6 @@ public class Personaje {
         this.velocidad = velocidad;
     }
 
-    public void corazones() {
-        int maxCorazones = vidaMax / 10;
-        int corazones = vida / (vidaMax / maxCorazones);
-        int corazonesVacios = maxCorazones - corazones;
-
-        for (int i = 0; i < corazones; i++) {
-            System.out.print("♥");
-        }
-        for (int i = 0; i < corazonesVacios; i++) {
-            System.out.print("♡");
-        }
-        System.out.print("   HP: " + vida + "/" + vidaMax);
-    }
-
-    public void atacar(Personaje pj) {
-
-    }
-
     public void aplicarBonificaciones() {
 
         this.vidaMax = clase.getVidaMax() + raza.getVidaBase();
@@ -149,6 +131,14 @@ public class Personaje {
     }
 
     public void recibirAtaque (IHabilidad h, int bonus) {
-        setVida(getVida() - (h.getPoder() + bonus));
+        setVida((getVida() + defensa) - (h.getPoder() + bonus));
+    }
+    public void curar (IHabilidad h, int bonus) {
+        if (vida >= vidaMax) {
+            System.out.println("No puedes curar, estás full vida");
+        } else {
+            setVida((vida + h.getPoder() + bonus));
+            System.out.println("Has sido curado por " + (h.getPoder() + bonus) + " puntos. Vida actual: " + vida);
+        }
     }
 }
