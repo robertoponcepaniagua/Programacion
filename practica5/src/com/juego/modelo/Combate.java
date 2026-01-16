@@ -32,6 +32,8 @@ public class Combate {
     //-------------------------------------COMBATE-------------------------------
     public Personaje combate(Personaje pj1 ,Personaje pj2) {
 
+        Vista vista = new Vista();
+
         Personaje primero = masRapido(pj1, pj2);
         Personaje segundo = null; //Inicializamos con null
 
@@ -41,18 +43,32 @@ public class Combate {
             segundo = pj1; // segundo es pj1
         }
 
+        System.out.println("  ¡COMIENZA EL COMBATE! ");
+        System.out.println("╔══❖═══════════════════════════════════════════════════════❖══╗");
+        System.out.println(primero.getNombre() + " ataca primero por ser más rápido");
+        System.out.println("╚══❖═══════════════════════════════════════════════════════❖══╝");
+
         //Mientras los 2 estén -----VIVOS---- sigue el combate, si uno de ellos muere termina.
         while (primero.getVida() > 0 && segundo.getVida() > 0) {
+
+            System.out.println("═══════════TURNO DE:" + primero.getNombre() +"═══════════");
             atacar(primero , segundo);
+            System.out.println();
+            vista.mostrarEstado(primero , segundo);
 
             //El personaje ganador es el que sale de la pelea
             if (segundo.getVida() <= 0) {
+                System.out.println(primero.getNombre()+" HA GANADO EL COMBATE ");
                 return primero;
             }
 
+            System.out.println("═══════════TURNO DE:" + segundo.getNombre() +"═══════════");
             atacar(segundo , primero);
+            System.out.println();
+            vista.mostrarEstado(primero , segundo);
 
             if (primero.getVida() <= 0) {
+                System.out.println(segundo.getNombre()+" HA GANADO EL COMBATE ");
                 return segundo;
             }
         }

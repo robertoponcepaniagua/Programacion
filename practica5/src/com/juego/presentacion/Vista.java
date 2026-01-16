@@ -15,9 +15,9 @@ public class Vista {
         Scanner sc = new Scanner(System.in);
 
         for (int i = 0; i < pj.getClase().getHabilidades().size(); i++) {
-            System.out.println("---------------------------------"+ (i+1) +"----------------------------------");
+            System.out.println("┌──────────────────────────────────────────── HABILIDAD " + (i+1) +" ────────────────────────────────────────────┐");
             pj.getClase().getHabilidades().get(i).infoHabilidad();
-            System.out.println();
+            System.out.println("└──────────────────────────────────────────────── ⋆⋅☆⋅⋆ ───────────────────────────────────────────────┘");
 
         }
         System.out.println("Qué habilidad quieres usar?");
@@ -48,18 +48,6 @@ public class Vista {
         return habilidadElegida;
     }
 
-    public void infoPersonaje (Personaje pj1) {
-        System.out.println(pj1.getNombre());
-        System.out.println(pj1.getRaza());
-        System.out.println(pj1.getClase());
-    }
-
-    public void infoPersonajeExtensa (Personaje pj1) {
-        System.out.println(pj1.getNombre());
-        System.out.println(pj1.getRaza());
-        System.out.println(pj1.getClase());
-
-    }
 
     public void corazones(Personaje pj) {
         int maxCorazones = pj.getVidaMax() / 10;
@@ -77,5 +65,25 @@ public class Vista {
 
     public void victoria(Personaje pj1) {
         //HACER!!
+    }
+
+    public void mostrarEstado(Personaje p1, Personaje p2) {
+        System.out.println();
+        System.out.println("╔══❖════ESTADO DEL COMBATE═══❖══╗ ");
+
+        System.out.println("❤️  VIDA " + p1.getNombre());
+        corazones(p1);
+
+        System.out.println();
+        System.out.println();
+        System.out.println("჻჻჻჻჻჻჻჻჻჻჻჻჻჻჻჻჻჻჻჻჻჻჻჻ VS ჻჻჻჻჻჻჻჻჻჻჻჻჻჻჻჻჻჻჻჻჻჻჻჻");
+        System.out.println();
+
+        System.out.println("❤️  VIDA " + p2.getNombre() );
+        corazones(p2);
+
+        System.out.println();
+        System.out.println("╚══❖═════════════════════════❖══╝");
+        System.out.println();
     }
 }

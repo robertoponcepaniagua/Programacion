@@ -13,5 +13,11 @@ public class Main {
 
         Personaje pj1 = gestor.crearpj();
         System.out.println();
+        Personaje pj2 = gestor.crearpj();
+        System.out.println();
+
+        Combate combate=new Combate();
+        combate.combate(pj1, pj2);
+
     }
 }
