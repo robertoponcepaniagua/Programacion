@@ -102,23 +102,23 @@ public class CuraCC implements IHabilidad {
 
         switch (escalado) {
             case "fuerza":
-                bonus = pj.getFuerza() * 1.2;
+                bonus = pj.getFuerza() * 1.6;
                 break;
 
             case "defensa":
-                bonus = pj.getDefensa() * 1.2;
+                bonus = pj.getDefensa() * 1.5;
                 break;
 
             case "inteligencia":
-                bonus = pj.getInteligencia() * 1.5;
+                bonus = pj.getInteligencia() * 2.2;
                 break;
 
             case "destreza":
-                bonus = pj.getDestreza() * 1.3;
+                bonus = pj.getDestreza() * 1.4;
                 break;
 
             case "velocidad":
-                bonus = pj.getVelocidad() * 1.25;
+                bonus = pj.getVelocidad() * 1.4;
                 break;
         }
 

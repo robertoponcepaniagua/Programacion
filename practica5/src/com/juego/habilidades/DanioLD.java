@@ -96,23 +96,23 @@ public class DanioLD implements IHabilidad {
 
         switch (escalado) {
             case "fuerza":
-                bonus = pj.getFuerza() * 0.4;
+                bonus = pj.getFuerza() * 1.5;
                 break;
 
             case "defensa":
-                bonus = pj.getDefensa() * 0.2;
+                bonus = pj.getDefensa() * 1.3;
                 break;
 
             case "inteligencia":
-                bonus = pj.getInteligencia() * 0.5;
+                bonus = pj.getInteligencia() * 2.0;
                 break;
 
             case "destreza":
-                bonus = pj.getDestreza() * 0.4;
+                bonus = pj.getDestreza() * 1.7;
                 break;
 
             case "velocidad":
-                bonus = pj.getVelocidad() * 0.3;
+                bonus = pj.getVelocidad() * 1.4;
                 break;
         }
 

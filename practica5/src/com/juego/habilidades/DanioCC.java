@@ -103,23 +103,23 @@ public class DanioCC implements IHabilidad {
 
         switch (escalado) {
             case "fuerza":
-                bonus = pj.getFuerza() * 1.4;
+                bonus = pj.getFuerza() * 2.1;
                 break;
 
             case "defensa":
-                bonus = pj.getDefensa() * 1.3;
+                bonus = pj.getDefensa() * 1.6;
                 break;
 
             case "inteligencia":
-                bonus = pj.getInteligencia() * 1.4;
+                bonus = pj.getInteligencia() * 1.7;
                 break;
 
             case "destreza":
-                bonus = pj.getDestreza() * 1.3;
+                bonus = pj.getDestreza() * 1.6;
                 break;
 
             case "velocidad":
-                bonus = pj.getVelocidad() * 1.3;
+                bonus = pj.getVelocidad() * 1.6;
                 break;
         }
 
