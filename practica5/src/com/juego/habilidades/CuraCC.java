@@ -74,12 +74,6 @@ public class CuraCC implements IHabilidad {
         System.out.println("Poder:        "+ poder);
         System.out.println("Usos:         "+ usosActuales+ " / " + usosMax);
     }
-    //Para restar el uso de las habilidades
-    public void restarUso() {
-        if (usosActuales > usosMax) {
-            usosActuales--;
-        }
-    }
 
     @Override
     public boolean usar() {
