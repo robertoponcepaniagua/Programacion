@@ -16,20 +16,25 @@ public class Presentador {
 
     public void juego() {
 
-        //Elige el personaje
+        //elige personaje
         System.out.println("Jugador 1 elige su personaje:");
+        Personaje pj1 = vista.elegirPJ(precargaDatos);
 
-        Personaje pj1 = null;
-        pj1 = vista.elegirPJ(precargaDatos);
+        // Jugador 2 elige personaje (NO puede ser el mismo)
+        Personaje pj2;
+        do {
+            System.out.println("Jugador 2 elige su personaje:");
+            pj2 = vista.elegirPJ(precargaDatos);
 
-        //Elige el personaje
-        System.out.println("Jugador 2 elige su personaje: ");
+            if (pj2 == pj1) {
+                System.out.println("Ese personaje ya ha sido elegido por el Jugador 1.");
+                System.out.println("Elige un personaje diferente.");
+            }
 
-        Personaje pj2 = null;
-        pj2 = vista.elegirPJ(precargaDatos);
+        } while (pj2 == pj1);
 
-        //---COMBATE-----
-        combate.combate(pj1 , pj2);
+        // COMBATE
+        combate.combate(pj1, pj2);
     }
 
 
