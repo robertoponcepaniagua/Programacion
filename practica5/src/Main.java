@@ -1,23 +1,8 @@
-import com.juego.modelo.Combate;
-import com.juego.modelo.Personaje;
-import com.juego.modelo.GestorPersonajes;
-import com.juego.modelo.PrecargaDatos;
-import com.juego.presentacion.Vista;
-
-import java.util.ArrayList;
+import com.juego.presentacion.Presentador;
 
 public class Main {
     public static void main(String [] args) {
-        GestorPersonajes gestor = new GestorPersonajes();
-
-
-        Personaje pj1 = gestor.crearpj();
-        System.out.println();
-        Personaje pj2 = gestor.crearpj();
-        System.out.println();
-
-        Combate combate=new Combate();
-        combate.combate(pj1, pj2);
-
+        Presentador presentador = new Presentador();
+        presentador.menu();
     }
 }
