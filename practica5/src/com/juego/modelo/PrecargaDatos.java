@@ -38,16 +38,21 @@ public class PrecargaDatos {
 
     public List<Personaje> precargaPJ() {
 
-        personajes.add(crearPersonaje("Guerrero Elmet", humano, guerrero));
-        personajes.add(crearPersonaje("Bardo Lyria", elfo, bardo));
-        personajes.add(crearPersonaje("Druida Thorne", enano, druida));
-        personajes.add(crearPersonaje("Mago Eldrin", humano, mago));
-        personajes.add(crearPersonaje("Monje Kiro", elfo, monje));
-        personajes.add(crearPersonaje("Paladin Arthus", humano, paladin));
-        personajes.add(crearPersonaje("Picaro Vex", enano, picaro));
-        personajes.add(crearPersonaje("Sacerdote Alaric", elfo, sacerdote));
-        personajes.add(crearPersonaje("Guerrero Brak", enano, guerrero));
-        personajes.add(crearPersonaje("Mago Selene", elfo, mago));
+        if (personajes.size() < 10) {
+
+            personajes.clear();
+
+            personajes.add(crearPersonaje("Elmet", humano, guerrero));
+            personajes.add(crearPersonaje("Lyria", elfo, bardo));
+            personajes.add(crearPersonaje("Thorne", enano, druida));
+            personajes.add(crearPersonaje("Eldrin", humano, mago));
+            personajes.add(crearPersonaje("Kiro", elfo, monje));
+            personajes.add(crearPersonaje("Arthus", humano, paladin));
+            personajes.add(crearPersonaje("Vex", enano, picaro));
+            personajes.add(crearPersonaje("Alaric", elfo, sacerdote));
+            personajes.add(crearPersonaje("Brak", enano, guerrero));
+            personajes.add(crearPersonaje("Selene", elfo, mago));
+        }
 
         return personajes;
     }
