@@ -13,7 +13,7 @@ public class Bardo extends Clase implements IClase {
 
         DanioCC NotaDePoder = new DanioCC("Nota de Poder", "Dispara una onda de sonido en línea que inflige daño a los enemigos",15,5,"inteligencia");
         CuraCC NotaVital = new CuraCC("Nota Vital","Armonía que restaura gran cantidad de Vitalidad",18,3,"inteligencia");
-        DanioLD Crescendo =  new DanioLD("Crescendo","Ataque de área que aturde a todos los enemigos",30,5,"inteligencia");
+        DanioLD Crescendo =  new DanioLD("Crescendo","Ataque de área que aturde a todos los enemigos",30,1,"inteligencia");
 
         addHabilidades(NotaDePoder);
         addHabilidades(NotaVital);
