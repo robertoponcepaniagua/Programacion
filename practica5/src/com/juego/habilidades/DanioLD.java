@@ -70,11 +70,10 @@ public class DanioLD implements IHabilidad {
     //-----------------------------------------------------------------------
     @Override
     public void infoHabilidad() {
-        System.out.println("Nombre: " + nombre);
-        System.out.println("Descripción: " + descripcion);
-        System.out.println("Poder de la Habilidad: " + poder);
-        System.out.println("Usos Actuales: " + usosActuales);
-        System.out.println("Usos Max " + usosMax);
+        System.out.println("Nombre:       "+ nombre);
+        System.out.println("Descripción:  "+ descripcion);
+        System.out.println("Poder:        "+ poder);
+        System.out.println("Usos:         "+ usosActuales+ " / " + usosMax);
     }
 
     @Override
@@ -84,7 +83,7 @@ public class DanioLD implements IHabilidad {
 
     @Override
     public boolean usar() {
-        if (usosActuales > usosMax) {
+        if (usosActuales > 0) {
             usosActuales--;
             return true;
         }
@@ -96,23 +95,23 @@ public class DanioLD implements IHabilidad {
 
         switch (escalado) {
             case "fuerza":
-                bonus = pj.getFuerza() * 1.5;
+                bonus = pj.getFuerza() * 4.2;
                 break;
 
             case "defensa":
-                bonus = pj.getDefensa() * 1.3;
+                bonus = pj.getDefensa() * 3.5;
                 break;
 
             case "inteligencia":
-                bonus = pj.getInteligencia() * 2.0;
+                bonus = pj.getInteligencia() * 4.5;
                 break;
 
             case "destreza":
-                bonus = pj.getDestreza() * 1.7;
+                bonus = pj.getDestreza() * 4.5;
                 break;
 
             case "velocidad":
-                bonus = pj.getVelocidad() * 1.4;
+                bonus = pj.getVelocidad() * 3.8;
                 break;
         }
 

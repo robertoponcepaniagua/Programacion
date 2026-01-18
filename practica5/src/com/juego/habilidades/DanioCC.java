@@ -70,15 +70,14 @@ public class DanioCC implements IHabilidad {
     //-----------------------------------------------------------------------
     @Override
     public void infoHabilidad() {
-        System.out.println("Nombre: " + nombre);
-        System.out.println("Descripción: " + descripcion);
-        System.out.println("Poder de la Habilidad: " + poder);
-        System.out.println("Usos Actuales: " + usosActuales);
-        System.out.println("Usos Max " + usosMax);
+        System.out.println("Nombre:       "+ nombre);
+        System.out.println("Descripción:  "+ descripcion);
+        System.out.println("Poder:        "+ poder);
+        System.out.println("Usos:         "+ usosActuales+ " / " + usosMax);
     }
     //Para restar el uso de las habilidades
     public void restarUso() {
-        if (usosActuales > usosMax) {
+        if (usosActuales > 0) {
             usosActuales--;
         }
     }
@@ -90,7 +89,7 @@ public class DanioCC implements IHabilidad {
 
     @Override
     public boolean usar() {
-        if (usosActuales > usosMax) {
+        if (usosActuales > 0) {
             usosActuales--;
             return true;
         }
@@ -103,23 +102,23 @@ public class DanioCC implements IHabilidad {
 
         switch (escalado) {
             case "fuerza":
-                bonus = pj.getFuerza() * 2.1;
+                bonus = pj.getFuerza() * 3.8;
                 break;
 
             case "defensa":
-                bonus = pj.getDefensa() * 1.6;
+                bonus = pj.getDefensa() * 3;
                 break;
 
             case "inteligencia":
-                bonus = pj.getInteligencia() * 1.7;
+                bonus = pj.getInteligencia() * 3.5;
                 break;
 
             case "destreza":
-                bonus = pj.getDestreza() * 1.6;
+                bonus = pj.getDestreza() * 3.3;
                 break;
 
             case "velocidad":
-                bonus = pj.getVelocidad() * 1.6;
+                bonus = pj.getVelocidad() * 3.3;
                 break;
         }
 

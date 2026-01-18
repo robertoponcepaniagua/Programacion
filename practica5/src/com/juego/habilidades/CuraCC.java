@@ -69,11 +69,10 @@ public class CuraCC implements IHabilidad {
 
     //-----------------------------------------------------------------------
     public void infoHabilidad() {
-        System.out.println("Nombre: " + nombre);
-        System.out.println("Descripción: " + descripcion);
-        System.out.println("Poder de la Habilidad: " + poder);
-        System.out.println("Usos Actuales: " + usosActuales);
-        System.out.println("Usos Max " + usosMax);
+        System.out.println("Nombre:       "+ nombre);
+        System.out.println("Descripción:  "+ descripcion);
+        System.out.println("Poder:        "+ poder);
+        System.out.println("Usos:         "+ usosActuales+ " / " + usosMax);
     }
     //Para restar el uso de las habilidades
     public void restarUso() {
@@ -84,7 +83,7 @@ public class CuraCC implements IHabilidad {
 
     @Override
     public boolean usar() {
-        if (usosActuales > usosMax) {
+        if (usosActuales > 0) {
             usosActuales--;
             return true;
         }
@@ -102,11 +101,11 @@ public class CuraCC implements IHabilidad {
 
         switch (escalado) {
             case "fuerza":
-                bonus = pj.getFuerza() * 1.6;
+                bonus = pj.getFuerza() * 1.8;
                 break;
 
             case "defensa":
-                bonus = pj.getDefensa() * 1.5;
+                bonus = pj.getDefensa() * 1.7;
                 break;
 
             case "inteligencia":
@@ -114,11 +113,11 @@ public class CuraCC implements IHabilidad {
                 break;
 
             case "destreza":
-                bonus = pj.getDestreza() * 1.4;
+                bonus = pj.getDestreza() * 1.6;
                 break;
 
             case "velocidad":
-                bonus = pj.getVelocidad() * 1.4;
+                bonus = pj.getVelocidad() * 1.6;
                 break;
         }
 

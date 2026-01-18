@@ -11,4 +11,5 @@ public interface IHabilidad {
 
     int getPoder();
     String getTipo();
+    int getUsosActuales();
 }
