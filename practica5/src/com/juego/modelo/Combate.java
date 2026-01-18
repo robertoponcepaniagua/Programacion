@@ -30,7 +30,7 @@ public class Combate {
 
 
     //-------------------------------------COMBATE-------------------------------
-    public Personaje combate(Personaje pj1 ,Personaje pj2) {
+    public void combate(Personaje pj1 ,Personaje pj2) {
 
         Vista vista = new Vista();
 
@@ -59,7 +59,6 @@ public class Combate {
             //El personaje ganador es el que sale de la pelea
             if (segundo.getVida() <= 0) {
                 System.out.println(primero.getNombre()+" HA GANADO EL COMBATE ");
-                return primero;
             }
 
             System.out.println("═══════════TURNO DE:" + segundo.getNombre() +"═══════════");
@@ -69,16 +68,22 @@ public class Combate {
 
             if (primero.getVida() <= 0) {
                 System.out.println(segundo.getNombre()+" HA GANADO EL COMBATE ");
-                return segundo;
             }
         }
-        return null;
     }
     public void atacar(Personaje atacante, Personaje defensor) {
         Vista vista = new Vista();
 
-        IHabilidad habilidadElegida = vista.elegirHabilidad(atacante);
-        habilidadElegida.usar();
+        IHabilidad habilidadElegida = null;
+
+        do {
+            habilidadElegida = vista.elegirHabilidad(atacante);
+
+            if (habilidadElegida.getUsosActuales() <= 0) {
+                System.out.println("Esa habilidad no tiene usos, elige otra");
+            }
+
+        } while (habilidadElegida.getUsosActuales() <= 0);
 
         int bonus = habilidadElegida.escaladoPoder(atacante);
 
@@ -95,9 +100,11 @@ public class Combate {
                 atacante.curar(habilidadElegida, bonus);
                 System.out.println(atacante.getNombre() + " usa " + habilidadElegida.nombreHabilidad() +
                         " y cura: " + (habilidadElegida.getPoder() + bonus));
+
                 break;
             default:
                 System.out.println("Tipo de habilidad desconocido");
         }
+        habilidadElegida.usar();
     }
 }
