@@ -32,6 +32,10 @@ public class Combate {
     //-------------------------------------COMBATE-------------------------------
     public void combate(Personaje pj1 ,Personaje pj2) {
 
+        //Guarda la vida para después devolversela para otro combate.
+        int vidaInicialPJ1 = pj1.getVida();
+        int vidaInicialPJ2 = pj2.getVida();
+
         Vista vista = new Vista();
 
         Personaje primero = masRapido(pj1, pj2);
@@ -59,6 +63,7 @@ public class Combate {
             //El personaje ganador es el que sale de la pelea
             if (segundo.getVida() <= 0) {
                 System.out.println(primero.getNombre()+" HA GANADO EL COMBATE ");
+                break;
             }
 
             System.out.println("═══════════TURNO DE:" + segundo.getNombre() +"═══════════");
@@ -68,8 +73,14 @@ public class Combate {
 
             if (primero.getVida() <= 0) {
                 System.out.println(segundo.getNombre()+" HA GANADO EL COMBATE ");
+                break;
             }
         }
+
+        //Se le devuelve su vida
+        pj1.setVida(vidaInicialPJ1);
+        pj2.setVida(vidaInicialPJ2);
+
     }
     public void atacar(Personaje atacante, Personaje defensor) {
         Vista vista = new Vista();
