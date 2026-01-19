@@ -76,7 +76,9 @@ public class Combate {
                 break;
             }
         }
-
+        //para restaurar los usos
+        pj1.getClase().restaurarUsos();
+        pj2.getClase().restaurarUsos();
         //Se le devuelve su vida
         pj1.setVida(vidaInicialPJ1);
         pj2.setVida(vidaInicialPJ2);
@@ -101,6 +103,7 @@ public class Combate {
         switch (habilidadElegida.getTipo()) {
             case "DanioCC":
             case "DanioLD":
+                //EL DAÑO DE LA HABILIDAD SE RESTA CON LA DEFENSA
                 defensor.recibirAtaque(habilidadElegida, bonus);
 
                 //IMPLEMENTAR INFORMACIÓN DE LOS ATAQUES, PODER CUANTO QUITA ETC....

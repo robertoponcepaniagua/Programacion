@@ -1,8 +1,6 @@
 package com.juego.clases;
 
-import com.juego.habilidades.Habilidad;
-import com.juego.habilidades.IHabilidad;
-import com.juego.razas.Raza;
+import com.juego.habilidades.*;
 
 import java.util.ArrayList;
 
@@ -103,5 +101,15 @@ public class Clase {
 
     public void addHabilidades(IHabilidad h) {
         habilidades.add(h);
+    }
+    public void cargarHabilidades() {
+        //los hijos lo rellenan
+    }
+
+    //para restaurar los usos de las habildiades
+    public void restaurarUsos() {
+        for (IHabilidad h : habilidades) {
+            h.restaurarUsos();
+        }
     }
 }

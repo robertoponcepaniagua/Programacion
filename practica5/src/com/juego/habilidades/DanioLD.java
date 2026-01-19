@@ -121,4 +121,8 @@ public class DanioLD implements IHabilidad {
     public String getTipo() {
         return "DanioLD";
     }
+    @Override
+    public void restaurarUsos() {
+        usosActuales = usosMax;
+    }
 }

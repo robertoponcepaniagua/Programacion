@@ -122,4 +122,8 @@ public class DanioCC implements IHabilidad {
     public String getTipo() {
         return "DanioCC";
     }
+    @Override
+    public void restaurarUsos() {
+        usosActuales = usosMax;
+    }
 }

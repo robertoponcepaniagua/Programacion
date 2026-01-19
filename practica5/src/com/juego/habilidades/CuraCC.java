@@ -121,4 +121,8 @@ public class CuraCC implements IHabilidad {
     public String getTipo() {
         return "CuraCC";
     }
+    @Override
+    public void restaurarUsos() {
+        usosActuales = usosMax;
+    }
 }

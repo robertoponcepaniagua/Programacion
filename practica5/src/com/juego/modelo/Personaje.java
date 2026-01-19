@@ -28,6 +28,9 @@ public class Personaje {
         this.raza = raza;
         this.clase = clase;
 
+        //CREAMOS LAS HABILIDADES DE LAS CLASES PRIMERO
+        this.clase.cargarHabilidades();
+
         aplicarBonificaciones();
 
         this.vida = this.vidaMax; //empieza con la vida llena
@@ -135,5 +138,8 @@ public class Personaje {
             setVida((vida + h.getPoder() + bonus));
             System.out.println("Has sido curado por " + (h.getPoder() + bonus) + " puntos. Vida actual: " + vida);
         }
+    }
+    public void cargarHabilidades() {
+
     }
 }

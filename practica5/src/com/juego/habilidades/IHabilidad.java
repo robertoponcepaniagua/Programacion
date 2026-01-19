@@ -12,4 +12,7 @@ public interface IHabilidad {
     int getPoder();
     String getTipo();
     int getUsosActuales();
+
+    //Para restaurar usos para ej= 2 peleas consecutivas
+    void restaurarUsos();
 }
