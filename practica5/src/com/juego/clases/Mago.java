@@ -29,4 +29,18 @@ public class Mago extends Clase implements IClase{
         pj.setInteligencia(pj.getInteligencia() + getInteligencia());
         pj.setVelocidad(pj.getVelocidad() + getVelocidad());
     }
+    //public ArrayList<IHabilidad> gethabilidades() {
+    //
+    //        ArrayList result = new ArrayList<IHabilidad>();
+    //        //-------------------------------------------
+    //        DanioCC Descarga = new DanioCC("Descarga","Estallido mágico a corta distancia",15,5,"inteligencia");
+    //        CuraCC Sanar = new CuraCC("Sanar","Sanación mágica",12,3,"inteligencia");
+    //        DanioLD LlamaradaFinal = new DanioLD("Llamarada Final","Llamarada potente como la llama de un dragón",35,1,"inteligencia");
+    //
+    //        result.add(Descarga);
+    //        result.add(Sanar);
+    //        result.add(LlamaradaFinal);
+    //
+    //        return gethabilidades();
+    //    }
 }

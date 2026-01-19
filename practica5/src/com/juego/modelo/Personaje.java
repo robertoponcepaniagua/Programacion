@@ -1,13 +1,8 @@
 package com.juego.modelo;
 
 import com.juego.clases.Clase;
-import com.juego.habilidades.Habilidad;
 import com.juego.habilidades.IHabilidad;
 import com.juego.razas.IRaza;
-import com.juego.razas.Raza;
-
-import java.util.ArrayList;
-import java.util.Scanner;
 
 public class Personaje {
     private String nombre;
