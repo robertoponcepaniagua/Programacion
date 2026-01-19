@@ -18,9 +18,9 @@ public class PrecargaDatos {
 
     //RAZAS
 
-    Humano humano = new Humano(100, 5, 5, 5, 5, 5);
-    Elfo elfo = new Elfo(110, 7, 6, 4, 4, 3);
-    Enano enano = new Enano(90, 4 , 3, 6, 7, 7);
+    Humano humano = new Humano();
+    Elfo elfo = new Elfo();
+    Enano enano = new Enano();
 
     //CLASES
 
@@ -42,16 +42,16 @@ public class PrecargaDatos {
 
             personajes.clear();
 
-            personajes.add(crearPersonaje("Elmet", humano, guerrero));
-            personajes.add(crearPersonaje("Lyria", elfo, bardo));
-            personajes.add(crearPersonaje("Thorne", enano, druida));
-            personajes.add(crearPersonaje("Eldrin", humano, mago));
-            personajes.add(crearPersonaje("Kiro", elfo, monje));
-            personajes.add(crearPersonaje("Arthus", humano, paladin));
-            personajes.add(crearPersonaje("Vex", enano, picaro));
-            personajes.add(crearPersonaje("Alaric", elfo, sacerdote));
-            personajes.add(crearPersonaje("Brak", enano, guerrero));
-            personajes.add(crearPersonaje("Selene", elfo, mago));
+            personajes.add(crearPersonaje("Elmet", humano, new Guerrero()));
+            personajes.add(crearPersonaje("Lyria", elfo, new Bardo()));
+            personajes.add(crearPersonaje("Thorne", enano, new Druida()));
+            personajes.add(crearPersonaje("Eldrin", humano, new Mago()));
+            personajes.add(crearPersonaje("Kiro", elfo, new Monje()));
+            personajes.add(crearPersonaje("Arthus", humano, new Paladín()));
+            personajes.add(crearPersonaje("Vex", enano, new Pícaro()));
+            personajes.add(crearPersonaje("Alaric", elfo, new Sacerdote()));
+            personajes.add(crearPersonaje("Brak", enano, new Guerrero()));
+            personajes.add(crearPersonaje("Selene", elfo, new Mago()));
         }
 
         return personajes;
