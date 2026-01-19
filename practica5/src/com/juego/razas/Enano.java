@@ -16,13 +16,13 @@ public class Enano implements IRaza {
     //Velocidad
     private int baseVelocidad;
 
-    public Enano(int vidaBase, int baseFuerza, int baseDefensa, int baseInteligencia, int baseDestreza, int baseVelocidad) {
-        this.vidaBase = vidaBase;
-        this.baseFuerza = baseFuerza;
-        this.baseDefensa = baseDefensa;
-        this.baseInteligencia = baseInteligencia;
-        this.baseDestreza = baseDestreza;
-        this.baseVelocidad = baseVelocidad;
+    public Enano() {
+        this.vidaBase = 110;
+        this.baseFuerza = 7;
+        this.baseDefensa = 6;
+        this.baseInteligencia = 4;
+        this.baseDestreza = 4;
+        this.baseVelocidad = 3;
     }
     //---------------------------------------GET Y SET---------------------------------------------
 

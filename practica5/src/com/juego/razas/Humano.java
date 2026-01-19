@@ -16,13 +16,13 @@ public class Humano implements IRaza {
     //Velocidad
     private int baseVelocidad;
 
-    public Humano(int vidaBase, int baseFuerza, int baseDefensa, int baseInteligencia, int baseDestreza, int baseVelocidad) {
-        this.vidaBase = vidaBase;
-        this.baseFuerza = baseFuerza;
-        this.baseDefensa = baseDefensa;
-        this.baseInteligencia = baseInteligencia;
-        this.baseDestreza = baseDestreza;
-        this.baseVelocidad = baseVelocidad;
+    public Humano() {
+        this.vidaBase = 100;
+        this.baseFuerza = 5;
+        this.baseDefensa = 5;
+        this.baseInteligencia = 5;
+        this.baseDestreza = 5;
+        this.baseVelocidad = 5;
     }
     //---------------------------------------GET Y SET---------------------------------------------
 
