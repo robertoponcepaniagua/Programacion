@@ -98,15 +98,15 @@ public class GestorPersonajes {
 
     //-----------------------------------RAZAS------------------------------------------
     public Humano crearHumano() {
-        Humano humano = new Humano(100, 5, 5, 5, 5, 5);
+        Humano humano = new Humano();
         return humano;
     }
     public Elfo crearElfo() {
-        Elfo elfo = new Elfo(90, 4 , 3, 6, 7, 7);
+        Elfo elfo = new Elfo();
         return elfo;
     }
     public Enano crearEnano() {
-        Enano enano = new Enano(110, 7, 6, 4, 4, 3);
+        Enano enano = new Enano();
         return enano;
     }
     //------------------------------------CLASES---------------------------------------
