@@ -9,6 +9,12 @@ import javax.swing.plaf.basic.BasicInternalFrameTitlePane;
 import java.util.Scanner;
 
 public class Presentador {
+
+    //CONSTRUCTOR PARA QUE INICIE SOLO EL MENÚ
+    public Presentador() {
+        menu();
+    }
+
     private PrecargaDatos precargaDatos = new PrecargaDatos();
     private GestorPersonajes gestorPersonajes = new GestorPersonajes();
     private Vista vista = new Vista();
