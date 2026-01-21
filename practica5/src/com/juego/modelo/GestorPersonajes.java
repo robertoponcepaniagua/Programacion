@@ -1,12 +1,12 @@
 package com.juego.modelo;
-
 import com.juego.clases.*;
 import com.juego.razas.*;
-
 import java.util.Scanner;
 
 public class GestorPersonajes {
 
+    public GestorPersonajes() {
+    }
 
     public Personaje crearpj () {
         System.out.print("¿Qué nombre quieres para tu personaje? ");
@@ -16,11 +16,6 @@ public class GestorPersonajes {
 
 
         int opcion;
-        int eleccion = 0;
-
-        Humano razaH = null;
-        Enano razaEn = null;
-        Elfo razaEl = null;
 
         Clase claseElegida = null;
         IRaza razaElegida = null;

@@ -1,5 +1,4 @@
 package com.juego.presentacion;
-
 import com.juego.modelo.Combate;
 import com.juego.modelo.GestorPersonajes;
 import com.juego.modelo.Personaje;

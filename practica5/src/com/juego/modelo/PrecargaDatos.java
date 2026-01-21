@@ -5,7 +5,6 @@ import com.juego.clases.*;
 import com.juego.habilidades.CuraCC;
 import com.juego.habilidades.DanioCC;
 import com.juego.habilidades.DanioLD;
-import com.juego.habilidades.Habilidad;
 import com.juego.razas.Elfo;
 import com.juego.razas.Enano;
 import com.juego.razas.Humano;
@@ -16,25 +15,11 @@ import java.util.List;
 
 public class PrecargaDatos {
 
-    //RAZAS
+    private  List<Personaje> personajes;
 
-    Humano humano = new Humano();
-    Elfo elfo = new Elfo();
-    Enano enano = new Enano();
-
-    //CLASES
-
-    Bardo bardo = new Bardo();
-    Druida druida = new Druida();
-    Guerrero guerrero = new Guerrero();
-    Mago mago = new Mago();
-    Monje monje = new Monje();
-    Paladín paladin = new Paladín();
-    Pícaro picaro = new Pícaro();
-    Sacerdote sacerdote = new Sacerdote();
-
-    //ARRAYLIST PARA GUARDAR PJ
-    List<Personaje> personajes = new ArrayList<>();
+    public PrecargaDatos() {
+        this.personajes = new ArrayList<>();
+    }
 
     public List<Personaje> precargaPJ() {
 
@@ -42,16 +27,16 @@ public class PrecargaDatos {
 
             personajes.clear();
 
-            personajes.add(crearPersonaje("Elmet", humano, new Guerrero()));
-            personajes.add(crearPersonaje("Lyria", elfo, new Bardo()));
-            personajes.add(crearPersonaje("Thorne", enano, new Druida()));
-            personajes.add(crearPersonaje("Eldrin", humano, new Mago()));
-            personajes.add(crearPersonaje("Kiro", elfo, new Monje()));
-            personajes.add(crearPersonaje("Arthus", humano, new Paladín()));
-            personajes.add(crearPersonaje("Vex", enano, new Pícaro()));
-            personajes.add(crearPersonaje("Alaric", elfo, new Sacerdote()));
-            personajes.add(crearPersonaje("Brak", enano, new Guerrero()));
-            personajes.add(crearPersonaje("Selene", elfo, new Mago()));
+            personajes.add(crearPersonaje("Elmet", new Humano(), new Guerrero()));
+            personajes.add(crearPersonaje("Lyria", new Elfo(), new Bardo()));
+            personajes.add(crearPersonaje("Thorne", new Enano(), new Druida()));
+            personajes.add(crearPersonaje("Eldrin", new Humano(), new Mago()));
+            personajes.add(crearPersonaje("Kiro", new Elfo(), new Monje()));
+            personajes.add(crearPersonaje("Arthus", new Humano(), new Paladín()));
+            personajes.add(crearPersonaje("Vex", new Enano(), new Pícaro()));
+            personajes.add(crearPersonaje("Alaric", new Elfo(), new Sacerdote()));
+            personajes.add(crearPersonaje("Brak", new Enano(), new Guerrero()));
+            personajes.add(crearPersonaje("Selene",  new Elfo(), new Mago()));
         }
 
         return personajes;

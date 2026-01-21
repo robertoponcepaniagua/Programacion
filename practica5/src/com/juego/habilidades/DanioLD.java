@@ -1,5 +1,4 @@
 package com.juego.habilidades;
-
 import com.juego.modelo.Personaje;
 
 public class DanioLD implements IHabilidad {

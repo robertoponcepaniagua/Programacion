@@ -1,15 +1,15 @@
 package com.juego.presentacion;
-
-import com.juego.clases.Clase;
-import com.juego.habilidades.Habilidad;
 import com.juego.habilidades.IHabilidad;
 import com.juego.modelo.Personaje;
 import com.juego.modelo.PrecargaDatos;
-
 import java.util.List;
 import java.util.Scanner;
 
 public class Vista {
+
+    public Vista() {
+    }
+
     //meotod para elegir la habilidad que vas a utilizar contra el contrincante
     public IHabilidad elegirHabilidad(Personaje pj) {
         List<IHabilidad> habilidades = pj.getClase().getHabilidades();

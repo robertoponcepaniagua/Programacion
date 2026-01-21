@@ -11,6 +11,9 @@ import java.util.Scanner;
 
 public class Combate {
 
+    public Combate() {
+    }
+
     //metodo para saber quien tiene más velocidad, quien tenga más velocidad ataca antes
     public Personaje masRapido(Personaje p1, Personaje p2) {
         if (p1.getVelocidad() > p2.getVelocidad()) {
