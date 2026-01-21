@@ -6,13 +6,12 @@ import com.juego.habilidades.DanioLD;
 import com.juego.habilidades.Habilidad;
 import com.juego.modelo.Personaje;
 
-public class Druida extends Clase implements IClase {
+public class Druida extends Clase {
 
     public Druida () {
         super(100,2,2,0,1,2);
     }
 
-    @Override
     public void bonusClase(Personaje pj) {
         pj.setFuerza(pj.getFuerza() + getFuerza());
         pj.setDefensa(pj.getDefensa() + getDefensa());

@@ -6,13 +6,13 @@ import com.juego.habilidades.DanioLD;
 import com.juego.habilidades.Habilidad;
 import com.juego.modelo.Personaje;
 
-public class Monje extends Clase implements IClase {
+public class Monje extends Clase {
 
     public Monje() {
         super(110,2,2,1,0,3);
     }
 
-    @Override
+
     public void bonusClase(Personaje pj) {
         pj.setFuerza(pj.getFuerza() + getFuerza());
         pj.setDefensa(pj.getDefensa() + getDefensa());

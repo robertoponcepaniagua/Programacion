@@ -6,12 +6,12 @@ import com.juego.habilidades.DanioLD;
 import com.juego.habilidades.Habilidad;
 import com.juego.modelo.Personaje;
 
-public class Sacerdote extends Clase implements IClase{
+public class Sacerdote extends Clase {
 
     public Sacerdote () {
         super(95,0,1,0,3,1);
     }
-    @Override
+
     public void bonusClase(Personaje pj) {
         pj.setFuerza(pj.getFuerza() + getFuerza());
         pj.setDefensa(pj.getDefensa() + getDefensa());

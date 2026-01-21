@@ -5,13 +5,12 @@ import com.juego.modelo.Personaje;
 
 import java.util.ArrayList;
 
-public class Bardo extends Clase implements IClase {
+public class Bardo extends Clase {
 
     public Bardo () {
         super(90,0,2,0,3,3);
     }
 
-    @Override
     public void bonusClase(Personaje pj) {
         pj.setFuerza(pj.getFuerza() + getFuerza());
         pj.setDefensa(pj.getDefensa() + getDefensa());

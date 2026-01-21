@@ -6,13 +6,13 @@ import com.juego.habilidades.DanioLD;
 import com.juego.habilidades.Habilidad;
 import com.juego.modelo.Personaje;
 
-public class Mago extends Clase implements IClase{
+public class Mago extends Clase{
 
     public Mago(){
         super(90,0,1,0,3,1);
     }
 
-    @Override
+
     public void bonusClase(Personaje pj) {
         pj.setFuerza(pj.getFuerza() + getFuerza());
         pj.setDefensa(pj.getDefensa() + getDefensa());

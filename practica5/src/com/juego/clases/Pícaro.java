@@ -6,12 +6,12 @@ import com.juego.habilidades.DanioLD;
 import com.juego.habilidades.Habilidad;
 import com.juego.modelo.Personaje;
 
-public class Pícaro extends Clase implements IClase{
+public class Pícaro extends Clase{
 
     public Pícaro() {
         super(105,0,1,3,0,4);
     }
-    @Override
+
     public void bonusClase(Personaje pj) {
         pj.setFuerza(pj.getFuerza() + getFuerza());
         pj.setDefensa(pj.getDefensa() + getDefensa());
