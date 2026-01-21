@@ -59,6 +59,7 @@ public class Vista {
         System.out.print("   HP: " + pj.getVida() + "/" + pj.getVidaMax());
     }
 
+    //para mostrar el estado de como va el combate
     public void mostrarEstado(Personaje p1, Personaje p2) {
         System.out.println();
         System.out.println("╔══❖════ESTADO DEL COMBATE═══❖══╗ ");
@@ -78,13 +79,14 @@ public class Vista {
         System.out.println("╚══❖═════════════════════════❖══╝");
         System.out.println();
     }
+    //metodo para elegir personajes
     public Personaje elegirPJ(PrecargaDatos precargaDatos) {
 
         Personaje personaje = null;
 
         do {
             for (int i = 0; i < precargaDatos.precargaPJ().size(); i++) {
-                System.out.println("        ──────────────────────────────" + i + "──────────────────────────────       ");
+                System.out.println("───────────────────────────────────────────────────────────────────────────[ " + i + " ]───────────────────────────────────────────────────────────────────────────");
                 infoPJ(precargaDatos.getPersonajes().get(i));
                 System.out.println();
             }
