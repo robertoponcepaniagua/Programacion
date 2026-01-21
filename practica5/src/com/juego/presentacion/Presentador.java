@@ -88,15 +88,9 @@ public class Presentador {
     }
 
     public void creditos() {
-        System.out.println("                              (0 0)            ");
-        System.out.println("                      ---oOO-- (_) ----oOO---  ");
-        System.out.println("                    ╔═════════════════════════╗");
-        System.out.println("                    ║     Hecho por           ║");
-        System.out.println("                    ║  Roberto Ponce Paniagua ║");
-        System.out.println("                    ╚═════════════════════════╝");
-        System.out.println("                       -------------------     ");
-        System.out.println("                             |__|__|           ");
-        System.out.println("                              || ||            ");
-        System.out.println("                             ooO Ooo           ");
+        System.out.println("╔═════════════════════════╗");
+        System.out.println("║     Hecho por           ║");
+        System.out.println("║  Roberto Ponce Paniagua ║");
+        System.out.println("╚═════════════════════════╝");
     }
 }
