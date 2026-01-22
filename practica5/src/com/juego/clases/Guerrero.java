@@ -3,7 +3,6 @@ package com.juego.clases;
 import com.juego.habilidades.CuraCC;
 import com.juego.habilidades.DanioCC;
 import com.juego.habilidades.DanioLD;
-import com.juego.habilidades.Habilidad;
 import com.juego.modelo.Personaje;
 
 public class Guerrero extends Clase {
