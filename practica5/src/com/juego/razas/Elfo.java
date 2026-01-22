@@ -17,7 +17,7 @@ public class Elfo implements IRaza {
     private int baseVelocidad;
 
     public Elfo() {
-        this.vidaBase = 110;
+        this.vidaBase = 90;
         this.baseFuerza = 4;
         this.baseDefensa = 3;
         this.baseInteligencia = 6;
