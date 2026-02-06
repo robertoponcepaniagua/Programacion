@@ -85,22 +85,22 @@ public class Bloque1 {
         }
     }
     public void bloque1 () {
-        System.out.println("-----------------Ejercicio 1 :");
+        System.out.println("-----------------Ejercicio 1 : Registro de Muertes");
         registroDeMuertes();
         System.out.println();
-        System.out.println("-----------------Ejercicio 2 :");
+        System.out.println("-----------------Ejercicio 2 : El Censo Único");
         censoUnico();
         System.out.println();
-        System.out.println("-----------------Ejercicio 3 :");
+        System.out.println("-----------------Ejercicio 3 : Bolsa de Oro");
         oroHeroes();
         System.out.println();
-        System.out.println("-----------------Ejercicio 4 :");
+        System.out.println("-----------------Ejercicio 4 : Limpieza del Calabozo");
         limpiezaCalabozo();
         System.out.println();
-        System.out.println("-----------------Ejercicio 5 :");
+        System.out.println("-----------------Ejercicio 5 : Mercado de Hechizos");
         mercadoHechizos();
         System.out.println();
-        System.out.println("-----------------Ejercicio 6 :");
+        System.out.println("-----------------Ejercicio 6 : Expulsión del Reino");
         expulsionReino();
         System.out.println();
     }
