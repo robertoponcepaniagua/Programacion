@@ -1,6 +1,11 @@
 public class Main {
     public void main (String []args) {
         Bloque1 b1 = new Bloque1();
-        b1.oroHeroes();
+        Bloque2 b2 = new Bloque2();
+        //OPERACIONES BÁSICAS
+        b1.bloque1();
+        //DESAFIOS DE LOGICA ANIDADA
+        b2.repositorioDeGremios();
+        b2.loot();
     }
 }
