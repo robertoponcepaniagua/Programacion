@@ -5,7 +5,6 @@ public class Main {
         //OPERACIONES BÁSICAS
         b1.bloque1();
         //DESAFIOS DE LOGICA ANIDADA
-        b2.repositorioDeGremios();
-        b2.loot();
+        b2.bloque2();
     }
 }
