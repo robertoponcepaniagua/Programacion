@@ -3,6 +3,10 @@ import java.util.HashMap;
 import java.util.HashSet;
 
 public class Bloque1 {
+
+    public Bloque1 () {
+        bloque1();
+    }
     public ArrayList<String> registroDeMuertes() {
         //Creamos un Array<List> para gaurdar lolamado Registro de Muertes
         ArrayList<String> registroCombate = new ArrayList<>();

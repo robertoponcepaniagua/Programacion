@@ -1,6 +1,4 @@
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Scanner;
+import java.util.*;
 
 public class Bloque3 {
     public void comericio () {
@@ -59,5 +57,119 @@ public class Bloque3 {
                 System.out.println("Precios Normales no es > 5");
             }
         }
+    }
+    public void arbolesHabilidades () {
+        HashMap<String, HashMap<String, Boolean>> arbolHabilidades =  new HashMap<>();
+
+        HashMap<String, Boolean> habilidades = new HashMap<>();
+        habilidades.put("Hola",true);
+        habilidades.put("Rayo",true);
+        habilidades.put("Enfoque",false);
+        habilidades.put("Golpe Divino",true);
+        habilidades.put("Espada sanguinaria",true);
+
+        arbolHabilidades.put("Paladin", habilidades);
+        //Comprobamos que el personaje ha desbloqueado Golpe Divino
+        if (arbolHabilidades.get("Paladin").get("Golpe Divino").equals(true)) {
+            //Comprobamos si el personaje ha desbloqueado Enfoque, si no lo tiene no puede aprender Golpe Divino y lanzamos un mensaje de error
+            if (arbolHabilidades.get("Paladin").get("Enfoque").equals(true)) {
+                System.out.println("Habilidad Golpe divino aprendida correctamente ");
+            } else {
+                System.out.println("No puedes aprender golpe divino");
+            }
+        }
+    }
+
+    public void historialdeIncursiones () {
+        HashMap<String, List<HashSet<String>>> incursiones = new HashMap<>();
+
+        //Creamos las raids completadas con los nombres
+        HashSet<String> raid1 = new HashSet<>();
+        raid1.add("Roberto");
+        raid1.add("David");
+        raid1.add("Ana");
+        raid1.add("Nicolás");
+        raid1.add("Ana");
+
+        HashSet<String> raid2 = new HashSet<>();
+        raid2.add("Marcos");
+        raid2.add("Álvaro");
+        raid2.add("Roberto");
+        raid2.add("Lucas");
+        raid2.add("Nay");
+
+        HashSet<String> raid3 = new HashSet<>();
+        raid3.add("Marcos");
+        raid3.add("Elena");
+        raid3.add("Lucía");
+        raid3.add("Paula");
+        raid3.add("Iván");
+
+        HashSet<String> raid4 = new HashSet<>();
+        raid4.add("Claudia");
+        raid4.add("Raúl");
+        raid4.add("Roberto");
+        raid4.add("Lucía");
+        raid4.add("Nay");
+
+        //LISTAS
+        List<HashSet<String>> lista1 = new ArrayList<>();
+        lista1.add(raid1);
+        lista1.add(raid2);
+        lista1.add(raid3);
+
+        List<HashSet<String>> lista2 = new ArrayList<>();
+        lista2.add(raid2);
+        lista2.add(raid3);
+        lista2.add(raid4);
+
+        List<HashSet<String>> lista3 = new ArrayList<>();
+        lista3.add(raid1);
+        lista3.add(raid4);
+        lista3.add(raid2);
+
+        incursiones.put("Cueva Muerta",lista1);
+        incursiones.put("Torre Maligna",lista2);
+        incursiones.put("Laberinto",lista3);
+
+        HashMap<String, Integer> masValioso = new HashMap<>();
+
+        //nota mental: tengo que recorrer dentro de las distintas incursuines las listas de los personajes que las han completado y en masvalioso sumar 1 cada vez que lo encuentre
+        //recorremos las incursiones
+        for (String incursion : incursiones.keySet()) {
+            //creamos un hashset lista para guardar las listas de las distintas incursiones
+            for (HashSet<String> lista : incursiones.get(incursion)) {
+                //for para coger los jugadores de la lista
+                for (String jugador : lista) {
+                    //si el jugador está +1
+                    if (masValioso.containsKey(jugador)) {
+                        //entramos ne mas valioso con la clave del jugador (el nombre) nos metemos dentro de masValioso cogemos el jugador y le sumamos 1
+                        masValioso.put(jugador, masValioso.get(jugador) + 1);
+                    } else {
+                        //si no está simplemente lo metemos con 1
+                        masValioso.put(jugador,1);
+                    }
+                }
+            }
+        }
+
+        for (String jugador : masValioso.keySet()) {
+            System.out.println(jugador);
+            System.out.println(masValioso.get(jugador));
+        }
+        System.out.println("----El más valioso es----");
+        // TODO: IMPRIMIR EL MÁS VALIOSO
+        String mejorJugador = "";
+        Integer maxIncursiones = 0;
+
+        for (String jugador : masValioso.keySet()) {
+
+            if (masValioso.get(jugador) > maxIncursiones) {
+                maxIncursiones = masValioso.get(jugador);
+                mejorJugador = jugador;
+            }
+        }
+        System.out.println(mejorJugador);
+        System.out.println("Con : " + masValioso.get(mejorJugador));
     }
 }
