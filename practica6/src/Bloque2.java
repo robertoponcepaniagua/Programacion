@@ -4,6 +4,10 @@ import java.util.HashSet;
 import java.util.Scanner;
 
 public class Bloque2 {
+
+    public Bloque2 () {
+        bloque2();
+    }
     public HashMap<String, ArrayList<String>> repositorioDeGremios () {
         HashMap<String, ArrayList<String>> gremio = new HashMap<String, ArrayList<String>>();
         Scanner sc = new Scanner(System.in);
@@ -99,19 +103,19 @@ public class Bloque2 {
         }
     }
     public void bloque2() {
-        System.out.println("-----------------Ejercicio 1 : Repositorio de Gremios");
+        System.out.println("-----------------Ejercicio 7 : Repositorio de Gremios");
         repositorioDeGremios();
         System.out.println();
 
-        System.out.println("-----------------Ejercicio 2 : Sistema de Loot ");
+        System.out.println("-----------------Ejercicio 8 : Sistema de Loot ");
         loot();
         System.out.println();
 
-        System.out.println("-----------------Ejercicio 3 : Rastreador de Estadísticas Complejas");
+        System.out.println("-----------------Ejercicio 9 : Rastreador de Estadísticas Complejas");
         estadisticasComplejas();
         System.out.println();
 
-        System.out.println("-----------------Ejercicio 4 : Buscador de Traidores");
+        System.out.println("-----------------Ejercicio 10 : Buscador de Traidores");
         buscadorTraidores();
         System.out.println();
     }
