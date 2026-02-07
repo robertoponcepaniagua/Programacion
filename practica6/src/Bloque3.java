@@ -158,7 +158,6 @@ public class Bloque3 {
             System.out.println(masValioso.get(jugador));
         }
         System.out.println("----El más valioso es----");
-        // TODO: IMPRIMIR EL MÁS VALIOSO
         String mejorJugador = "";
         Integer maxIncursiones = 0;
 
@@ -171,5 +170,43 @@ public class Bloque3 {
         }
         System.out.println(mejorJugador);
         System.out.println("Con : " + masValioso.get(mejorJugador));
+    }
+
+    public void mensageriaGlobal () {
+        HashMap <String, List<String>> conversacion = new HashMap<>();
+
+        List<String> j1 = new ArrayList<>();
+        List<String> j2 = new ArrayList<>();
+
+        Scanner sc = new Scanner(System.in);
+
+        //lisya de jugadores silenciados
+        HashSet<String> jugadoresSilenciados = new HashSet<>();
+
+        System.out.print("Dime tú nombre: ");
+        String nombreJugador1 = sc.nextLine();
+        System.out.print("Dime tú nombre: ");
+        String nombreJugador2 = sc.nextLine();
+
+        conversacion.put(nombreJugador1,j1);
+        conversacion.put(nombreJugador2,j2);
+
+        String msj1 = "";
+        String msj2 = "";
+
+        System.out.print("Si quieres salir al siguiente ejericicio pon [Salir]");
+
+        do {
+            System.out.print("Jugador 1:");
+            msj1 = sc.nextLine();
+            System.out.print("Jugador 2:");
+            msj2 = sc.nextLine();
+
+            // TODO: NECESITO COMPROBAR LOS ULTIMOS 3 MENSAJES SI 2 DE ELLOS SON IGUALES HAY QUE METERLO (NOMBRE JUGADOR) EN JUGADORES SILENCIADOS
+
+            j1.add(msj1);
+            j2.add(msj2);
+
+        }while (!msj1.equals("Salir") && !msj2.equals("Salir"));
     }
 }
