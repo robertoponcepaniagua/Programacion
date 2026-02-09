@@ -197,16 +197,86 @@ public class Bloque3 {
         System.out.print("Si quieres salir al siguiente ejericicio pon [Salir]");
 
         do {
-            System.out.print("Jugador 1:");
+            System.out.print(nombreJugador1 + " :");
             msj1 = sc.nextLine();
-            System.out.print("Jugador 2:");
+            System.out.print(nombreJugador2 +" :");
             msj2 = sc.nextLine();
-
-            // TODO: NECESITO COMPROBAR LOS ULTIMOS 3 MENSAJES SI 2 DE ELLOS SON IGUALES HAY QUE METERLO (NOMBRE JUGADOR) EN JUGADORES SILENCIADOS
 
             j1.add(msj1);
             j2.add(msj2);
 
+            for (String nombre : conversacion.keySet()) {
+                List<String> mensajes = conversacion.get(nombre);
+                int numeroMensajes = mensajes.size();
+
+                if (numeroMensajes >= 3) {
+                    String m1 = mensajes.get(numeroMensajes - 1);
+                    String m2 = mensajes.get(numeroMensajes - 2);
+                    String m3 = mensajes.get(numeroMensajes - 3);
+
+                    if (m1.equals(m2) || m1.equals(m3) || m2.equals(m3)) {
+                        jugadoresSilenciados.add(nombre);
+
+                        mensajes.clear();
+
+                        System.out.println("!¡ " + nombre + " ha sido silenciado y su historial borrado por spam.");
+                    }
+                }
+            }
         }while (!msj1.equals("Salir") && !msj2.equals("Salir"));
+    }
+
+
+    public void procesarVenta () {
+        //Creamos subastas
+        HashMap<String, PriorityQueue<Double>> subastas = new HashMap<>();
+
+        PriorityQueue<Double> excalibur = new PriorityQueue<>(Collections.reverseOrder());
+        excalibur.add(500.0);
+        excalibur.add(350.0);
+        excalibur.add(200.0);
+        subastas.put("Excalibur", excalibur);
+
+        PriorityQueue<Double> armadura = new PriorityQueue<>(Collections.reverseOrder());
+        armadura.add(800.0);
+        armadura.add(650.0);
+        armadura.add(400.0);
+        subastas.put("Armadura", armadura);
+
+        PriorityQueue<Double> baston = new PriorityQueue<>(Collections.reverseOrder());
+        baston.add(300.0);
+        baston.add(250.0);
+        baston.add(150.0);
+        subastas.put("Bastón Maligno", baston);
+
+        //Creamos el oro de los jugadores
+        HashMap<String, Double> oroJugadores = new HashMap<>();
+
+        oroJugadores.put("Roberto", 600.0);
+        oroJugadores.put("Luis", 300.0);
+        oroJugadores.put("Ana", 1000.0);
+        oroJugadores.put("Carlos", 450.0);
+        oroJugadores.put("Elena", 900.0);
+
+        //Registro para saber que jugador ha pujado y con cuanta cantidad
+        HashMap<String, HashMap<Double, String>> registroPujas = new HashMap<>();
+
+        HashMap<Double, String> regExcalibur = new HashMap<>();
+        regExcalibur.put(500.0, "Roberto");
+        regExcalibur.put(350.0, "Luis");
+        regExcalibur.put(200.0, "Carlos");
+        registroPujas.put("Excalibur", regExcalibur);
+
+        HashMap<Double, String> regArmadura = new HashMap<>();
+        regArmadura.put(800.0, "Ana");
+        regArmadura.put(650.0, "Elena");
+        regArmadura.put(400.0, "Luis");
+        registroPujas.put("Armadura Dragón", regArmadura);
+
+        HashMap<Double, String> regBaston = new HashMap<>();
+        regBaston.put(300.0, "Carlos");
+        regBaston.put(250.0, "Roberto");
+        regBaston.put(150.0, "Luis");
+        registroPujas.put("Bastón Arcano", regBaston);
     }
 }
