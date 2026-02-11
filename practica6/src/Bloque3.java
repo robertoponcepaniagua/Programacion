@@ -1,6 +1,10 @@
 import java.util.*;
 
 public class Bloque3 {
+
+    public Bloque3() {
+        bloque3();
+    }
     public void comericio () {
         Scanner sc = new Scanner(System.in);
         HashMap<String, Double> preciosbaseItems = new HashMap<>();
@@ -194,7 +198,7 @@ public class Bloque3 {
         String msj1 = "";
         String msj2 = "";
 
-        System.out.print("Si quieres salir al siguiente ejericicio pon [Salir]");
+        System.out.println("Si quieres salir al siguiente ejericicio pon [Salir]");
 
         do {
             System.out.print(nombreJugador1 + " :");
@@ -247,7 +251,7 @@ public class Bloque3 {
         baston.add(300.0);
         baston.add(250.0);
         baston.add(150.0);
-        subastas.put("Bastón Maligno", baston);
+        subastas.put("Bastón", baston);
 
         //Creamos el oro de los jugadores
         HashMap<String, Double> oroJugadores = new HashMap<>();
@@ -271,30 +275,54 @@ public class Bloque3 {
         regArmadura.put(800.0, "Ana");
         regArmadura.put(650.0, "Elena");
         regArmadura.put(400.0, "Luis");
-        registroPujas.put("Armadura Dragón", regArmadura);
+        registroPujas.put("Armadura", regArmadura);
 
         HashMap<Double, String> regBaston = new HashMap<>();
         regBaston.put(300.0, "Carlos");
         regBaston.put(250.0, "Roberto");
         regBaston.put(150.0, "Luis");
-        registroPujas.put("Bastón Arcano", regBaston);
+        registroPujas.put("Bastón", regBaston);
 
         //Conseguimos los objetos de la puja
-        for (String s : subastas.keySet()) {
-            PriorityQueue<Double> sub = subastas.get(s);  //puja más grande en orden
-            for(String x : registroPujas.keySet()) {
-                HashMap<Double, String> aux = registroPujas.get(x);  //registro de cada objeto, dentro tenemos la puja como key y el nombre del que puja como valor
-                if (subastas.get(registroPujas.keySet()).equals(registroPujas.get(x))) {  //si en la subasta obtengo el nombre del objeto y la subasta mayor es igual que el double de uno de registroPujas
-                    //osea tenemos el nombre del objeto y el double de la puja
-
-
-                    for (String o : oroJugadores.keySet()) {
-                        if (oroJugadores.get(o).equals(aux.get(x))) {
-                            oroJugadores.
-                        }
+        for (String nombreObjeto : subastas.keySet()) {
+            // Obtenemos la puja más alta
+            Double pujaMaxima = subastas.get(nombreObjeto).peek();
+            // Buscamos esa puja en el registro de ese objeto específico
+            HashMap<Double, String> registroDeEsteObjeto = registroPujas.get(nombreObjeto);
+            if (registroDeEsteObjeto != null && registroDeEsteObjeto.containsKey(pujaMaxima)) {
+                String ganador = registroDeEsteObjeto.get(pujaMaxima);
+                // Verificamos si el jugador existe y tiene suficiente oro
+                if (oroJugadores.containsKey(ganador)) {
+                    Double oroActual = oroJugadores.get(ganador);
+                    if (oroActual >= pujaMaxima) {
+                        oroJugadores.put(ganador, oroActual - pujaMaxima);
+                        System.out.println(ganador + " ha ganado " + nombreObjeto + " por " + pujaMaxima + " monedas.");
+                    } else {
+                        System.out.println(ganador + " no tiene suficiente oro para pagar su puja.");
                     }
                 }
             }
         }
+    }
+    public void bloque3() {
+        System.out.println("-----------------Ejercicio 11 : Simulador de Comercio");
+        comericio();
+        System.out.println();
+
+        System.out.println("-----------------Ejercicio 12 : Árbol de Habilidades");
+        arbolesHabilidades();
+        System.out.println();
+
+        System.out.println("-----------------Ejercicio 13 : Historial de Incursiones");
+        historialdeIncursiones();
+        System.out.println();
+
+        System.out.println("-----------------Ejercicio 14 : Mensajería Global");
+        mensageriaGlobal();
+        System.out.println();
+
+        System.out.println("-----------------Ejercicio 15 : Action House");
+        procesarVenta();
+        System.out.println();
     }
 }

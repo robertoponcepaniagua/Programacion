@@ -4,12 +4,13 @@ import java.util.HashSet;
 import java.util.Scanner;
 
 public class Bloque2 {
-
+    //Atributos
+    private HashMap<String, ArrayList<String>> gremio;
     public Bloque2 () {
+        this.gremio = new HashMap<>();
         bloque2();
     }
     public HashMap<String, ArrayList<String>> repositorioDeGremios () {
-        HashMap<String, ArrayList<String>> gremio = new HashMap<String, ArrayList<String>>();
         Scanner sc = new Scanner(System.in);
         //La clave es el nombre del gremio
         ArrayList<String> a1 = new ArrayList<>();
@@ -90,7 +91,7 @@ public class Bloque2 {
     }
     public void buscadorTraidores() {
 
-        HashMap<String, ArrayList<String>> traidores = repositorioDeGremios();
+        HashMap<String, ArrayList<String>> traidores = gremio;
 
         //for anidado para recorrer traidores
         for (String s : traidores.keySet()) {
