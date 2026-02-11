@@ -278,5 +278,23 @@ public class Bloque3 {
         regBaston.put(250.0, "Roberto");
         regBaston.put(150.0, "Luis");
         registroPujas.put("Bastón Arcano", regBaston);
+
+        //Conseguimos los objetos de la puja
+        for (String s : subastas.keySet()) {
+            PriorityQueue<Double> sub = subastas.get(s);  //puja más grande en orden
+            for(String x : registroPujas.keySet()) {
+                HashMap<Double, String> aux = registroPujas.get(x);  //registro de cada objeto, dentro tenemos la puja como key y el nombre del que puja como valor
+                if (subastas.get(registroPujas.keySet()).equals(registroPujas.get(x))) {  //si en la subasta obtengo el nombre del objeto y la subasta mayor es igual que el double de uno de registroPujas
+                    //osea tenemos el nombre del objeto y el double de la puja
+
+
+                    for (String o : oroJugadores.keySet()) {
+                        if (oroJugadores.get(o).equals(aux.get(x))) {
+                            oroJugadores.
+                        }
+                    }
+                }
+            }
+        }
     }
 }
