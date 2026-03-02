@@ -1,8 +1,21 @@
 [
   {
-    "nombre": "Aragorn",
-    "raza": "Humano",
-    "nivel": 20,
-    "equipoIds": ["E01"]
+    "nombre": "sd",
+    "raza": "2",
+    "nivel": 3,
+    "equipo": []
+  },
+  {
+    "nombre": "asd",
+    "raza": "2",
+    "nivel": 3,
+    "equipo": [
+      {
+        "id": "W01",
+        "nombre": "Hacha Doble",
+        "tipo": "ARMA",
+        "valor": 100
+      }
+    ]
   }
 ]
