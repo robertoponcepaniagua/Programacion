@@ -1,4 +1,8 @@
 package com.rpg.handler;
 
-public class RecursoNoEncontradoException {
+public class RecursoNoEncontradoException extends Exception {
+
+    public RecursoNoEncontradoException(String mensaje) {
+        super(mensaje);
+    }
 }
