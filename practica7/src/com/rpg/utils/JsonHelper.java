@@ -1,13 +1,13 @@
 package com.rpg.utils;
 
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
-import com.rpg.model.Ciudad;
-import com.rpg.model.Item;
 
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.Reader;
+import java.io.Writer;
 import java.lang.reflect.Type;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -17,7 +17,7 @@ public class JsonHelper {
     public JsonHelper() {
     }
 
-    public <T> List<T> readlist(String path, Class<T> tClass){
+    public <T> List<T> readList(String path, Class<T> tClass){
         try (Reader reader = new FileReader(path)){
             Type typetoken = TypeToken.getParameterized(List.class, tClass).getType();
             Gson gson = new Gson();
@@ -25,6 +25,19 @@ public class JsonHelper {
         } catch (IOException e){
             System.out.println("No se ha encontrado el archivo");
             return List.of();
+        }
+    }
+
+    public <T> void writeList(String path, List<T> lista) {
+
+        Gson gson = new GsonBuilder()
+                .setPrettyPrinting()
+                .create();
+
+        try (Writer writer = Files.newBufferedWriter(Paths.get(path))) {
+            gson.toJson(lista, writer);
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 }
