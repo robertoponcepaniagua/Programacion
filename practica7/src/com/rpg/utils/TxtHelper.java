@@ -59,6 +59,9 @@ public class TxtHelper {
                     String[] partes = linea.split(";"); //separa los campos para poder obtener todos los campos de la Ciudad en este caso.
 
                     //crear una validación de líneas corruptas aquí
+                    if (partes.length != 5) {
+                        throw new FormatoInvalidoException("Línea corrupta: " + linea);
+                    }
 
                     String nombre = partes[1];
                     //como necesitamos un tipo int hacemos una conversión de la parte 2 y 4
@@ -68,8 +71,8 @@ public class TxtHelper {
 
                     Ciudad c = new Ciudad(nombre, poblacion, clima, nivelRiesgo);
                     ciudades.add(c);
-                }catch (FormatoInvalidoException) {
-
+                }catch (FormatoInvalidoException f) {
+                    //supongo que aquí hay que escribir en el log
                 }
             }
             file.close();
