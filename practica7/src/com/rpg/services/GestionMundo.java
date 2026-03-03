@@ -34,16 +34,17 @@ public class GestionMundo {
 
         //como pide en la practica un hashmap
         this.catalogoItems = new HashMap<>();
+        cargarTodo(); //para cargar cuando se crea
     }
 
     //esta función lo que hace es cargar todos los datos ciudades, items etc
     public void cargarTodo() {
         //leer ciudades
-        ciudades = txtHelper.leerLineas();
+        ciudades = txtHelper.leerLineas2();
         //leer items
         items = jsonHelper.readList("practica7/Ficheros/items.json",Item.class);
         //leer personajes
-        personajes = jsonHelper.readList("practica7/src/com/rpg/model/Personaje.json",Personaje.class);
+        personajes = jsonHelper.readList("practica7/Ficheros/personajes.json",Personaje.class);
 
         //catalogo de items (actualizado)
         for (Item i : items) {
@@ -80,6 +81,11 @@ public class GestionMundo {
 
         String id;
         do {
+            System.out.println("Items disponibles:");
+            for (Item i : catalogoItems.values()) {
+                System.out.println(i.toString());
+            }
+
             System.out.print("Elige los objetos por su id (o escribe Salir): ");
             id = sc.nextLine();
 
