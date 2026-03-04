@@ -73,6 +73,7 @@ public class TxtHelper {
                     ciudades.add(c);
                 }catch (FormatoInvalidoException f) {
                     //supongo que aquí hay que escribir en el log
+                    System.out.println("Formato invalido");
                 }
             }
             file.close();
