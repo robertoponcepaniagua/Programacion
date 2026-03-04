@@ -5,6 +5,7 @@ import com.rpg.model.Ciudad;
 import com.rpg.model.Item;
 import com.rpg.model.Personaje;
 import com.rpg.utils.JsonHelper;
+import com.rpg.utils.LoggerCustom;
 import com.rpg.utils.TxtHelper;
 
 import java.io.IOException;
@@ -14,6 +15,7 @@ public class GestionMundo {
     private Scanner sc;
     private JsonHelper jsonHelper;
     private TxtHelper txtHelper;
+    private LoggerCustom loggerCustom;
     private List<Personaje> personajes;
     private List<Item> items;
     private List<Ciudad> ciudades;
@@ -26,6 +28,7 @@ public class GestionMundo {
         //para escribir ficheros etc
         this.jsonHelper = new JsonHelper();
         this.txtHelper = new TxtHelper();
+        this.loggerCustom = new LoggerCustom("practica7/src/com/rpg/services/GestionMundo.java");
 
         //array de los personjaes items...
         this.personajes = new ArrayList<>();
@@ -61,7 +64,6 @@ public class GestionMundo {
 
         System.out.println("Qué nombre quieres para tú personaje: ");
         String nombre = sc.nextLine();
-
         System.out.println("Que raza quieres para tu personaje: ");
         String raza = sc.nextLine();
 
@@ -71,6 +73,7 @@ public class GestionMundo {
 
         // Validación de que el nivel no sea menor a 0
         if(nivel < 0) {
+            loggerCustom.escribirFichero("ERROR","El nível del personaje no puede ser < 0");
             throw new DatoInvalidoException(" El nível del personaje no puede ser < 0");
         }
 

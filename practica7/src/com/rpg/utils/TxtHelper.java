@@ -16,11 +16,13 @@ public class TxtHelper {
     private File file;
     private FileReader fr;
     private BufferedReader br;
+    private LoggerCustom loggerCustom;
 
     public TxtHelper() throws IOException {
         this.file = new File("practica7/Ficheros/ciudades.txt"); //para representar el fichero que se quiere leer.
         this.fr = new FileReader(file);  //para poder leer un fichero
         this.br = new BufferedReader(fr);  // para leer más de un caracter
+        this.loggerCustom = new LoggerCustom("practica7/src/com/rpg/utils/TxtHelper.java");
     }
 
     //public void leerLineas() throws IOException {
@@ -59,20 +61,20 @@ public class TxtHelper {
                     String[] partes = linea.split(";"); //separa los campos para poder obtener todos los campos de la Ciudad en este caso.
 
                     //crear una validación de líneas corruptas aquí
-                    if (partes.length != 5) {
+                    if (partes.length != 4) {
                         throw new FormatoInvalidoException("Línea corrupta: " + linea);
                     }
 
-                    String nombre = partes[1];
+                    String nombre = partes[0];
                     //como necesitamos un tipo int hacemos una conversión de la parte 2 y 4
-                    int poblacion = Integer.parseInt(partes[2]);
-                    String clima = partes[3];
-                    int nivelRiesgo = Integer.parseInt(partes[4]);
+                    int poblacion = Integer.parseInt(partes[1]);
+                    String clima = partes[2];
+                    int nivelRiesgo = Integer.parseInt(partes[3]);
 
                     Ciudad c = new Ciudad(nombre, poblacion, clima, nivelRiesgo);
                     ciudades.add(c);
                 }catch (FormatoInvalidoException f) {
-                    //supongo que aquí hay que escribir en el log
+                    loggerCustom.escribirFichero("ERROR","Formato invalido");
                     System.out.println("Formato invalido");
                 }
             }
