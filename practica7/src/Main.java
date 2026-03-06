@@ -6,10 +6,9 @@ import com.rpg.utils.TxtHelper;
 import java.io.IOException;
 
 public class Main {
-    public void main(String[] args) throws IOException, DatoInvalidoException {
-        TxtHelper txtHelper = new TxtHelper();
+    public static void main(String[] args) throws IOException, DatoInvalidoException {
         GestionMundo g = new GestionMundo();
-
         g.crearPJ();
+        g.informeFinal();
     }
 }
