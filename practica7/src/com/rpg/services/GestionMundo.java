@@ -112,15 +112,44 @@ public class GestionMundo {
         // Crear personaje
         Personaje pj = new Personaje(nombre, raza, nivel, equipo);
 
-        // Leer personajes actuales
-        personajes = jsonHelper.readList("practica7/Ficheros/personajes.json", Personaje.class);
-
         // Añadir el nuevo
         personajes.add(pj);
 
         // Guardar en JSON
         guardarCambios();
         return pj;
+    }
+
+    public void informeFinal() {
+        //en el informe Final tenemos que enseñar todas las ciudades, objetos, Personajes, etc
+
+        System.out.println();
+        //CIUDADES
+        System.out.println("-------------------------------------------");
+        System.out.println("-------------------CIUDADES----------------");
+        System.out.println("-------------------------------------------");
+        for (Ciudad c : ciudades) {
+            System.out.println(c.toString());
+        }
+
+        //Items
+        System.out.println();
+        System.out.println("-------------------------------------------");
+        System.out.println("-------------------ITEMS-------------------");
+        System.out.println("-------------------------------------------");
+        for (Item i : items) {
+            System.out.println(i.toString());
+        }
+
+        // Personajes
+        System.out.println();
+        System.out.println("-------------------------------------------");
+        System.out.println("-------------------PERSONAJES--------------");
+        System.out.println("-------------------------------------------");
+        for (Personaje p : personajes) {
+            System.out.println(p.toString());
+        }
+        System.out.println();
     }
 
     public void guardarCambios() {
