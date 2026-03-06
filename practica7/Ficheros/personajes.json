@@ -110,5 +110,18 @@
     "raza": "2",
     "nivel": 33,
     "equipo": []
+  },
+  {
+    "nombre": "PRUEBAAA",
+    "raza": "PRUEBAAA",
+    "nivel": 23,
+    "equipo": [
+      {
+        "id": "P01",
+        "nombre": "Pocion",
+        "tipo": "CONSUMIBLE",
+        "valor": 25
+      }
+    ]
   }
 ]
