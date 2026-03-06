@@ -14,7 +14,9 @@ import java.nio.file.Paths;
 import java.util.List;
 
 public class JsonHelper {
+    private LoggerCustom loggerCustom;
     public JsonHelper() {
+        this.loggerCustom = new LoggerCustom("practica7/src/com/rpg/utils/JsonHelper.java");
     }
 
     public <T> List<T> readList(String path, Class<T> tClass){
@@ -23,6 +25,7 @@ public class JsonHelper {
             Gson gson = new Gson();
             return  gson.fromJson(reader, typetoken);
         } catch (IOException e){
+            loggerCustom.escribirFichero("Error","No se ha encontrado el archivo " + path);
             System.out.println("No se ha encontrado el archivo");
             return List.of();
         }

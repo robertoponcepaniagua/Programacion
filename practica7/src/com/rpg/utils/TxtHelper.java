@@ -1,5 +1,6 @@
 package com.rpg.utils;
 
+import com.rpg.handler.DatoInvalidoException;
 import com.rpg.handler.FormatoInvalidoException;
 import com.rpg.model.Ciudad;
 
@@ -52,8 +53,7 @@ public class TxtHelper {
     //Necesito separar las ciudades en ";", comprobar que no hay ninguna línea que sea corrucpa y en el caso que lo sea no puede abortar y debe seguir con su funcionamiento, pero dejando un mensaje de error en el log
     public List<Ciudad> leerLineas2() {
         List<Ciudad> ciudades = new ArrayList<>();
-        try {
-            var file = new BufferedReader(new FileReader("practica7/Ficheros/ciudades.txt"));
+        try (var file = new BufferedReader(new FileReader("practica7/Ficheros/ciudades.txt"))) {
 
             String linea;
             while ((linea = file.readLine()) != null) {
@@ -73,14 +73,14 @@ public class TxtHelper {
 
                     Ciudad c = new Ciudad(nombre, poblacion, clima, nivelRiesgo);
                     ciudades.add(c);
-                }catch (FormatoInvalidoException f) {
-                    loggerCustom.escribirFichero("ERROR","Formato invalido");
+                }catch (FormatoInvalidoException | NumberFormatException n) {
+                    loggerCustom.escribirFichero("ERROR","Linea corrupta en " + linea);
                     System.out.println("Formato invalido");
                 }
             }
             file.close();
         } catch (IOException e) {
-            System.out.println("No se ha podido abrir el fichero.");
+            loggerCustom.escribirFichero("ERROR","No se ha podido abrir el fichero");
         }
         return ciudades;
     }
