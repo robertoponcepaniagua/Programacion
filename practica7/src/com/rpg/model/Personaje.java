@@ -1,5 +1,6 @@
 package com.rpg.model;
 
+import java.util.Arrays;
 import java.util.List;
 
 public class Personaje {
@@ -45,5 +46,10 @@ public class Personaje {
 
     public void setEquipo(List<Item> equipo) {
         this.equipo = equipo;
+    }
+
+    @Override
+    public String toString() {
+        return nombre + " | Raza: " + raza + " | Nivel: " + nivel + " | Equipo: " + equipo;
     }
 }
