@@ -73,7 +73,8 @@ public class TxtHelper {
 
                     Ciudad c = new Ciudad(nombre, poblacion, clima, nivelRiesgo);
                     ciudades.add(c);
-                }catch (FormatoInvalidoException | NumberFormatException n) {
+
+                } catch (FormatoInvalidoException e) {
                     loggerCustom.escribirFichero("ERROR","Linea corrupta en " + linea);
                     System.out.println("Formato invalido");
                 }

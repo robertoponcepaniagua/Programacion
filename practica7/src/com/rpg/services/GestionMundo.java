@@ -1,6 +1,7 @@
 package com.rpg.services;
 
 import com.rpg.handler.DatoInvalidoException;
+import com.rpg.handler.RecursoNoEncontradoException;
 import com.rpg.model.Ciudad;
 import com.rpg.model.Item;
 import com.rpg.model.Personaje;
@@ -21,7 +22,7 @@ public class GestionMundo {
     private List<Ciudad> ciudades;
     private Map<String, Item> catalogoItems;
 
-    public GestionMundo() throws IOException {
+    public GestionMundo() throws IOException, RecursoNoEncontradoException {
         //el scanner
         this.sc = new Scanner(System.in);
 
@@ -41,21 +42,24 @@ public class GestionMundo {
     }
 
     //esta función lo que hace es cargar todos los datos ciudades, items etc
-    public void cargarTodo() {
-        //leer ciudades
-        ciudades = txtHelper.leerLineas2();
-        //leer items
-        items = jsonHelper.readList("practica7/Ficheros/items.json",Item.class);
-        //leer personajes
-        personajes = jsonHelper.readList("practica7/Ficheros/personajes.json",Personaje.class);
-
+    public void cargarTodo() throws RecursoNoEncontradoException {
+        try {
+            //leer ciudades
+            ciudades = txtHelper.leerLineas2();
+            //leer items
+            items = jsonHelper.readList("practica7/Ficheros/items.json",Item.class);
+            //leer personajes
+            personajes = jsonHelper.readList("practica7/Ficheros/personajes.json",Personaje.class);
+        } catch (Exception e) {
+            throw new RecursoNoEncontradoException("El fichero" + e.getMessage() + "no existe");
+        }
         //catalogo de items (actualizado)
         for (Item i : items) {
             catalogoItems.put(i.getId(), i);
         }
     }
 
-    public Personaje crearPJ() throws DatoInvalidoException {
+    public Personaje crearPJ() throws DatoInvalidoException, RecursoNoEncontradoException {
 
         //Antes de crear el persoanje cargamos toda la iformación sobre personajes, items, Ciudades...
         cargarTodo();
