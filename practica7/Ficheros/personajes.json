@@ -9,5 +9,18 @@
     "raza": "2",
     "nivel": 3,
     "equipo": []
+  },
+  {
+    "nombre": "robert",
+    "raza": "sds",
+    "nivel": 2,
+    "equipo": [
+      {
+        "id": "P01",
+        "nombre": "Pocion",
+        "tipo": "CONSUMIBLE",
+        "valor": 25
+      }
+    ]
   }
 ]

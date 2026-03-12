@@ -45,7 +45,7 @@ public class GestionMundo {
     public void cargarTodo() throws RecursoNoEncontradoException {
         try {
             //leer ciudades
-            ciudades = txtHelper.leerLineas2();
+            ciudades = txtHelper.leerLineas();
             //leer items
             items = jsonHelper.readList("practica7/Ficheros/items.json",Item.class);
             //leer personajes
@@ -59,10 +59,7 @@ public class GestionMundo {
         }
     }
 
-    public Personaje crearPJ() throws DatoInvalidoException, RecursoNoEncontradoException {
-
-        //Antes de crear el persoanje cargamos toda la iformación sobre personajes, items, Ciudades...
-        cargarTodo();
+    public Personaje crearPJ() throws DatoInvalidoException {
 
         //para crear un personaje y añadirlo a personajes.json
 

@@ -23,40 +23,19 @@ public class TxtHelper {
         this.file = new File("practica7/Ficheros/ciudades.txt"); //para representar el fichero que se quiere leer.
         this.fr = new FileReader(file);  //para poder leer un fichero
         this.br = new BufferedReader(fr);  // para leer más de un caracter
-        this.loggerCustom = new LoggerCustom("practica7/src/com/rpg/utils/TxtHelper.java");
+        this.loggerCustom = new LoggerCustom("practica7/src/com/rpg/utils/TxtHelper.java"); // PARA ESCRIBIR LOS ERRORES, LE PASAMOS LA RUTA, PARA ESCRIBIRLA EN EL FICHERO DE LOG
     }
 
-    //public void leerLineas() throws IOException {
-    //    String linea = br.readLine();
-    //    while (linea != null) {
-    //        System.out.print(linea);
-    //        linea = br.readLine();
-    //    }
-    //    fr.close();
-    //}
-
-    public void leerLineas() {
-        try {
-            var file = new BufferedReader(new FileReader("practica7/Ficheros/ciudades.txt"));
-
-            String linea;
-            while ((linea = file.readLine()) != null)
-                System.out.println(linea);
-
-            file.close();
-        } catch (IOException e) {
-            System.out.println("No se ha podido abrir el fichero.");
-        }
-    }
-
-    //TODO: hay que hacer este metodo para poder leer bien el fichero.txt ya que necesito convertir la información del fichero txt en ciudades.
-    //Necesito separar las ciudades en ";", comprobar que no hay ninguna línea que sea corrucpa y en el caso que lo sea no puede abortar y debe seguir con su funcionamiento, pero dejando un mensaje de error en el log
-    public List<Ciudad> leerLineas2() {
+    // FUNCIONAMIENTO: SEPARA CIUDADES EN ";", COMPRUEBA QUE NO HAY NINGUNA LÍNEA QUE SEA CORRUPTA, SI HAY LÍNEA CORRUPTA NO ABORTA DEJANDO UN MENSAJE DE ERROR EN LOG
+    public List<Ciudad> leerLineas() {
         List<Ciudad> ciudades = new ArrayList<>();
-        try (var file = new BufferedReader(new FileReader("practica7/Ficheros/ciudades.txt"))) {
+        try (var file = new BufferedReader(new FileReader("practica7/Ficheros/ciudades.txt"))) { //abre y cierra el fichero automáticamente
 
             String linea;
             while ((linea = file.readLine()) != null) {
+
+                if (linea.startsWith("#") || linea.isBlank()) continue; //si la linea empieza por # o es un espacio en blanco el codigo sigue
+
                 try {
                     String[] partes = linea.split(";"); //separa los campos para poder obtener todos los campos de la Ciudad en este caso.
 
@@ -79,14 +58,13 @@ public class TxtHelper {
                     System.out.println("Formato invalido");
                 }
             }
-            file.close();
         } catch (IOException e) {
             loggerCustom.escribirFichero("ERROR","No se ha podido abrir el fichero");
         }
         return ciudades;
     }
 
-    //le pasamos una ciudad
+    //FUNCIONAMIENTO: ESCRIBE EL FICHERO DE EL OBJETO QUE LE PASES, LO ESCRIBE CON LOS ATIBUTOS Y PONIENDO UN ";" EN MEDIO
     public void escribirFichero(Ciudad c) {
         try (BufferedWriter file = new BufferedWriter(new FileWriter("practica7/Ficheros/ciudades.txt", true))) {
 
