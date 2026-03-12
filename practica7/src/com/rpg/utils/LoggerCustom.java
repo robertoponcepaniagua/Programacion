@@ -30,8 +30,6 @@ public class LoggerCustom {
             //añadimos u salto de linea
             file.newLine();
 
-            System.out.println("Escritura realizada.");
-
         } catch (IOException e) {
             System.out.println("No se ha podido escribir en el fichero.");
         }

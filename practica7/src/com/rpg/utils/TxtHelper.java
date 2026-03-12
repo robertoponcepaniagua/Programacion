@@ -58,8 +58,10 @@ public class TxtHelper {
                     System.out.println("Formato invalido");
                 }
             }
+            loggerCustom.escribirFichero("INFO","leerLineas se ha ejecutado con exito");
         } catch (IOException e) {
             loggerCustom.escribirFichero("ERROR","No se ha podido abrir el fichero");
+            //no hay ningún trow para que no detenga el programa y siga leyendo todas las lineas
         }
         return ciudades;
     }
@@ -74,6 +76,7 @@ public class TxtHelper {
             file.newLine();
 
             System.out.println("Escritura realizada.");
+            loggerCustom.escribirFichero("INFO","Escritura realizada de la ciudad: " + c.toString());
 
         } catch (IOException e) {
             System.out.println("No se ha podido escribir en el fichero.");

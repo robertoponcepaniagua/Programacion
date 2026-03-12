@@ -42,21 +42,30 @@ public class GestionMundo {
     }
 
     //esta función lo que hace es cargar todos los datos ciudades, items etc
-    public void cargarTodo() throws RecursoNoEncontradoException {
+    public void cargarTodo() {
+
+        // FUNCION: SEPARAR LOS TRY CATCH PARA QUE EL MENSAJE DEL ERROR SEA MÁS ESPECIFICO
+
         try {
-            //leer ciudades
             ciudades = txtHelper.leerLineas();
-            //leer items
-            items = jsonHelper.readList("practica7/Ficheros/items.json",Item.class);
-            //leer personajes
-            personajes = jsonHelper.readList("practica7/Ficheros/personajes.json",Personaje.class);
         } catch (Exception e) {
-            throw new RecursoNoEncontradoException("El fichero" + e.getMessage() + "no existe");
+            loggerCustom.escribirFichero("ERROR", "Error al cargar ciudades.txt: " + e.getMessage());
+        }
+        try {
+            items = jsonHelper.readList("practica7/Ficheros/items.json", Item.class);
+        } catch (Exception e) {
+            loggerCustom.escribirFichero("ERROR", "Error al cargar items.json: " + e.getMessage());
+        }
+        try {
+            personajes = jsonHelper.readList("practica7/Ficheros/personajes.json", Personaje.class);
+        } catch (Exception e) {
+            loggerCustom.escribirFichero("ERROR", "Error al cargar personajes.json: " + e.getMessage());
         }
         //catalogo de items (actualizado)
         for (Item i : items) {
             catalogoItems.put(i.getId(), i);
         }
+        loggerCustom.escribirFichero("INFO","La función cargarTodo se ha completado con exito");
     }
 
     public Personaje crearPJ() throws DatoInvalidoException {
@@ -69,13 +78,22 @@ public class GestionMundo {
         String raza = sc.nextLine();
 
         System.out.println("Que nivel es tú personaje: ");
-        int nivel = sc.nextInt();
-        sc.nextLine();
+
+        int nivel = 0;
+
+        // FUNCIÓN: PARA TENER CONTROLADO EL FALLO DE PONER UN STRING EN NIVEL
+        try {
+            nivel = sc.nextInt();
+            sc.nextLine();
+        } catch (Exception e) {
+            loggerCustom.escribirFichero("ERROR","El parametro nivel debe de ser un int");
+            throw new DatoInvalidoException("El parametro nivel debe de ser un int");
+        }
 
         // Validación de que el nivel no sea menor a 0
         if(nivel < 0) {
             loggerCustom.escribirFichero("ERROR","El nível del personaje no puede ser < 0");
-            throw new DatoInvalidoException(" El nível del personaje no puede ser < 0");
+            throw new DatoInvalidoException("El nível del personaje no puede ser < 0");
         }
 
         System.out.println("Que equipo quieres para tú personaje: ");
@@ -118,6 +136,9 @@ public class GestionMundo {
 
         // Guardar en JSON
         guardarCambios();
+
+        //log
+        loggerCustom.escribirFichero("INFO","Personaje creado correctamente " + pj.toString());
         return pj;
     }
 
@@ -155,5 +176,6 @@ public class GestionMundo {
 
     public void guardarCambios() {
         jsonHelper.writeList("practica7/Ficheros/personajes.json", personajes);
+        loggerCustom.escribirFichero("INFO","GuardarCambios se ha ejecutado con exito");
     }
 }
