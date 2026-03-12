@@ -22,7 +22,7 @@ public class GestionMundo {
     private List<Ciudad> ciudades;
     private Map<String, Item> catalogoItems;
 
-    public GestionMundo() throws IOException, RecursoNoEncontradoException {
+    public GestionMundo() throws IOException, DatoInvalidoException {
         //el scanner
         this.sc = new Scanner(System.in);
 
@@ -44,28 +44,31 @@ public class GestionMundo {
     //esta función lo que hace es cargar todos los datos ciudades, items etc
     public void cargarTodo() {
 
-        // FUNCION: SEPARAR LOS TRY CATCH PARA QUE EL MENSAJE DEL ERROR SEA MÁS ESPECIFICO
-
         try {
             ciudades = txtHelper.leerLineas();
+            loggerCustom.escribirFichero("INFO", "ciudades.txt cargado con éxito. Total ciudades: " + ciudades.size());
         } catch (Exception e) {
             loggerCustom.escribirFichero("ERROR", "Error al cargar ciudades.txt: " + e.getMessage());
         }
         try {
             items = jsonHelper.readList("practica7/Ficheros/items.json", Item.class);
+            loggerCustom.escribirFichero("INFO", "items.json cargado con éxito. Total items: " + items.size());
         } catch (Exception e) {
             loggerCustom.escribirFichero("ERROR", "Error al cargar items.json: " + e.getMessage());
         }
         try {
             personajes = jsonHelper.readList("practica7/Ficheros/personajes.json", Personaje.class);
+            loggerCustom.escribirFichero("INFO", "personajes.json cargado con éxito. Total personajes: " + personajes.size());
         } catch (Exception e) {
             loggerCustom.escribirFichero("ERROR", "Error al cargar personajes.json: " + e.getMessage());
         }
-        //catalogo de items (actualizado)
+
         for (Item i : items) {
             catalogoItems.put(i.getId(), i);
+            loggerCustom.escribirFichero("INFO", "Item añadido al catálogo: " + i.getNombre());
         }
-        loggerCustom.escribirFichero("INFO","La función cargarTodo se ha completado con exito");
+
+        loggerCustom.escribirFichero("INFO", "La función cargarTodo se ha completado con éxito");
     }
 
     public Personaje crearPJ() throws DatoInvalidoException {
@@ -113,6 +116,7 @@ public class GestionMundo {
 
             //si en algún momento escribimos Salir ya saldremos de crear el personaje
             if (id.equals("Salir")) {
+                loggerCustom.escribirFichero("INFO","Items añadidos al personaje correctamente");
                 break;
             }
 
@@ -124,6 +128,7 @@ public class GestionMundo {
                 //si no lanza un error de que el item no existe
             } else {
                 System.out.println("El item no existe");
+                loggerCustom.escribirFichero("ERROR", "Item no encontrado con id: " + id);
             }
 
         } while (true);

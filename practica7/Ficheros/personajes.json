@@ -117,5 +117,36 @@
         "valor": 25
       }
     ]
+  },
+  {
+    "nombre": "sadsadas",
+    "raza": "saddasda",
+    "nivel": 2,
+    "equipo": []
+  },
+  {
+    "nombre": "prueba final",
+    "raza": "prueba final",
+    "nivel": 2,
+    "equipo": [
+      {
+        "id": "P01",
+        "nombre": "Pocion",
+        "tipo": "CONSUMIBLE",
+        "valor": 25
+      },
+      {
+        "id": "W01",
+        "nombre": "Hacha Doble",
+        "tipo": "ARMA",
+        "valor": 100
+      }
+    ]
+  },
+  {
+    "nombre": "sadada",
+    "raza": "asdad",
+    "nivel": 33,
+    "equipo": []
   }
 ]
