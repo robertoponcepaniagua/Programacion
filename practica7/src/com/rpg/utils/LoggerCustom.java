@@ -6,6 +6,8 @@ import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Locale;
 
 public class LoggerCustom {
@@ -25,8 +27,13 @@ public class LoggerCustom {
                     .getStackTrace()[2]
                     .getClassName();
 
+            //FUNCION: FORMATEA LA HORA PARA SER PRECIOS YA QUE AL TENER MUCHOS LOGS NO SE VE CUANDO ES DE CADA MOMENTO
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+
+            String fecha = LocalDateTime.now().format(formatter);
+
             //la ciudad que la pasemos la juntamos y hacemos un ; entre cada atrinuto
-            file.write("[" + LocalDate.now() + "] [" + tipo + "] [" + paquete + "] ["+ path +"] "  + mensaje);
+            file.write("[" + fecha + "] [" + tipo + "] [" + paquete + "] ["+ path +"] "  + mensaje);
             //añadimos u salto de linea
             file.newLine();
 
