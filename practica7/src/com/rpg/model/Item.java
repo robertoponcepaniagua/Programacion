@@ -47,6 +47,6 @@ public class Item {
 
     @Override
     public String toString() {
-        return "Item{id='" + id + "', nombre='" + nombre + "', tipo='" + tipo + "', valor=" + valor + "}";
+        return "Item | ID: " + id + " | Nombre: " + nombre + " | Tipo: " + tipo + " | Valor: " + valor;
     }
 }
