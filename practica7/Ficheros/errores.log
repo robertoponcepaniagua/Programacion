@@ -42,3 +42,50 @@
 [2026-03-12] [INFO] [com.rpg.services.GestionMundo] [practica7/src/com/rpg/services/GestionMundo.java] La función cargarTodo se ha completado con exito
 [2026-03-12] [INFO] [com.rpg.services.GestionMundo] [practica7/src/com/rpg/services/GestionMundo.java] GuardarCambios se ha ejecutado con exito
 [2026-03-12] [INFO] [com.rpg.services.GestionMundo] [practica7/src/com/rpg/services/GestionMundo.java] Personaje creado correctamente JAVI HOYOS | Raza: HUMANOIDE | Nivel: 3 | Equipo: [Item{id='P01', nombre='Pocion', tipo='CONSUMIBLE', valor=25}]
+[2026-03-12] [INFO] [com.rpg.utils.TxtHelper] [practica7/src/com/rpg/utils/TxtHelper.java] leerLineas se ha ejecutado con exito
+[2026-03-12] [INFO] [com.rpg.services.GestionMundo] [practica7/src/com/rpg/services/GestionMundo.java] ciudades.txt cargado con éxito. Total ciudades: 11
+[2026-03-12] [INFO] [com.rpg.services.GestionMundo] [practica7/src/com/rpg/services/GestionMundo.java] items.json cargado con éxito. Total items: 2
+[2026-03-12] [INFO] [com.rpg.services.GestionMundo] [practica7/src/com/rpg/services/GestionMundo.java] personajes.json cargado con éxito. Total personajes: 9
+[2026-03-12] [INFO] [com.rpg.services.GestionMundo] [practica7/src/com/rpg/services/GestionMundo.java] Item añadido al catálogo: Hacha Doble
+[2026-03-12] [INFO] [com.rpg.services.GestionMundo] [practica7/src/com/rpg/services/GestionMundo.java] Item añadido al catálogo: Pocion
+[2026-03-12] [INFO] [com.rpg.services.GestionMundo] [practica7/src/com/rpg/services/GestionMundo.java] La función cargarTodo se ha completado con éxito
+[2026-03-12] [INFO] [com.rpg.utils.TxtHelper] [practica7/src/com/rpg/utils/TxtHelper.java] leerLineas se ha ejecutado con exito
+[2026-03-12] [INFO] [com.rpg.services.GestionMundo] [practica7/src/com/rpg/services/GestionMundo.java] ciudades.txt cargado con éxito. Total ciudades: 11
+[2026-03-12] [INFO] [com.rpg.services.GestionMundo] [practica7/src/com/rpg/services/GestionMundo.java] items.json cargado con éxito. Total items: 2
+[2026-03-12] [INFO] [com.rpg.services.GestionMundo] [practica7/src/com/rpg/services/GestionMundo.java] personajes.json cargado con éxito. Total personajes: 9
+[2026-03-12] [INFO] [com.rpg.services.GestionMundo] [practica7/src/com/rpg/services/GestionMundo.java] Item añadido al catálogo: Hacha Doble
+[2026-03-12] [INFO] [com.rpg.services.GestionMundo] [practica7/src/com/rpg/services/GestionMundo.java] Item añadido al catálogo: Pocion
+[2026-03-12] [INFO] [com.rpg.services.GestionMundo] [practica7/src/com/rpg/services/GestionMundo.java] La función cargarTodo se ha completado con éxito
+[2026-03-12] [INFO] [com.rpg.services.GestionMundo] [practica7/src/com/rpg/services/GestionMundo.java] GuardarCambios se ha ejecutado con exito
+[2026-03-12] [INFO] [com.rpg.services.GestionMundo] [practica7/src/com/rpg/services/GestionMundo.java] Personaje creado correctamente IKER | Raza: PRUEBA | Nivel: 4 | Equipo: [Item{id='P01', nombre='Pocion', tipo='CONSUMIBLE', valor=25}, Item{id='W01', nombre='Hacha Doble', tipo='ARMA', valor=100}]
+[2026-03-12] [INFO] [com.rpg.services.GestionMundo] [practica7/src/com/rpg/services/GestionMundo.java] Informe final ha sido ejecutado con exito
+[2026-03-12] [INFO] [com.rpg.utils.TxtHelper] [practica7/src/com/rpg/utils/TxtHelper.java] leerLineas se ha ejecutado con exito
+[2026-03-12] [INFO] [com.rpg.services.GestionMundo] [practica7/src/com/rpg/services/GestionMundo.java] ciudades.txt cargado con éxito. Total ciudades: 11
+[2026-03-12] [INFO] [com.rpg.services.GestionMundo] [practica7/src/com/rpg/services/GestionMundo.java] items.json cargado con éxito. Total items: 2
+[2026-03-12] [INFO] [com.rpg.services.GestionMundo] [practica7/src/com/rpg/services/GestionMundo.java] personajes.json cargado con éxito. Total personajes: 10
+[2026-03-12] [INFO] [com.rpg.services.GestionMundo] [practica7/src/com/rpg/services/GestionMundo.java] Item añadido al catálogo: Hacha Doble
+[2026-03-12] [INFO] [com.rpg.services.GestionMundo] [practica7/src/com/rpg/services/GestionMundo.java] Item añadido al catálogo: Pocion
+[2026-03-12] [INFO] [com.rpg.services.GestionMundo] [practica7/src/com/rpg/services/GestionMundo.java] La función cargarTodo se ha completado con éxito
+[2026-03-12] [ERROR] [com.rpg.services.GestionMundo] [practica7/src/com/rpg/services/GestionMundo.java] El parametro nivel debe de ser un int
+[2026-03-12] [INFO] [com.rpg.utils.TxtHelper] [practica7/src/com/rpg/utils/TxtHelper.java] leerLineas se ha ejecutado con exito
+[2026-03-12] [INFO] [com.rpg.services.GestionMundo] [practica7/src/com/rpg/services/GestionMundo.java] ciudades.txt cargado con éxito. Total ciudades: 11
+[2026-03-12] [INFO] [com.rpg.services.GestionMundo] [practica7/src/com/rpg/services/GestionMundo.java] items.json cargado con éxito. Total items: 2
+[2026-03-12] [INFO] [com.rpg.services.GestionMundo] [practica7/src/com/rpg/services/GestionMundo.java] personajes.json cargado con éxito. Total personajes: 10
+[2026-03-12] [INFO] [com.rpg.services.GestionMundo] [practica7/src/com/rpg/services/GestionMundo.java] Item añadido al catálogo: Hacha Doble
+[2026-03-12] [INFO] [com.rpg.services.GestionMundo] [practica7/src/com/rpg/services/GestionMundo.java] Item añadido al catálogo: Pocion
+[2026-03-12] [INFO] [com.rpg.services.GestionMundo] [practica7/src/com/rpg/services/GestionMundo.java] La función cargarTodo se ha completado con éxito
+[2026-03-12] [INFO] [com.rpg.services.GestionMundo] [practica7/src/com/rpg/services/GestionMundo.java] Items añadidos al personaje correctamente
+[2026-03-12] [INFO] [com.rpg.services.GestionMundo] [practica7/src/com/rpg/services/GestionMundo.java] GuardarCambios se ha ejecutado con exito
+[2026-03-12] [INFO] [com.rpg.services.GestionMundo] [practica7/src/com/rpg/services/GestionMundo.java] Personaje creado correctamente Roberto | Raza: SDADAS | Nivel: 3 | Equipo: [Item | ID: P01 | Nombre: Pocion | Tipo: CONSUMIBLE | Valor: 25]
+[2026-03-12] [INFO] [com.rpg.services.GestionMundo] [practica7/src/com/rpg/services/GestionMundo.java] Informe final ha sido ejecutado con exito
+[2026-03-12 23:00:45] [INFO] [com.rpg.utils.TxtHelper] [practica7/src/com/rpg/utils/TxtHelper.java] leerLineas se ha ejecutado con exito
+[2026-03-12 23:00:45] [INFO] [com.rpg.services.GestionMundo] [practica7/src/com/rpg/services/GestionMundo.java] ciudades.txt cargado con éxito. Total ciudades: 11
+[2026-03-12 23:00:45] [INFO] [com.rpg.services.GestionMundo] [practica7/src/com/rpg/services/GestionMundo.java] items.json cargado con éxito. Total items: 2
+[2026-03-12 23:00:45] [INFO] [com.rpg.services.GestionMundo] [practica7/src/com/rpg/services/GestionMundo.java] personajes.json cargado con éxito. Total personajes: 11
+[2026-03-12 23:00:45] [INFO] [com.rpg.services.GestionMundo] [practica7/src/com/rpg/services/GestionMundo.java] Item añadido al catálogo: Hacha Doble
+[2026-03-12 23:00:45] [INFO] [com.rpg.services.GestionMundo] [practica7/src/com/rpg/services/GestionMundo.java] Item añadido al catálogo: Pocion
+[2026-03-12 23:00:45] [INFO] [com.rpg.services.GestionMundo] [practica7/src/com/rpg/services/GestionMundo.java] La función cargarTodo se ha completado con éxito
+[2026-03-12 23:00:54] [INFO] [com.rpg.services.GestionMundo] [practica7/src/com/rpg/services/GestionMundo.java] Items añadidos al personaje correctamente
+[2026-03-12 23:00:54] [INFO] [com.rpg.services.GestionMundo] [practica7/src/com/rpg/services/GestionMundo.java] GuardarCambios se ha ejecutado con exito
+[2026-03-12 23:00:54] [INFO] [com.rpg.services.GestionMundo] [practica7/src/com/rpg/services/GestionMundo.java] Personaje creado correctamente sdsd | Raza: dsda | Nivel: 2 | Equipo: [Item | ID: P01 | Nombre: Pocion | Tipo: CONSUMIBLE | Valor: 25]
+[2026-03-12 23:00:54] [INFO] [com.rpg.services.GestionMundo] [practica7/src/com/rpg/services/GestionMundo.java] Informe final ha sido ejecutado con exito

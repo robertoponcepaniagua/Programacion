@@ -72,5 +72,50 @@
         "valor": 25
       }
     ]
+  },
+  {
+    "nombre": "IKER",
+    "raza": "PRUEBA",
+    "nivel": 4,
+    "equipo": [
+      {
+        "id": "P01",
+        "nombre": "Pocion",
+        "tipo": "CONSUMIBLE",
+        "valor": 25
+      },
+      {
+        "id": "W01",
+        "nombre": "Hacha Doble",
+        "tipo": "ARMA",
+        "valor": 100
+      }
+    ]
+  },
+  {
+    "nombre": "Roberto",
+    "raza": "SDADAS",
+    "nivel": 3,
+    "equipo": [
+      {
+        "id": "P01",
+        "nombre": "Pocion",
+        "tipo": "CONSUMIBLE",
+        "valor": 25
+      }
+    ]
+  },
+  {
+    "nombre": "sdsd",
+    "raza": "dsda",
+    "nivel": 2,
+    "equipo": [
+      {
+        "id": "P01",
+        "nombre": "Pocion",
+        "tipo": "CONSUMIBLE",
+        "valor": 25
+      }
+    ]
   }
 ]
