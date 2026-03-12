@@ -172,6 +172,7 @@ public class GestionMundo {
             System.out.println(p.toString());
         }
         System.out.println();
+        loggerCustom.escribirFichero("INFO","Informe final ha sido ejecutado con exito");
     }
 
     public void guardarCambios() {
