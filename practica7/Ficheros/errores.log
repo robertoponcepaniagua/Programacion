@@ -24,3 +24,21 @@
 [2026-03-05] [ERROR] [com.rpg.utils.TxtHelper] [practica7/src/com/rpg/utils/TxtHelper.java] Linea corrupta en Barcelona;PRUEBA;Soleado;10
 [2026-03-05] [ERROR] [com.rpg.services.GestionMundo] [practica7/src/com/rpg/services/GestionMundo.java] El nível del personaje no puede ser < 0
 [2026-03-09] [ERROR] [com.rpg.services.GestionMundo] [practica7/src/com/rpg/services/GestionMundo.java] El nível del personaje no puede ser < 0
+[2026-03-12] [INFO] [com.rpg.utils.TxtHelper] [practica7/src/com/rpg/utils/TxtHelper.java] leerLineas se ha ejecutado con exito
+[2026-03-12] [INFO] [com.rpg.services.GestionMundo] [practica7/src/com/rpg/services/GestionMundo.java] La función cargarTodo se ha completado con exito
+[2026-03-12] [ERROR] [com.rpg.services.GestionMundo] [practica7/src/com/rpg/services/GestionMundo.java] El parametro nivel debe de ser un int
+[2026-03-12] [INFO] [com.rpg.utils.TxtHelper] [practica7/src/com/rpg/utils/TxtHelper.java] leerLineas se ha ejecutado con exito
+[2026-03-12] [INFO] [com.rpg.services.GestionMundo] [practica7/src/com/rpg/services/GestionMundo.java] La función cargarTodo se ha completado con exito
+[2026-03-12] [INFO] [com.rpg.services.GestionMundo] [practica7/src/com/rpg/services/GestionMundo.java] GuardarCambios se ha ejecutado con exito
+[2026-03-12] [INFO] [com.rpg.services.GestionMundo] [practica7/src/com/rpg/services/GestionMundo.java] Personaje creado correctamente asdasdsad | Raza: asdasdasd | Nivel: 2 | Equipo: []
+[2026-03-12] [INFO] [com.rpg.utils.TxtHelper] [practica7/src/com/rpg/utils/TxtHelper.java] leerLineas se ha ejecutado con exito
+[2026-03-12] [INFO] [com.rpg.services.GestionMundo] [practica7/src/com/rpg/services/GestionMundo.java] La función cargarTodo se ha completado con exito
+[2026-03-12] [ERROR] [com.rpg.services.GestionMundo] [practica7/src/com/rpg/services/GestionMundo.java] El parametro nivel debe de ser un int
+[2026-03-12] [INFO] [com.rpg.utils.TxtHelper] [practica7/src/com/rpg/utils/TxtHelper.java] leerLineas se ha ejecutado con exito
+[2026-03-12] [INFO] [com.rpg.services.GestionMundo] [practica7/src/com/rpg/services/GestionMundo.java] La función cargarTodo se ha completado con exito
+[2026-03-12] [INFO] [com.rpg.services.GestionMundo] [practica7/src/com/rpg/services/GestionMundo.java] GuardarCambios se ha ejecutado con exito
+[2026-03-12] [INFO] [com.rpg.services.GestionMundo] [practica7/src/com/rpg/services/GestionMundo.java] Personaje creado correctamente DSDIJNAYHBDS | Raza: DSADA | Nivel: 2 | Equipo: []
+[2026-03-12] [INFO] [com.rpg.utils.TxtHelper] [practica7/src/com/rpg/utils/TxtHelper.java] leerLineas se ha ejecutado con exito
+[2026-03-12] [INFO] [com.rpg.services.GestionMundo] [practica7/src/com/rpg/services/GestionMundo.java] La función cargarTodo se ha completado con exito
+[2026-03-12] [INFO] [com.rpg.services.GestionMundo] [practica7/src/com/rpg/services/GestionMundo.java] GuardarCambios se ha ejecutado con exito
+[2026-03-12] [INFO] [com.rpg.services.GestionMundo] [practica7/src/com/rpg/services/GestionMundo.java] Personaje creado correctamente JAVI HOYOS | Raza: HUMANOIDE | Nivel: 3 | Equipo: [Item{id='P01', nombre='Pocion', tipo='CONSUMIBLE', valor=25}]

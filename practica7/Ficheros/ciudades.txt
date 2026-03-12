@@ -1,3 +1,5 @@
+#PRUEBA DE LINEA CON ALMOHADILLA
+
 Minas Tirith;20000;Soleado;3
 Isengard;5000;Nublado;8
 Rivendell;8000;Lluvioso;2

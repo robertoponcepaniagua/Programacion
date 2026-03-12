@@ -22,5 +22,55 @@
         "valor": 25
       }
     ]
+  },
+  {
+    "nombre": "DSADSA",
+    "raza": "SDASD",
+    "nivel": 0,
+    "equipo": []
+  },
+  {
+    "nombre": "NAY",
+    "raza": "THERIAN",
+    "nivel": 2,
+    "equipo": [
+      {
+        "id": "P01",
+        "nombre": "Pocion",
+        "tipo": "CONSUMIBLE",
+        "valor": 25
+      }
+    ]
+  },
+  {
+    "nombre": "skmdjkasd",
+    "raza": "sdadn asdhba",
+    "nivel": 3,
+    "equipo": []
+  },
+  {
+    "nombre": "asdasdsad",
+    "raza": "asdasdasd",
+    "nivel": 2,
+    "equipo": []
+  },
+  {
+    "nombre": "DSDIJNAYHBDS",
+    "raza": "DSADA",
+    "nivel": 2,
+    "equipo": []
+  },
+  {
+    "nombre": "JAVI HOYOS",
+    "raza": "HUMANOIDE",
+    "nivel": 3,
+    "equipo": [
+      {
+        "id": "P01",
+        "nombre": "Pocion",
+        "tipo": "CONSUMIBLE",
+        "valor": 25
+      }
+    ]
   }
 ]
