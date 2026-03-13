@@ -2,6 +2,7 @@ package com.rpg.services;
 
 import com.rpg.handler.DatoInvalidoException;
 import com.rpg.handler.RecursoNoEncontradoException;
+import com.rpg.handler.ValidadorDeBiomas;
 import com.rpg.model.Ciudad;
 import com.rpg.model.Item;
 import com.rpg.model.Personaje;
@@ -22,7 +23,7 @@ public class GestionMundo {
     private List<Ciudad> ciudades;
     private Map<String, Item> catalogoItems;
 
-    public GestionMundo() throws IOException, DatoInvalidoException {
+    public GestionMundo() throws IOException, DatoInvalidoException, ValidadorDeBiomas {
         //el scanner
         this.sc = new Scanner(System.in);
 
@@ -42,8 +43,7 @@ public class GestionMundo {
     }
 
     //esta función lo que hace es cargar todos los datos ciudades, items etc
-    public void cargarTodo() {
-
+    public void cargarTodo() throws ValidadorDeBiomas {
         try {
             ciudades = txtHelper.leerLineas();
             loggerCustom.escribirFichero("INFO", "ciudades.txt cargado con éxito. Total ciudades: " + ciudades.size());
@@ -67,7 +67,7 @@ public class GestionMundo {
             catalogoItems.put(i.getId(), i);
             loggerCustom.escribirFichero("INFO", "Item añadido al catálogo: " + i.getNombre());
         }
-
+        analizadorBiomas();
         loggerCustom.escribirFichero("INFO", "La función cargarTodo se ha completado con éxito");
     }
 
@@ -98,6 +98,9 @@ public class GestionMundo {
             loggerCustom.escribirFichero("ERROR","El nível del personaje no puede ser < 0");
             throw new DatoInvalidoException("El nível del personaje no puede ser < 0");
         }
+
+        System.out.println("Ciudad para tu personaje: ");
+        Ciudad ciudad = new Ciudad("PRUEBA",2000,"Desierto",10);
 
         System.out.println("Que equipo quieres para tú personaje: ");
 
@@ -134,7 +137,7 @@ public class GestionMundo {
         } while (true);
 
         // Crear personaje
-        Personaje pj = new Personaje(nombre, raza, nivel, equipo);
+        Personaje pj = new Personaje(nombre, raza, nivel, equipo, ciudad);
 
         // Añadir el nuevo
         personajes.add(pj);
@@ -183,5 +186,42 @@ public class GestionMundo {
     public void guardarCambios() {
         jsonHelper.writeList("practica7/Ficheros/personajes.json", personajes);
         loggerCustom.escribirFichero("INFO","GuardarCambios se ha ejecutado con exito");
+    }
+
+
+    public void analizadorBiomas() throws ValidadorDeBiomas {
+        List<Personaje> personajeBorrar = new ArrayList<>();
+        try {
+            // PERSONAJES COGEMOS TODOS LOS PERSONAJES DEL LIST PERSONAJES
+            for (Personaje p : personajes) {
+                // SI NO TIENE EQUIPO PASA
+                if (p.getEquipo() == null) {
+                    loggerCustom.escribirFichero("INFO","El personaje " + p.toString() + "se ha creado sin equipo" );
+                }
+                Ciudad c = p.getCiudad();
+                // Los personajes no pueden vivir en el desierto
+                if (p.getRaza().equals("Enano") && c.getClima().equals("Desierto")) {
+                    loggerCustom.escribirFichero("ERROR", "El personaje: " + p.toString() + " con raza Enano no puede aparecer en Desierto");
+                    personajeBorrar.add(p);
+                    throw new ValidadorDeBiomas("El personaje: " + p.toString() + " con raza Enano no puede aparecer en Desierto");
+                }
+
+                //COGEMOS EL EQUIPO DEL PERSONAJE Y COGEMOS LA CIUDAD DEL ITEM DEL PERSONAJE
+                for (Item i : p.getEquipo()) {
+                    Ciudad x = p.getCiudad();
+
+                    if (i.getTipo().equals("Hielo") && x.getClima().equals("Desierto")) {
+                        loggerCustom.escribirFichero("ERROR","El item: " + i.toString() + " de tipo Hielo no puede existir en Desierto");
+                        personajeBorrar.add(p);
+                        throw new ValidadorDeBiomas("El item: " + i.toString() + " de tipo Hielo no puede existir en Desierto");
+                    }
+                }
+            }
+        } catch (Exception e) {
+            loggerCustom.escribirFichero("ERROR","Personajes con Raza y ciudad incompatibles");
+        }
+        personajes.removeAll(personajeBorrar);
+        jsonHelper.writeList("practica7/Ficheros/personajes.json",personajes);
+        loggerCustom.escribirFichero("INFO","loggerCustom se ha ejecutado correctamente ");
     }
 }

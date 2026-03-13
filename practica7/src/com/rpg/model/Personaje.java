@@ -8,12 +8,14 @@ public class Personaje {
     private String raza;
     private int nivel;
     private List<Item> equipo;
+    private Ciudad ciudad;
 
-    public Personaje(String nombre, String raza, int nivel, List<Item> equipo) {
+    public Personaje(String nombre, String raza, int nivel, List<Item> equipo, Ciudad ciudad) {
         this.nombre = nombre;
         this.raza = raza;
         this.nivel = nivel;
         this.equipo = equipo;
+        this.ciudad = ciudad;
     }
 
     public String getNombre() {
@@ -46,6 +48,14 @@ public class Personaje {
 
     public void setEquipo(List<Item> equipo) {
         this.equipo = equipo;
+    }
+
+    public Ciudad getCiudad() {
+        return ciudad;
+    }
+
+    public void setCiudad(Ciudad ciudad) {
+        this.ciudad = ciudad;
     }
 
     @Override

@@ -148,5 +148,254 @@
     "raza": "asdad",
     "nivel": 33,
     "equipo": []
+  },
+  {
+    "nombre": "suidsd",
+    "raza": "Enano",
+    "nivel": 3,
+    "equipo": []
+  },
+  {
+    "nombre": "nekandk",
+    "raza": "Enano",
+    "nivel": 2,
+    "equipo": [],
+    "ciudad": {
+      "nombre": "PRUEBA",
+      "poblacion": 2000,
+      "clima": "Desertico",
+      "nivelRiesgo": 10
+    }
+  },
+  {
+    "nombre": "sdjahd",
+    "raza": "sdaasd",
+    "nivel": 3,
+    "equipo": [],
+    "ciudad": {
+      "nombre": "PRUEBA",
+      "poblacion": 2000,
+      "clima": "Desertico",
+      "nivelRiesgo": 10
+    }
+  },
+  {
+    "nombre": "EGYGTUEDGY",
+    "raza": "SUDBYIAUD",
+    "nivel": 7,
+    "equipo": [],
+    "ciudad": {
+      "nombre": "PRUEBA",
+      "poblacion": 2000,
+      "clima": "Desertico",
+      "nivelRiesgo": 10
+    }
+  },
+  {
+    "nombre": "ROBERTO PRUEBA",
+    "raza": "Enano",
+    "nivel": 3,
+    "equipo": [
+      {
+        "id": "P01",
+        "nombre": "Pocion",
+        "tipo": "CONSUMIBLE",
+        "valor": 25
+      }
+    ],
+    "ciudad": {
+      "nombre": "PRUEBA",
+      "poblacion": 2000,
+      "clima": "Desertico",
+      "nivelRiesgo": 10
+    }
+  },
+  {
+    "nombre": "roberto",
+    "raza": "2",
+    "nivel": 3,
+    "equipo": [
+      {
+        "id": "W01",
+        "nombre": "Hacha Doble",
+        "tipo": "ARMA",
+        "valor": 100
+      }
+    ],
+    "ciudad": {
+      "nombre": "PRUEBA",
+      "poblacion": 2000,
+      "clima": "Desertico",
+      "nivelRiesgo": 10
+    }
+  },
+  {
+    "nombre": "Roberto",
+    "raza": "3",
+    "nivel": 3,
+    "equipo": [],
+    "ciudad": {
+      "nombre": "PRUEBA",
+      "poblacion": 2000,
+      "clima": "Desierto",
+      "nivelRiesgo": 10
+    }
+  },
+  {
+    "nombre": "PRUEBA",
+    "raza": "Enano",
+    "nivel": 3,
+    "equipo": [],
+    "ciudad": {
+      "nombre": "PRUEBA",
+      "poblacion": 2000,
+      "clima": "Desierto",
+      "nivelRiesgo": 10
+    }
+  },
+  {
+    "nombre": "ff",
+    "raza": "Enano",
+    "nivel": 3,
+    "equipo": [
+      {
+        "id": "W01",
+        "nombre": "Hacha Doble",
+        "tipo": "Hielo",
+        "valor": 100
+      }
+    ],
+    "ciudad": {
+      "nombre": "PRUEBA",
+      "poblacion": 2000,
+      "clima": "Desierto",
+      "nivelRiesgo": 10
+    }
+  },
+  {
+    "nombre": "iushdyuad",
+    "raza": "Enano",
+    "nivel": 3,
+    "equipo": [
+      {
+        "id": "W01",
+        "nombre": "Hacha Doble",
+        "tipo": "Hielo",
+        "valor": 100
+      }
+    ],
+    "ciudad": {
+      "nombre": "PRUEBA",
+      "poblacion": 2000,
+      "clima": "Desierto",
+      "nivelRiesgo": 10
+    }
+  },
+  {
+    "nombre": "sda",
+    "raza": "Enano",
+    "nivel": 3,
+    "equipo": [
+      {
+        "id": "W01",
+        "nombre": "Hacha Doble",
+        "tipo": "Hielo",
+        "valor": 100
+      }
+    ],
+    "ciudad": {
+      "nombre": "PRUEBA",
+      "poblacion": 2000,
+      "clima": "Desierto",
+      "nivelRiesgo": 10
+    }
+  },
+  {
+    "nombre": "roberto",
+    "raza": "Enano",
+    "nivel": 3,
+    "equipo": [
+      {
+        "id": "W01",
+        "nombre": "Hacha Doble",
+        "tipo": "Hielo",
+        "valor": 100
+      }
+    ],
+    "ciudad": {
+      "nombre": "PRUEBA",
+      "poblacion": 2000,
+      "clima": "Desierto",
+      "nivelRiesgo": 10
+    }
+  },
+  {
+    "nombre": "dasdsad",
+    "raza": "Enano",
+    "nivel": 3,
+    "equipo": [],
+    "ciudad": {
+      "nombre": "PRUEBA",
+      "poblacion": 2000,
+      "clima": "Desierto",
+      "nivelRiesgo": 10
+    }
+  },
+  {
+    "nombre": "Roberto",
+    "raza": "Enano",
+    "nivel": 2,
+    "equipo": [
+      {
+        "id": "P01",
+        "nombre": "Pocion",
+        "tipo": "CONSUMIBLE",
+        "valor": 25
+      }
+    ],
+    "ciudad": {
+      "nombre": "PRUEBA",
+      "poblacion": 2000,
+      "clima": "Desierto",
+      "nivelRiesgo": 10
+    }
+  },
+  {
+    "nombre": "dfnusdb",
+    "raza": "Enano",
+    "nivel": 3,
+    "equipo": [
+      {
+        "id": "W01",
+        "nombre": "Hacha Doble",
+        "tipo": "Hielo",
+        "valor": 100
+      }
+    ],
+    "ciudad": {
+      "nombre": "PRUEBA",
+      "poblacion": 2000,
+      "clima": "Desierto",
+      "nivelRiesgo": 10
+    }
+  },
+  {
+    "nombre": "Roberto",
+    "raza": "Enano",
+    "nivel": 3,
+    "equipo": [
+      {
+        "id": "W01",
+        "nombre": "Hacha Doble",
+        "tipo": "Hielo",
+        "valor": 100
+      }
+    ],
+    "ciudad": {
+      "nombre": "PRUEBA",
+      "poblacion": 2000,
+      "clima": "Desierto",
+      "nivelRiesgo": 10
+    }
   }
 ]
