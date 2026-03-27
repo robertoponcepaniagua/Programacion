@@ -7,8 +7,6 @@ public class Personaje {
     private int salud;
     private int oro;
 
-    public Personaje() {}
-
     public Personaje(String nombre, int nivel, int salud, int oro) {
         this.nombre = nombre;
         this.nivel = nivel;
