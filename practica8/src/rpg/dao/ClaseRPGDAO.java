@@ -1,4 +1,4 @@
 package rpg.dao;
 
-public class Clase_RPGDAO {
+public class ClaseRPGDAO {
 }
