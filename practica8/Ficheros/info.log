@@ -1,2 +1,7 @@
 [2026-03-30 16:43:56] [INFO] [rpg.dao.PersonajeDAO] [practica8/src/rpg/dao/PersonajeDAO.java] El metodo crearPJ ha sido ejecutado con exito
 [2026-03-30 16:46:43] [INFO] [rpg.dao.PersonajeDAO] [practica8/src/rpg/dao/PersonajeDAO.java] El metodo crearPJ ha sido ejecutado con exito
+[2026-03-30 21:10:42] [ERROR] [rpg.dao.PersonajeDAO] [practica8/src/rpg/dao/PersonajeDAO.java] El metodo listarPersonajes ha fallado
+[2026-03-30 21:11:39] [ERROR] [rpg.dao.PersonajeDAO] [practica8/src/rpg/dao/PersonajeDAO.java] El metodo listarPersonajes ha fallado
+[2026-03-30 21:12:13] [ERROR] [rpg.dao.PersonajeDAO] [practica8/src/rpg/dao/PersonajeDAO.java] El metodo listarPersonajes ha fallado
+[2026-03-30 21:13:41] [ERROR] [rpg.dao.PersonajeDAO] [practica8/src/rpg/dao/PersonajeDAO.java] El metodo listarPersonajes ha fallado
+[2026-03-30 21:14:34] [ERROR] [rpg.dao.PersonajeDAO] [practica8/src/rpg/dao/PersonajeDAO.java] El metodo listarPersonajes ha fallado
