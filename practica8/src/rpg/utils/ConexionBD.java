@@ -12,22 +12,8 @@ public class ConexionBD {
     private String password = "xrpg_password";
 
 
-    public void conectar() throws ClassNotFoundException {
-
-        try {
-            // CARGAMOS EL DRIVER
-            Class.forName("org.postgresql.Driver");
-
-            // TRY-WITH-RESOURCES (ABRE Y CIERRA SOLO)
-            try (Connection connection = DriverManager.getConnection(url, user, password)) {
-                System.out.println("Conexión");
-                // TODO: HACER UNA CONSULTA PARA PROBAR
-            }
-            // ERRORES
-        } catch (ClassNotFoundException e) {
-            System.out.println("Fallo Driver: " + e.getMessage());
-        } catch (SQLException e) {
-            System.out.println("Error de (Docker, usuario o pass): " + e.getMessage());
-        }
+    public Connection conectar() throws SQLException, ClassNotFoundException {
+        Class.forName("org.postgresql.Driver");
+        return DriverManager.getConnection(url, user, password);
     }
 }
