@@ -17,7 +17,7 @@ public class Log {
 
 
     public void escribirFichero(String tipo, String mensaje) {
-        try (BufferedWriter file = new BufferedWriter(new FileWriter("practica7/Ficheros/errores.log", true))) {
+        try (BufferedWriter file = new BufferedWriter(new FileWriter("practica8/Ficheros/info.log", true))) {
 
             String paquete = Thread.currentThread()
                     .getStackTrace()[2]
