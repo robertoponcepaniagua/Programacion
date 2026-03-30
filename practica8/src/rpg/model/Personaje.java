@@ -16,11 +16,11 @@ public class Personaje {
     private int idClase; //FK
     private int idCiudadActual; //FK
 
-    public Personaje(String nombre, int nivel, int salud, int oro, int idRaza, int idClase, int idCiudadActual) {
+    public Personaje(int id, String nombre, int nivel, int salud, int oro, int idRaza, int idClase, int idCiudadActual) {
         this.id = id;
         this.nombre = nombre;
         this.nivel = nivel;
-        this.saludMax = saludMax;
+        this.saludMax = salud; //NO SÉ SI LO NECESITO
         this.salud = salud;
         this.oro = oro;
         this.idRaza = idRaza;
@@ -102,17 +102,13 @@ public class Personaje {
 
     @Override
     public String toString() {
-        return "Personaje{" +
-                "id=" + id +
-                ", nombre='" + nombre + '\'' +
-                ", nivel=" + nivel +
-                ", saludMax=" + saludMax +
-                ", salud=" + salud +
-                ", oro=" + oro +
-                ", idRaza=" + idRaza +
-                ", idClase=" + idClase +
-                ", idCiudadActual=" + idCiudadActual +
-                '}';
+        return "\n┌─ " + nombre + " (Nivel " + nivel + ")" +
+                "\n│  ID     : " + id +
+                "\n│  Salud  : " + salud + " / " + saludMax +
+                "\n│  Oro    : " + oro +
+                "\n│  Raza   : " + idRaza +
+                "\n│  Clase  : " + idClase +
+                "\n└─ Ciudad : " + idCiudadActual;
     }
 
     public void subirNivel() throws NivelInvalidoException {
