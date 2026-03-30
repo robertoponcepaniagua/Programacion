@@ -6,10 +6,10 @@ public class Raza {
     private int bonificador_vida;
     private int bonificador_fuerza;
 
-    public Raza(String nombre, int bonificador_vida, int bonificador_fuerza) {
+    public Raza(String nombre, int bonificadorVida, int bonificador_fuerza) {
         this.id = id;
         this.nombre = nombre;
-        this.bonificador_vida = bonificador_vida;
+        this.bonificador_vida = bonificadorVida;
         this.bonificador_fuerza = bonificador_fuerza;
     }
 
@@ -29,11 +29,11 @@ public class Raza {
         this.nombre = nombre;
     }
 
-    public int getBonificador_vida() {
+    public int getBonificadorVida() {
         return bonificador_vida;
     }
 
-    public void setBonificador_vida(int bonificador_vida) {
+    public void setBonificadorVida(int bonificador_vida) {
         this.bonificador_vida = bonificador_vida;
     }
 

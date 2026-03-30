@@ -1,18 +1,26 @@
 package rpg.model;
 
+import rpg.exception.NivelInvalidoException;
+import rpg.utils.Log;
+
 public class Personaje {
+    private Log logger = new Log("");
+
     private int id; //PK
     private String nombre;
     private int nivel;
+    private int saludMax;
     private int salud;
     private int oro;
     private int idRaza; //FK
     private int idClase; //FK
-    private int idCiudadActual;
+    private int idCiudadActual; //FK
 
     public Personaje(String nombre, int nivel, int salud, int oro, int idRaza, int idClase, int idCiudadActual) {
+        this.id = id;
         this.nombre = nombre;
         this.nivel = nivel;
+        this.saludMax = saludMax;
         this.salud = salud;
         this.oro = oro;
         this.idRaza = idRaza;
@@ -84,12 +92,21 @@ public class Personaje {
         this.idCiudadActual = idCiudadActual;
     }
 
+    public int getSaludMax() {
+        return saludMax;
+    }
+
+    public void setSaludMax(int saludMax) {
+        this.saludMax = saludMax;
+    }
+
     @Override
     public String toString() {
         return "Personaje{" +
                 "id=" + id +
                 ", nombre='" + nombre + '\'' +
                 ", nivel=" + nivel +
+                ", saludMax=" + saludMax +
                 ", salud=" + salud +
                 ", oro=" + oro +
                 ", idRaza=" + idRaza +
@@ -97,4 +114,22 @@ public class Personaje {
                 ", idCiudadActual=" + idCiudadActual +
                 '}';
     }
+
+    public void subirNivel() throws NivelInvalidoException {
+        this.nivel++;
+        this.oro += 100;
+        this.saludMax = this.saludMax + 10;
+        this.salud = this.saludMax;
+    }
+
+    public void aplicarBonificaciones(Raza raza) {
+        this.saludMax = this.saludMax + raza.getBonificadorVida();
+        this.salud = this.saludMax;
+    }
+
+    public void checkParametros() {
+        // TODO: CHECKEO DE PARAMETORS EJ: NIVEL < 0
+    }
+
+    // TODO: TENGO QUE APLICARLE LAS BONIFICACIONES DE LOS OBJETOS / INVENTARIO
 }
