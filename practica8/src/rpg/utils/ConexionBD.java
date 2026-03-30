@@ -13,7 +13,6 @@ public class ConexionBD {
 
 
     public Connection conectar() throws SQLException, ClassNotFoundException {
-        Class.forName("org.postgresql.Driver");
         return DriverManager.getConnection(url, user, password);
     }
 }
