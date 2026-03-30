@@ -4,7 +4,7 @@ import rpg.exception.NivelInvalidoException;
 import rpg.utils.Log;
 
 public class Personaje {
-    private Log logger = new Log("");
+    private Log logger = new Log("practica8/src/rpg/model/Personaje.java");
 
     private int id; //PK
     private String nombre;
