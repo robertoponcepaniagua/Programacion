@@ -5,3 +5,47 @@
 [2026-03-30 21:12:13] [ERROR] [rpg.dao.PersonajeDAO] [practica8/src/rpg/dao/PersonajeDAO.java] El metodo listarPersonajes ha fallado
 [2026-03-30 21:13:41] [ERROR] [rpg.dao.PersonajeDAO] [practica8/src/rpg/dao/PersonajeDAO.java] El metodo listarPersonajes ha fallado
 [2026-03-30 21:14:34] [ERROR] [rpg.dao.PersonajeDAO] [practica8/src/rpg/dao/PersonajeDAO.java] El metodo listarPersonajes ha fallado
+[2026-03-31 11:25:41] [INFO] [rpg.dao.PersonajeDAO] [practica8/src/rpg/dao/PersonajeDAO.java] El metodo crearPJ ha sido ejecutado con exito
+[2026-03-31 11:25:41] [INFO] [rpg.ui.MenuUtils] [practica8/src/rpg/dao/PersonajeDAO.java] Personaje creado con exito
+[2026-03-31 11:28:19] [ERROR] [rpg.ui.MenuUtils] [practica8/src/rpg/dao/PersonajeDAO.java] El metodo crearPJ ha fallado
+[2026-03-31 11:33:15] [INFO] [rpg.dao.PersonajeDAO] [practica8/src/rpg/dao/PersonajeDAO.java] El metodo crearPJ ha sido ejecutado con exito
+[2026-03-31 11:33:15] [INFO] [rpg.ui.MenuUtils] [practica8/src/rpg/dao/PersonajeDAO.java] Personaje creado con exito
+[2026-03-31 11:56:13] [INFO] [rpg.dao.RazaDAO] [practica8/src/rpg/dao/RazaDAO.java] El metodo listarPersonajes se ha ejecutado
+[2026-03-31 11:56:13] [INFO] [rpg.dao.RazaDAO] [practica8/src/rpg/dao/RazaDAO.java] El metodo listarPersonajes se ha ejecutado
+[2026-03-31 11:56:13] [INFO] [rpg.dao.RazaDAO] [practica8/src/rpg/dao/RazaDAO.java] El metodo listarPersonajes se ha ejecutado
+[2026-03-31 11:56:13] [INFO] [rpg.dao.RazaDAO] [practica8/src/rpg/dao/RazaDAO.java] El metodo listarPersonajes se ha ejecutado
+[2026-03-31 11:56:15] [ERROR] [rpg.ui.MenuUtils] [practica8/src/rpg/dao/PersonajeDAO.java] El metodo crearPJ ha fallado
+[2026-03-31 11:57:47] [INFO] [rpg.dao.RazaDAO] [practica8/src/rpg/dao/RazaDAO.java] El metodo listarPersonajes se ha ejecutado
+[2026-03-31 11:57:47] [INFO] [rpg.dao.RazaDAO] [practica8/src/rpg/dao/RazaDAO.java] El metodo listarPersonajes se ha ejecutado
+[2026-03-31 11:57:47] [INFO] [rpg.dao.RazaDAO] [practica8/src/rpg/dao/RazaDAO.java] El metodo listarPersonajes se ha ejecutado
+[2026-03-31 11:57:47] [INFO] [rpg.dao.RazaDAO] [practica8/src/rpg/dao/RazaDAO.java] El metodo listarPersonajes se ha ejecutado
+[2026-03-31 11:57:49] [ERROR] [rpg.ui.MenuUtils] [practica8/src/rpg/dao/PersonajeDAO.java] El metodo crearPJ ha fallado
+[2026-03-31 11:59:04] [INFO] [rpg.dao.RazaDAO] [practica8/src/rpg/dao/RazaDAO.java] El metodo listarPersonajes se ha ejecutado
+[2026-03-31 11:59:04] [INFO] [rpg.dao.RazaDAO] [practica8/src/rpg/dao/RazaDAO.java] El metodo listarPersonajes se ha ejecutado
+[2026-03-31 11:59:04] [INFO] [rpg.dao.RazaDAO] [practica8/src/rpg/dao/RazaDAO.java] El metodo listarPersonajes se ha ejecutado
+[2026-03-31 11:59:04] [INFO] [rpg.dao.RazaDAO] [practica8/src/rpg/dao/RazaDAO.java] El metodo listarPersonajes se ha ejecutado
+[2026-03-31 11:59:06] [ERROR] [rpg.ui.MenuUtils] [practica8/src/rpg/dao/PersonajeDAO.java] El metodo crearPJ ha fallado
+[2026-03-31 12:00:35] [INFO] [rpg.dao.RazaDAO] [practica8/src/rpg/dao/RazaDAO.java] El metodo listarPersonajes se ha ejecutado
+[2026-03-31 12:00:35] [INFO] [rpg.dao.RazaDAO] [practica8/src/rpg/dao/RazaDAO.java] El metodo listarPersonajes se ha ejecutado
+[2026-03-31 12:00:35] [INFO] [rpg.dao.RazaDAO] [practica8/src/rpg/dao/RazaDAO.java] El metodo listarPersonajes se ha ejecutado
+[2026-03-31 12:00:35] [INFO] [rpg.dao.RazaDAO] [practica8/src/rpg/dao/RazaDAO.java] El metodo listarPersonajes se ha ejecutado
+[2026-03-31 12:00:40] [ERROR] [rpg.ui.MenuUtils] [practica8/src/rpg/dao/PersonajeDAO.java] El metodo crearPJ ha fallado
+[2026-03-31 12:02:36] [INFO] [rpg.dao.RazaDAO] [practica8/src/rpg/dao/RazaDAO.java] El metodo listarPersonajes se ha ejecutado
+[2026-03-31 12:02:36] [INFO] [rpg.dao.RazaDAO] [practica8/src/rpg/dao/RazaDAO.java] El metodo listarPersonajes se ha ejecutado
+[2026-03-31 12:02:36] [INFO] [rpg.dao.RazaDAO] [practica8/src/rpg/dao/RazaDAO.java] El metodo listarPersonajes se ha ejecutado
+[2026-03-31 12:02:36] [INFO] [rpg.dao.RazaDAO] [practica8/src/rpg/dao/RazaDAO.java] El metodo listarPersonajes se ha ejecutado
+[2026-03-31 12:02:36] [ERROR] [rpg.ui.MenuUtils] [practica8/src/rpg/dao/PersonajeDAO.java] El metodo crearPJ ha falladoCannot invoke "rpg.dao.ClaseRPGDAO.listarClases()" because "this.claseRPGDAO" is null
+[2026-03-31 12:03:32] [INFO] [rpg.dao.RazaDAO] [practica8/src/rpg/dao/RazaDAO.java] El metodo listarPersonajes se ha ejecutado
+[2026-03-31 12:03:32] [INFO] [rpg.dao.RazaDAO] [practica8/src/rpg/dao/RazaDAO.java] El metodo listarPersonajes se ha ejecutado
+[2026-03-31 12:03:32] [INFO] [rpg.dao.RazaDAO] [practica8/src/rpg/dao/RazaDAO.java] El metodo listarPersonajes se ha ejecutado
+[2026-03-31 12:03:32] [INFO] [rpg.dao.RazaDAO] [practica8/src/rpg/dao/RazaDAO.java] El metodo listarPersonajes se ha ejecutado
+[2026-03-31 12:03:33] [ERROR] [rpg.dao.ClaseRPGDAO] [practica8/src/rpg/dao/ClaseRPGDAO.java] El metodo listarClases ha fallado
+[2026-03-31 12:03:33] [ERROR] [rpg.ui.MenuUtils] [practica8/src/rpg/dao/PersonajeDAO.java] El metodo crearPJ ha falladoEl metodo listarClases ha fallado
+[2026-03-31 12:04:38] [INFO] [rpg.dao.RazaDAO] [practica8/src/rpg/dao/RazaDAO.java] El metodo listarPersonajes se ha ejecutado
+[2026-03-31 12:04:38] [INFO] [rpg.dao.RazaDAO] [practica8/src/rpg/dao/RazaDAO.java] El metodo listarPersonajes se ha ejecutado
+[2026-03-31 12:04:38] [INFO] [rpg.dao.RazaDAO] [practica8/src/rpg/dao/RazaDAO.java] El metodo listarPersonajes se ha ejecutado
+[2026-03-31 12:04:38] [INFO] [rpg.dao.RazaDAO] [practica8/src/rpg/dao/RazaDAO.java] El metodo listarPersonajes se ha ejecutado
+[2026-03-31 12:04:39] [INFO] [rpg.dao.ClaseRPGDAO] [practica8/src/rpg/dao/ClaseRPGDAO.java] El metodo listarClases se ha ejecutado
+[2026-03-31 12:04:39] [INFO] [rpg.dao.ClaseRPGDAO] [practica8/src/rpg/dao/ClaseRPGDAO.java] El metodo listarClases se ha ejecutado
+[2026-03-31 12:04:39] [INFO] [rpg.dao.ClaseRPGDAO] [practica8/src/rpg/dao/ClaseRPGDAO.java] El metodo listarClases se ha ejecutado
+[2026-03-31 12:04:39] [INFO] [rpg.dao.ClaseRPGDAO] [practica8/src/rpg/dao/ClaseRPGDAO.java] El metodo listarClases se ha ejecutado
