@@ -46,6 +46,7 @@ public class PersonajeDAO {
                 );
                 // AÑADIMOS LOS PERSONAJES A LA LISTGA
                 personajeList.add(pj);
+                log.escribirFichero("ERROR","El metodo listarPersonajes se ha ejecutado");
             }
             return personajeList;
 
@@ -56,7 +57,7 @@ public class PersonajeDAO {
     }
 
     // FUNCIONA
-    public boolean crearPJ(String nombre, int nivel, int salud, int oro, int idRaza, int idClase, int idCiudadActual) throws RPGException {
+    public boolean crearPJ(String nombre, int idRaza, int idClase, int idCiudadActual) throws RPGException {
         String sql = "INSERT INTO Personajes (nombre,nivel,oro,vida_actual,id_raza,id_clase,id_ciudad_actual) VALUES (?,1,100,100,?,?,?)"; // LOS VALORES ? SE RELLENAN MÁS TARDE, LOS PERSONAJES EMPEIZAN SIEMPRE CON NIVEL 1 SALUD 100 ORO 100 LO DEMÁS SE INTRODUCE DESPUÉS
         try (Connection con = conexionBD.conectar(); // INTENTAMOS ESTABLECER CONEXIÓN
              PreparedStatement ps = con.prepareStatement(sql)) {
