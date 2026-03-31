@@ -76,4 +76,20 @@ public class PersonajeDAO {
             throw new RPGException("El metodo crearPJ ha fallado");
         }
     }
+
+    public boolean viajar(int idPersonaje, int idCiudad) throws RPGException {
+        String sql = "UPDATE PERSONAJES SET id_ciudad_actual = ? WHERE id = ?";
+
+        try(Connection con = conexionBD.conectar(); // INTENTAMOS ESTABLECER CONEXIÓN
+            PreparedStatement ps = con.prepareStatement(sql)) {
+            // SUSTITUYE CADA ? POR EL NUEVO ID
+            ps.setInt(1, idCiudad);  // POSICIÓN / VALOR: es decir el primero signo "?" pone ahí el nuevo idCiudad
+            ps.setInt(2, idPersonaje); // y aquí pone el segundo
+
+            return ps.executeUpdate() > 0; // true se ha ejecutado , false no se ha ejecutado
+        } catch (SQLException | ClassNotFoundException e) {
+            log.escribirFichero("ERROR","No se ha podido viajar " + e.getMessage());
+            throw new RPGException("No se ha podido viajar " + e.getMessage());
+        }
+    }
 }

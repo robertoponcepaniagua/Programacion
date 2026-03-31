@@ -58,6 +58,7 @@ public class MenuUtils {
             // TODO: TERMINAR EL MENÚ
             switch (opcion)  {
                 case 1:
+                    // FUNCIONA / TERMINADO
                     // 1. Crear Personaje
                     // nombre,nivel,oro,vida_actual,id_raza,id_clase,id_ciudad_actual
                     try {
@@ -68,26 +69,17 @@ public class MenuUtils {
                         separador();
 
                         System.out.println("Eligue la Raza (id): ");
-                        List<Raza> razas = razaDAO.listarRazas();
 
-                        //MOSTRAR RAZAS
+                        mostrarRazas();
 
-                        for (Raza r : razas) {
-                            System.out.println(r.toString());
-                        }
                         // ELEGIR RAZA
                         int raza = Integer.parseInt(sc.nextLine());
 
                         separador();
 
                         System.out.println("Elige la Clase (id): ");
-                        List<Clases_RPG> clases = claseRPGDAO.listarClases();
 
-                        //MOSTRAR CLASES
-
-                        for (Clases_RPG clasesRpg : clases) {
-                            System.out.println(clasesRpg.toString());
-                        }
+                        mostrarClases();
 
                         int clase = Integer.parseInt(sc.nextLine());
 
@@ -96,10 +88,7 @@ public class MenuUtils {
                         System.out.println("Elige la Ciudad (id): ");
 
                         //MOSTRAR CIDUADES
-                        List<Ciudades> ciudadesList = ciudadDAO.listarCiudades();
-                        for (Ciudades ciudades : ciudadesList) {
-                            System.out.println(ciudades.toString());
-                        }
+                        mostrarCiudades();
 
                         int ciudad = Integer.parseInt(sc.nextLine());
 
@@ -117,6 +106,25 @@ public class MenuUtils {
                     break;
                 case 2:
                     // 2. Viajar a Ciudad
+                    System.out.println("Que personaje quieres que viaje? ");
+
+                    mostrarPersonajes();
+
+                    separador();
+
+                    int idViaja = sc.nextInt();
+
+                    separador();
+
+                    System.out.println("Donde? ");
+
+                    mostrarCiudades();
+
+                    separador();
+
+                    int idDestino = sc.nextInt();
+
+                    personajeDAO.viajar(idViaja, idDestino);
                 case 3:
                     // 3. Comprar items
                 case 4:
@@ -133,11 +141,9 @@ public class MenuUtils {
                     // B. CONTAR CUANTOS HAY DE CADA CLASE
 
                 case 8:
+                    //FUNCIONA / TERMINADO
                     // 8. Ver Personajes
-                    List<Personaje> prueba = personajeDAO.listarPersonajes();
-                    for (Personaje p : prueba) {
-                        System.out.println(p.toString());
-                    }
+                    mostrarPersonajes();
                     break;
             }
         } while (opcion != 0);
@@ -145,20 +151,47 @@ public class MenuUtils {
 
 
     public void cabecera() {
-        System.out.println(
-                "" +
-                        "____  _______________________  ________ \n" +
-                        "\\   \\/  /\\______   \\______   \\/  _____/ \n" +
-                        " \\     /  |     ___/|       _/   \\  ___ \n" +
-                        " /     \\  |    |    |    |   \\    \\_\\  \\\n" +
-                        "/___/\\  \\ |____|    |____|_  /\\______  /\n" +
-                        "      \\_/                  \\/        \\/ "
-        );
+        System.out.println("" +
+                "____  _______________________  ________ \n" +
+                "\\   \\/  /\\______   \\______   \\/  _____/ \n" +
+                " \\     /  |       _/|     ___/   \\  ___ \n" +
+                " /     \\  |    |   \\|    |   \\    \\_\\  \\\n" +
+                "/___/\\  \\ |____|_  /|____|    \\______  /\n" +
+                "      \\_/        \\/                  \\/ ");
     }
 
     public void separador() {
         System.out.println();
         System.out.println("﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌");
         System.out.println();
+    }
+
+
+    public void mostrarCiudades() {
+        List<Ciudades> ciudadesList = ciudadDAO.listarCiudades();
+        for (Ciudades ciudades : ciudadesList) {
+            System.out.println(ciudades.toString());
+        }
+    }
+
+    public void mostrarPersonajes() {
+        List<Personaje> prueba = personajeDAO.listarPersonajes();
+        for (Personaje p : prueba) {
+            System.out.println(p.toString());
+        }
+    }
+
+    public void mostrarRazas() {
+        List<Raza> razas = razaDAO.listarRazas();
+        for (Raza r : razas) {
+            System.out.println(r.toString());
+        }
+    }
+
+    public void mostrarClases() {
+        List<Clases_RPG> clases = claseRPGDAO.listarClases();
+        for (Clases_RPG clasesRpg : clases) {
+            System.out.println(clasesRpg.toString());
+        }
     }
 }

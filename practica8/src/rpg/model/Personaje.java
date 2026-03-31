@@ -3,6 +3,8 @@ package rpg.model;
 import rpg.exception.NivelInvalidoException;
 import rpg.utils.Log;
 
+import java.sql.Connection;
+
 public class Personaje {
     private Log logger = new Log("practica8/src/rpg/model/Personaje.java");
 
