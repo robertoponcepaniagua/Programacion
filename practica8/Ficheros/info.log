@@ -49,3 +49,45 @@
 [2026-03-31 12:04:39] [INFO] [rpg.dao.ClaseRPGDAO] [practica8/src/rpg/dao/ClaseRPGDAO.java] El metodo listarClases se ha ejecutado
 [2026-03-31 12:04:39] [INFO] [rpg.dao.ClaseRPGDAO] [practica8/src/rpg/dao/ClaseRPGDAO.java] El metodo listarClases se ha ejecutado
 [2026-03-31 12:04:39] [INFO] [rpg.dao.ClaseRPGDAO] [practica8/src/rpg/dao/ClaseRPGDAO.java] El metodo listarClases se ha ejecutado
+[2026-03-31 13:19:38] [INFO] [rpg.dao.RazaDAO] [practica8/src/rpg/dao/RazaDAO.java] El metodo listarPersonajes se ha ejecutado
+[2026-03-31 13:19:38] [INFO] [rpg.dao.RazaDAO] [practica8/src/rpg/dao/RazaDAO.java] El metodo listarPersonajes se ha ejecutado
+[2026-03-31 13:19:38] [INFO] [rpg.dao.RazaDAO] [practica8/src/rpg/dao/RazaDAO.java] El metodo listarPersonajes se ha ejecutado
+[2026-03-31 13:19:38] [INFO] [rpg.dao.RazaDAO] [practica8/src/rpg/dao/RazaDAO.java] El metodo listarPersonajes se ha ejecutado
+[2026-03-31 13:19:40] [INFO] [rpg.dao.ClaseRPGDAO] [practica8/src/rpg/dao/ClaseRPGDAO.java] El metodo listarClases se ha ejecutado
+[2026-03-31 13:19:40] [INFO] [rpg.dao.ClaseRPGDAO] [practica8/src/rpg/dao/ClaseRPGDAO.java] El metodo listarClases se ha ejecutado
+[2026-03-31 13:19:40] [INFO] [rpg.dao.ClaseRPGDAO] [practica8/src/rpg/dao/ClaseRPGDAO.java] El metodo listarClases se ha ejecutado
+[2026-03-31 13:19:40] [INFO] [rpg.dao.ClaseRPGDAO] [practica8/src/rpg/dao/ClaseRPGDAO.java] El metodo listarClases se ha ejecutado
+[2026-03-31 13:19:40] [ERROR] [rpg.dao.CiudadDAO] [practica8/src/rpg/dao/CiudadDAO.java] El metodo listarCiudades ha falladoThe column name nombre_minimo_acceso was not found in this ResultSet.
+[2026-03-31 13:19:40] [ERROR] [rpg.ui.MenuUtils] [practica8/src/rpg/dao/PersonajeDAO.java] El metodo crearPJ ha falladoEl metodo listarCiudades ha falladoThe column name nombre_minimo_acceso was not found in this ResultSet.
+[2026-03-31 13:21:23] [INFO] [rpg.dao.RazaDAO] [practica8/src/rpg/dao/RazaDAO.java] El metodo listarPersonajes se ha ejecutado
+[2026-03-31 13:21:23] [INFO] [rpg.dao.RazaDAO] [practica8/src/rpg/dao/RazaDAO.java] El metodo listarPersonajes se ha ejecutado
+[2026-03-31 13:21:23] [INFO] [rpg.dao.RazaDAO] [practica8/src/rpg/dao/RazaDAO.java] El metodo listarPersonajes se ha ejecutado
+[2026-03-31 13:21:23] [INFO] [rpg.dao.RazaDAO] [practica8/src/rpg/dao/RazaDAO.java] El metodo listarPersonajes se ha ejecutado
+[2026-03-31 13:21:23] [INFO] [rpg.dao.ClaseRPGDAO] [practica8/src/rpg/dao/ClaseRPGDAO.java] El metodo listarClases se ha ejecutado
+[2026-03-31 13:21:23] [INFO] [rpg.dao.ClaseRPGDAO] [practica8/src/rpg/dao/ClaseRPGDAO.java] El metodo listarClases se ha ejecutado
+[2026-03-31 13:21:23] [INFO] [rpg.dao.ClaseRPGDAO] [practica8/src/rpg/dao/ClaseRPGDAO.java] El metodo listarClases se ha ejecutado
+[2026-03-31 13:21:23] [INFO] [rpg.dao.ClaseRPGDAO] [practica8/src/rpg/dao/ClaseRPGDAO.java] El metodo listarClases se ha ejecutado
+[2026-03-31 13:21:24] [INFO] [rpg.dao.CiudadDAO] [practica8/src/rpg/dao/CiudadDAO.java] El metodo listarCiudades se ha ejecutado
+[2026-03-31 13:21:24] [INFO] [rpg.dao.CiudadDAO] [practica8/src/rpg/dao/CiudadDAO.java] El metodo listarCiudades se ha ejecutado
+[2026-03-31 13:21:24] [INFO] [rpg.dao.CiudadDAO] [practica8/src/rpg/dao/CiudadDAO.java] El metodo listarCiudades se ha ejecutado
+[2026-03-31 13:21:24] [INFO] [rpg.dao.CiudadDAO] [practica8/src/rpg/dao/CiudadDAO.java] El metodo listarCiudades se ha ejecutado
+[2026-03-31 13:21:57] [INFO] [rpg.dao.RazaDAO] [practica8/src/rpg/dao/RazaDAO.java] El metodo listarPersonajes se ha ejecutado
+[2026-03-31 13:21:57] [INFO] [rpg.dao.RazaDAO] [practica8/src/rpg/dao/RazaDAO.java] El metodo listarPersonajes se ha ejecutado
+[2026-03-31 13:21:57] [INFO] [rpg.dao.RazaDAO] [practica8/src/rpg/dao/RazaDAO.java] El metodo listarPersonajes se ha ejecutado
+[2026-03-31 13:21:57] [INFO] [rpg.dao.RazaDAO] [practica8/src/rpg/dao/RazaDAO.java] El metodo listarPersonajes se ha ejecutado
+[2026-03-31 13:22:01] [INFO] [rpg.dao.ClaseRPGDAO] [practica8/src/rpg/dao/ClaseRPGDAO.java] El metodo listarClases se ha ejecutado
+[2026-03-31 13:22:01] [INFO] [rpg.dao.ClaseRPGDAO] [practica8/src/rpg/dao/ClaseRPGDAO.java] El metodo listarClases se ha ejecutado
+[2026-03-31 13:22:01] [INFO] [rpg.dao.ClaseRPGDAO] [practica8/src/rpg/dao/ClaseRPGDAO.java] El metodo listarClases se ha ejecutado
+[2026-03-31 13:22:01] [INFO] [rpg.dao.ClaseRPGDAO] [practica8/src/rpg/dao/ClaseRPGDAO.java] El metodo listarClases se ha ejecutado
+[2026-03-31 13:22:04] [INFO] [rpg.dao.CiudadDAO] [practica8/src/rpg/dao/CiudadDAO.java] El metodo listarCiudades se ha ejecutado
+[2026-03-31 13:22:04] [INFO] [rpg.dao.CiudadDAO] [practica8/src/rpg/dao/CiudadDAO.java] El metodo listarCiudades se ha ejecutado
+[2026-03-31 13:22:04] [INFO] [rpg.dao.CiudadDAO] [practica8/src/rpg/dao/CiudadDAO.java] El metodo listarCiudades se ha ejecutado
+[2026-03-31 13:22:04] [INFO] [rpg.dao.CiudadDAO] [practica8/src/rpg/dao/CiudadDAO.java] El metodo listarCiudades se ha ejecutado
+[2026-03-31 13:22:06] [INFO] [rpg.dao.PersonajeDAO] [practica8/src/rpg/dao/PersonajeDAO.java] El metodo crearPJ ha sido ejecutado con exito
+[2026-03-31 13:22:06] [INFO] [rpg.ui.MenuUtils] [practica8/src/rpg/dao/PersonajeDAO.java] Personaje creado con exito
+[2026-03-31 13:22:12] [ERROR] [rpg.dao.PersonajeDAO] [practica8/src/rpg/dao/PersonajeDAO.java] El metodo listarPersonajes se ha ejecutado
+[2026-03-31 13:22:12] [ERROR] [rpg.dao.PersonajeDAO] [practica8/src/rpg/dao/PersonajeDAO.java] El metodo listarPersonajes se ha ejecutado
+[2026-03-31 13:22:12] [ERROR] [rpg.dao.PersonajeDAO] [practica8/src/rpg/dao/PersonajeDAO.java] El metodo listarPersonajes se ha ejecutado
+[2026-03-31 13:22:12] [ERROR] [rpg.dao.PersonajeDAO] [practica8/src/rpg/dao/PersonajeDAO.java] El metodo listarPersonajes se ha ejecutado
+[2026-03-31 13:22:12] [ERROR] [rpg.dao.PersonajeDAO] [practica8/src/rpg/dao/PersonajeDAO.java] El metodo listarPersonajes se ha ejecutado
+[2026-03-31 13:22:12] [ERROR] [rpg.dao.PersonajeDAO] [practica8/src/rpg/dao/PersonajeDAO.java] El metodo listarPersonajes se ha ejecutado

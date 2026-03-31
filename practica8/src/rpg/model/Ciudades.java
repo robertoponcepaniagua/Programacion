@@ -34,4 +34,9 @@ public class Ciudades {
     public void setNombre_minimo_acceso(int nombre_minimo_acceso) {
         this.nombre_minimo_acceso = nombre_minimo_acceso;
     }
+
+    @Override
+    public String toString() {
+        return "[" + id + "] " + nombre + " | Nivel minimo: " + nombre_minimo_acceso;
+    }
 }

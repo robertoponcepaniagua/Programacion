@@ -22,7 +22,7 @@ public class ClaseRPGDAO {
     }
 
 
-    //PROBAR
+    //FUNCIONA
     public List<Clases_RPG> listarClases() {
         String sql = "SELECT * FROM Clases_RPG";
         // LISTA PARA AÑADIR A LAS Clases

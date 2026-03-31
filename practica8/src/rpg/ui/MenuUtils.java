@@ -1,9 +1,11 @@
 package rpg.ui;
 
+import rpg.dao.CiudadDAO;
 import rpg.dao.ClaseRPGDAO;
 import rpg.dao.PersonajeDAO;
 import rpg.dao.RazaDAO;
 import rpg.exception.RPGException;
+import rpg.model.Ciudades;
 import rpg.model.Clases_RPG;
 import rpg.model.Personaje;
 import rpg.model.Raza;
@@ -18,6 +20,7 @@ public class MenuUtils {
     private PersonajeDAO personajeDAO;
     private RazaDAO razaDAO;
     private ClaseRPGDAO claseRPGDAO;
+    private CiudadDAO ciudadDAO;
 
     public MenuUtils() throws RPGException {
         this.sc = new Scanner(System.in);
@@ -25,6 +28,7 @@ public class MenuUtils {
         this.personajeDAO = new PersonajeDAO();
         this.razaDAO = new RazaDAO();
         this.claseRPGDAO = new ClaseRPGDAO();
+        this.ciudadDAO = new CiudadDAO();
 
 
 
@@ -91,7 +95,11 @@ public class MenuUtils {
 
                         System.out.println("Elige la Ciudad (id): ");
 
-                        //TODO: MOSTRAR CIDUADES
+                        //MOSTRAR CIDUADES
+                        List<Ciudades> ciudadesList = ciudadDAO.listarCiudades();
+                        for (Ciudades ciudades : ciudadesList) {
+                            System.out.println(ciudades.toString());
+                        }
 
                         int ciudad = Integer.parseInt(sc.nextLine());
 
