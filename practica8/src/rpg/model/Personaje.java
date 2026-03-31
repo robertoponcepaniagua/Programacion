@@ -119,7 +119,7 @@ public class Personaje {
     }
 
     public void aplicarBonificaciones(Raza raza) {
-        this.saludMax = this.saludMax + raza.getBonificadorVida();
+        this.saludMax = this.saludMax + raza.getBonificador_vida();
         this.salud = this.saludMax;
     }
 
