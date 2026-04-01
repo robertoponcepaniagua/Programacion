@@ -1,6 +1,8 @@
 package rpg.model;
 
+import com.sun.source.tree.TryTree;
 import rpg.exception.NivelInvalidoException;
+import rpg.exception.RPGException;
 import rpg.utils.Log;
 
 import java.sql.Connection;
@@ -18,7 +20,7 @@ public class Personaje {
     private int idClase; //FK
     private int idCiudadActual; //FK
 
-    public Personaje(int id, String nombre, int nivel, int salud, int oro, int idRaza, int idClase, int idCiudadActual) {
+    public Personaje(int id, String nombre, int nivel, int salud, int oro, int idRaza, int idClase, int idCiudadActual) throws RPGException {
         this.id = id;
         this.nombre = nombre;
         this.nivel = nivel;
@@ -28,6 +30,8 @@ public class Personaje {
         this.idRaza = idRaza;
         this.idClase = idClase;
         this.idCiudadActual = idCiudadActual;
+
+        checkParametros();
     }
 
     public int getId() {
@@ -113,7 +117,7 @@ public class Personaje {
                 "\n└─ Ciudad : " + idCiudadActual;
     }
 
-    public void subirNivel() throws NivelInvalidoException {
+    public void subirNivel() {
         this.nivel++;
         this.oro += 100;
         this.saludMax = this.saludMax + 10;
@@ -125,8 +129,10 @@ public class Personaje {
         this.salud = this.saludMax;
     }
 
-    public void checkParametros() {
-        // TODO: CHECKEO DE PARAMETORS EJ: NIVEL < 0
+    public void checkParametros() throws RPGException {
+        if (nivel < 0 || nivel > 100) {
+            throw new NivelInvalidoException("El nível no puede ser < 0");
+        }
     }
 
     // TODO: TENGO QUE APLICARLE LAS BONIFICACIONES DE LOS OBJETOS / INVENTARIO

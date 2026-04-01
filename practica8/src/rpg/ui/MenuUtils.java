@@ -1,14 +1,8 @@
 package rpg.ui;
 
-import rpg.dao.CiudadDAO;
-import rpg.dao.ClaseRPGDAO;
-import rpg.dao.PersonajeDAO;
-import rpg.dao.RazaDAO;
+import rpg.dao.*;
 import rpg.exception.RPGException;
-import rpg.model.Ciudades;
-import rpg.model.Clases_RPG;
-import rpg.model.Personaje;
-import rpg.model.Raza;
+import rpg.model.*;
 import rpg.utils.Log;
 
 import java.util.List;
@@ -21,6 +15,7 @@ public class MenuUtils {
     private RazaDAO razaDAO;
     private ClaseRPGDAO claseRPGDAO;
     private CiudadDAO ciudadDAO;
+    private ItemDAO itemDAO;
 
     public MenuUtils() throws RPGException {
         this.sc = new Scanner(System.in);
@@ -29,6 +24,7 @@ public class MenuUtils {
         this.razaDAO = new RazaDAO();
         this.claseRPGDAO = new ClaseRPGDAO();
         this.ciudadDAO = new CiudadDAO();
+        this.itemDAO = new ItemDAO();
 
 
 
@@ -127,6 +123,20 @@ public class MenuUtils {
                     personajeDAO.viajar(idViaja, idDestino);
                 case 3:
                     // 3. Comprar items
+                    tienda();
+
+                    System.out.println("Qué personaje quieres que compre? ");
+                    mostrarPersonajes();
+                    System.out.println("Escribe el personaje (id): ");
+                    int comprador = sc.nextInt();
+
+                    separador();
+
+                    mostrarItems();
+
+                    // TODO: DUDA: FUNCIONES Y DESPUÉS ACTUALIZAR CON CONSULTA O DIRECTAMENTE CONSULTA?
+                    break;
+
                 case 4:
                     // 4. Combate PVP
                 case 5:
@@ -158,6 +168,16 @@ public class MenuUtils {
                 " /     \\  |    |   \\|    |   \\    \\_\\  \\\n" +
                 "/___/\\  \\ |____|_  /|____|    \\______  /\n" +
                 "      \\_/        \\/                  \\/ ");
+    }
+
+    public void tienda() {
+        System.out.println("___________.______________ _______  ________      _____   \n" +
+                "\\__    ___/|   \\_   _____/ \\      \\ \\______ \\    /  _  \\  \n" +
+                "  |    |   |   ||    __)_  /   |   \\ |    |  \\  /  /_\\  \\ \n" +
+                "  |    |   |   ||        \\/    |    \\|    `   \\/    |    \\\n" +
+                "  |____|   |___/_______  /\\____|__  /_______  /\\____|__  /\n" +
+                "                       \\/         \\/        \\/         \\/ \n" +
+                "                                                          \n");
     }
 
     public void separador() {
@@ -192,6 +212,13 @@ public class MenuUtils {
         List<Clases_RPG> clases = claseRPGDAO.listarClases();
         for (Clases_RPG clasesRpg : clases) {
             System.out.println(clasesRpg.toString());
+        }
+    }
+
+    public void mostrarItems() {
+        List<Item> items = itemDAO.listarItems();
+        for (Item item : items) {
+            System.out.println(item.toString());
         }
     }
 }

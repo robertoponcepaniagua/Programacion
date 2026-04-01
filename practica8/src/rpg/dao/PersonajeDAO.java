@@ -50,7 +50,7 @@ public class PersonajeDAO {
             }
             return personajeList;
 
-        } catch (SQLException | ClassNotFoundException e) {
+        } catch (SQLException | ClassNotFoundException | RPGException e) {
             log.escribirFichero("ERROR","El metodo listarPersonajes ha fallado");
             throw new RuntimeException("El metodo listarPersonajes ha fallado");
         }

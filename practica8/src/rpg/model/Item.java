@@ -17,5 +17,7 @@ public class Item {
         this.bonificador_defensa = bonificador_defensa;
     }
 
-
+    public String toString() {
+        return "[" + id + "] " + nombre + " | " + tipo + " | " + precio_oro + " oro | ATQ +" + bonificador_ataque + " | DEF +" + bonificador_defensa;
+    }
 }
