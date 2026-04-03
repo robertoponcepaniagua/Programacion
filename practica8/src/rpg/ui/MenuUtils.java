@@ -1,6 +1,7 @@
 package rpg.ui;
 
 import rpg.dao.*;
+import rpg.exception.FondosInsuficientesException;
 import rpg.exception.RPGException;
 import rpg.model.*;
 import rpg.utils.Log;
@@ -16,6 +17,7 @@ public class MenuUtils {
     private ClaseRPGDAO claseRPGDAO;
     private CiudadDAO ciudadDAO;
     private ItemDAO itemDAO;
+    private InventarioDAO inventarioDAO;
 
     public MenuUtils() throws RPGException {
         this.sc = new Scanner(System.in);
@@ -25,6 +27,7 @@ public class MenuUtils {
         this.claseRPGDAO = new ClaseRPGDAO();
         this.ciudadDAO = new CiudadDAO();
         this.itemDAO = new ItemDAO();
+        this.inventarioDAO = new InventarioDAO();
 
 
 
@@ -128,13 +131,55 @@ public class MenuUtils {
                     System.out.println("Qué personaje quieres que compre? ");
                     mostrarPersonajes();
                     System.out.println("Escribe el personaje (id): ");
-                    int comprador = sc.nextInt();
+                    int idcomprador = sc.nextInt();
 
                     separador();
 
+                    System.out.println("Que quieres comprar");
                     mostrarItems();
+                    int iditemcompra = sc.nextInt();
 
-                    // TODO: DUDA: FUNCIONES Y DESPUÉS ACTUALIZAR CON CONSULTA O DIRECTAMENTE CONSULTA?
+                    // TODO: FUNCIÓN Y DESPUÉS ACTUALIZAMOS CON CONSULTA SQL
+
+                    //GUARDAMOS LOS PERSONAJES
+                    List<Personaje> compradores = personajeDAO.listarPersonajes();
+                    List<Item> itemsventa = itemDAO.listarItems();
+
+                    for (Personaje compradorpj : compradores) {
+                        for (Item itemventa : itemsventa) {
+
+                            //FOR PARA CONSEGUIR LOS 2 EL ITEM Y EL COMPRADOR
+
+                            if (itemventa.getId() == iditemcompra) { // CONSEGIR EL ITEM
+
+
+                                if (compradorpj.getId() == idcomprador) {  // CONSEGUIR EL COPMPRADOR
+                                    //MIRAMOS SI TIENE ORO
+                                    if (compradorpj.getOro() >= itemventa.getPrecio_oro()) {
+
+                                        // RESTAMOS ORO
+                                        compradorpj.setOro(compradorpj.getOro() - itemventa.getPrecio_oro());
+
+                                        // ACTUALIZAMOS ORO EN LA BASE DE DATOS
+
+                                        // AÑADIMOS ITEM A INVENTARIO
+                                        inventarioDAO.añadirItem(compradorpj, itemventa);
+
+
+                                        System.out.println("---COMPRA REALIZADA CON EXITO!---");
+                                        logger.escribirFichero("INFO","Compra realizada con exito Comprador: " +compradorpj.getId() + " Item comprado: " + itemventa.getId());
+
+                                    } else {
+                                        logger.escribirFichero("ERROR","El personaje no tiene suficiente oro");
+                                        throw new FondosInsuficientesException("El personaje " + compradorpj.toString() + " no tiene suficiente oro" + itemventa.toString() );
+                                    }
+                                }
+
+                            }
+                        }
+
+                    }
+
                     break;
 
                 case 4:

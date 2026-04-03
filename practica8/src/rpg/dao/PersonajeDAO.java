@@ -86,6 +86,7 @@ public class PersonajeDAO {
             ps.setInt(1, idCiudad);  // POSICIÓN / VALOR: es decir el primero signo "?" pone ahí el nuevo idCiudad
             ps.setInt(2, idPersonaje); // y aquí pone el segundo
 
+            log.escribirFichero("INFO","El personaje ha viajado con exito" + idPersonaje);
             return ps.executeUpdate() > 0; // true se ha ejecutado , false no se ha ejecutado
         } catch (SQLException | ClassNotFoundException e) {
             log.escribirFichero("ERROR","No se ha podido viajar " + e.getMessage());
