@@ -34,6 +34,7 @@ public class ItemDAO {
             while (rs.next()) { // MIENTRAS QUE HAYA FILA
                 //String nombre, String tipo, int precio_oro, int bonificador_ataque, int bonificador_defensa
                 Item item = new Item(
+                        rs.getInt("id"),
                         rs.getString("nombre"),
                         rs.getString("tipo"),
                         rs.getInt("precio_oro"),

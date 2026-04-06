@@ -8,7 +8,7 @@ public class Item {
     private int bonificador_ataque;
     private int bonificador_defensa;
 
-    public Item(String nombre, String tipo, int precio_oro, int bonificador_ataque, int bonificador_defensa) {
+    public Item(int id, String nombre, String tipo, int precio_oro, int bonificador_ataque, int bonificador_defensa) {
         this.id = id;
         this.nombre = nombre;
         this.tipo = tipo;
