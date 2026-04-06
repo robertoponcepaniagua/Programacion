@@ -3,14 +3,14 @@ package rpg.model;
 public class Habilidades {
     private int id;
     private String nombre;
-    private int daño_base;
+    private int dano_base;
     private int usos_maximos;
     private int id_clase;
 
-    public Habilidades(int id, String nombre, int daño_base, int usos_maximos, int id_clase) {
+    public Habilidades(int id, String nombre, int dano_base, int usos_maximos, int id_clase) {
         this.id = id;
         this.nombre = nombre;
-        this.daño_base = daño_base;
+        this.dano_base = dano_base;
         this.usos_maximos = usos_maximos;
         this.id_clase = id_clase;
     }
@@ -31,12 +31,12 @@ public class Habilidades {
         this.nombre = nombre;
     }
 
-    public int getDaño_base() {
-        return daño_base;
+    public int getDano_base() {
+        return dano_base;
     }
 
-    public void setDaño_base(int daño_base) {
-        this.daño_base = daño_base;
+    public void setDano_base(int daño_base) {
+        this.dano_base = dano_base;
     }
 
     public int getUsos_maximos() {
@@ -53,5 +53,10 @@ public class Habilidades {
 
     public void setId_clase(int id_clase) {
         this.id_clase = id_clase;
+    }
+
+    @Override
+    public String toString() {
+        return "[ID: " + id + "] » " + nombre + " | Daño: " + dano_base + " | Usos: " + usos_maximos;
     }
 }
