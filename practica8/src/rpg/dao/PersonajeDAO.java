@@ -93,4 +93,21 @@ public class PersonajeDAO {
             throw new RPGException("No se ha podido viajar " + e.getMessage());
         }
     }
+
+    public boolean actualizarOro(int idPersonaje, int oro) throws RPGException {
+        String sql  = "UPDATE PERSONAJES SET ORO = ? WHERE id = ?";
+
+        try (Connection con = conexionBD.conectar();
+        PreparedStatement ps = con.prepareStatement(sql)) {
+
+            ps.setInt(1, oro);
+            ps.setInt(2,idPersonaje);
+
+            log.escribirFichero("INFO","Se ha actualizado el oro del personaje [id]: " + idPersonaje);
+            return ps.executeUpdate() > 0;
+        } catch (SQLException | ClassNotFoundException e) {
+            log.escribirFichero("ERROR","No se ha podido actualizar el oro del personaje [id] " + idPersonaje + " " + e.getMessage());
+            throw new RPGException("No se ha podido actualizar el oro del personaje [id] " + idPersonaje + " " + e.getMessage());
+        }
+    }
 }
