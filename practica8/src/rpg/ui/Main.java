@@ -1,5 +1,6 @@
 package rpg.ui;
 
+import rpg.dao.ClaseRPGDAO;
 import rpg.dao.PersonajeDAO;
 import rpg.exception.RPGException;
 import rpg.model.Personaje;

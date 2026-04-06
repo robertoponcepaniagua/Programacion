@@ -46,7 +46,7 @@ public class PersonajeDAO {
                 );
                 // AÑADIMOS LOS PERSONAJES A LA LISTGA
                 personajeList.add(pj);
-                log.escribirFichero("ERROR","El metodo listarPersonajes se ha ejecutado");
+                log.escribirFichero("INFO","El metodo listarPersonajes se ha ejecutado");
             }
             return personajeList;
 

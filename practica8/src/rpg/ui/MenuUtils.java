@@ -6,8 +6,7 @@ import rpg.exception.RPGException;
 import rpg.model.*;
 import rpg.utils.Log;
 
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 public class MenuUtils {
     private Scanner sc;
@@ -18,6 +17,11 @@ public class MenuUtils {
     private CiudadDAO ciudadDAO;
     private ItemDAO itemDAO;
     private InventarioDAO inventarioDAO;
+    List<Ciudades> ciudadesList;
+    List<Personaje> personajes;
+    List<Raza> razas;
+    List<Clases_RPG> clases;
+    List<Item> items;
 
     public MenuUtils() throws RPGException {
         this.sc = new Scanner(System.in);
@@ -30,6 +34,13 @@ public class MenuUtils {
         this.inventarioDAO = new InventarioDAO();
 
 
+        //LISTAS
+        this.ciudadesList = new ArrayList<>();
+        this.personajes = new ArrayList<>();
+        this.razas = new ArrayList<>();
+        this.clases = new ArrayList<>();
+        this.items = new ArrayList<>();
+        conectarListas();
 
         //FUNCION MOSTRAR MENÚ
         MostrarMenu();
@@ -184,16 +195,56 @@ public class MenuUtils {
 
                 case 4:
                     // 4. Combate PVP
+                    break;
                 case 5:
                     // 5. Cobro de impuestos
+                    break;
                 case 6:
                     // 6. Equipar Habilidad
+                    break;
                 case 7:
                     // 7. Estadísticas
 
                     // A. TOP 3 MÁS RICOS
 
+                    List<Personaje> personajesRicos = new ArrayList<>();
+
+                    for (Personaje pj : personajes) {
+                        personajesRicos.add(pj);
+                    }
+
+                    // TODO: HAY QUE ORDENAR A LOS PERSONAJES RICOS
+                    for (Personaje pj : personajesRicos) {
+                        Personaje pj_mas_oro = pj;
+                        if (pj.getOro() > pj_mas_oro.getOro()) {
+                        }
+                    }
+
+                    //SEPARADOR
+                    separador();
+                    //SEPARADOR
+
+                    // FUNCIONA
                     // B. CONTAR CUANTOS HAY DE CADA CLASE
+
+                    HashMap<String, Integer> clase_y_numero = new HashMap<>();
+
+                    // EJ : MAGO:4 , ELFO: 5
+
+
+                    for (Personaje pj : personajes) {
+                        for (Clases_RPG clasesRpg : clases) {
+                            if (pj.getIdClase() == clasesRpg.getId()) {
+                                clase_y_numero.put(clasesRpg.getNombre(),+1);
+                            }
+                        }
+                    }
+
+                    for (String nombre : clase_y_numero.keySet()) {
+                        System.out.println("Clase: " + nombre + " Número: " + clase_y_numero.get(nombre));
+                    }
+
+                    break;
 
                 case 8:
                     //FUNCIONA / TERMINADO
@@ -233,37 +284,44 @@ public class MenuUtils {
 
 
     public void mostrarCiudades() {
-        List<Ciudades> ciudadesList = ciudadDAO.listarCiudades();
+        ciudadesList = ciudadDAO.listarCiudades();
         for (Ciudades ciudades : ciudadesList) {
             System.out.println(ciudades.toString());
         }
     }
 
     public void mostrarPersonajes() {
-        List<Personaje> prueba = personajeDAO.listarPersonajes();
-        for (Personaje p : prueba) {
+        personajes = personajeDAO.listarPersonajes();
+        for (Personaje p : personajes) {
             System.out.println(p.toString());
         }
     }
 
     public void mostrarRazas() {
-        List<Raza> razas = razaDAO.listarRazas();
+        razas = razaDAO.listarRazas();
         for (Raza r : razas) {
             System.out.println(r.toString());
         }
     }
 
     public void mostrarClases() {
-        List<Clases_RPG> clases = claseRPGDAO.listarClases();
+        clases = claseRPGDAO.listarClases();
         for (Clases_RPG clasesRpg : clases) {
             System.out.println(clasesRpg.toString());
         }
     }
 
     public void mostrarItems() {
-        List<Item> items = itemDAO.listarItems();
+        items = itemDAO.listarItems();
         for (Item item : items) {
             System.out.println(item.toString());
         }
+    }
+
+    public void conectarListas() {
+        personajes = personajeDAO.listarPersonajes();
+        razas = razaDAO.listarRazas();
+        clases = claseRPGDAO.listarClases();
+        items = itemDAO.listarItems();
     }
 }
