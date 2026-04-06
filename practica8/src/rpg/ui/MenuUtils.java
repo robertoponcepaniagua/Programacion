@@ -11,27 +11,36 @@ import java.util.*;
 public class MenuUtils {
     private Scanner sc;
     private Log logger;
+
+    //DAO
     private PersonajeDAO personajeDAO;
     private RazaDAO razaDAO;
     private ClaseRPGDAO claseRPGDAO;
     private CiudadDAO ciudadDAO;
     private ItemDAO itemDAO;
     private InventarioDAO inventarioDAO;
-    List<Ciudades> ciudadesList;
-    List<Personaje> personajes;
-    List<Raza> razas;
-    List<Clases_RPG> clases;
-    List<Item> items;
+    private HabilidadDAO habilidadDAO;
+
+    //LIST
+    private List<Ciudades> ciudadesList;
+    private List<Personaje> personajes;
+    private List<Raza> razas;
+    private List<Clases_RPG> clases;
+    private List<Item> items;
+    private List<Habilidades> habilidades;
 
     public MenuUtils() throws RPGException {
         this.sc = new Scanner(System.in);
         this.logger = new Log("practica8/src/rpg/dao/PersonajeDAO.java");
+
+        //DAO
         this.personajeDAO = new PersonajeDAO();
         this.razaDAO = new RazaDAO();
         this.claseRPGDAO = new ClaseRPGDAO();
         this.ciudadDAO = new CiudadDAO();
         this.itemDAO = new ItemDAO();
         this.inventarioDAO = new InventarioDAO();
+        this.habilidadDAO = new HabilidadDAO();
 
 
         //LISTAS
@@ -40,6 +49,8 @@ public class MenuUtils {
         this.razas = new ArrayList<>();
         this.clases = new ArrayList<>();
         this.items = new ArrayList<>();
+        this.habilidades = new ArrayList<>();
+        //CONECTA LAS LISTAS CON LA DE LAS BASES DE DATOS
         conectarListas();
 
         //FUNCION MOSTRAR MENÚ
@@ -115,6 +126,7 @@ public class MenuUtils {
                     }
                     break;
                 case 2:
+                    // FUNCIONA / TERMINADO
                     // 2. Viajar a Ciudad
                     System.out.println("Que personaje quieres que viaje? ");
 
@@ -136,6 +148,7 @@ public class MenuUtils {
 
                     personajeDAO.viajar(idViaja, idDestino);
                 case 3:
+                    // FUNCIONA / TERMINADO
                     // 3. Comprar items
                     tienda();
 
@@ -171,7 +184,10 @@ public class MenuUtils {
                                         // RESTAMOS ORO
                                         compradorpj.setOro(compradorpj.getOro() - itemventa.getPrecio_oro());
 
+                                        int oroactualizado = compradorpj.getOro();
+
                                         // ACTUALIZAMOS ORO EN LA BASE DE DATOS
+                                        personajeDAO.actualizarOro(compradorpj.getId(),oroactualizado);
 
                                         // AÑADIMOS ITEM A INVENTARIO
                                         inventarioDAO.añadirItem(compradorpj, itemventa);
@@ -201,32 +217,42 @@ public class MenuUtils {
                     break;
                 case 6:
                     // 6. Equipar Habilidad
+
+
                     break;
                 case 7:
+                    //TODO: REVISAR
+
+                    // FUNCIONA / SIN TERMINAR
+
                     // 7. Estadísticas
 
+                    //FUNCIONA
                     // A. TOP 3 MÁS RICOS
-
                     List<Personaje> personajesRicos = new ArrayList<>();
 
                     for (Personaje pj : personajes) {
                         personajesRicos.add(pj);
                     }
 
-                    // TODO: HAY QUE ORDENAR A LOS PERSONAJES RICOS
-                    for (Personaje pj : personajesRicos) {
-                        Personaje pj_mas_oro = pj;
-                        if (pj.getOro() > pj_mas_oro.getOro()) {
+                    // TODO: LO TENGO HECHO CON EL COLLECTIONS SORT, HAY QUE PREGUNTAR SI ESTÁ BIEN, SI NO HACERLO DE FORMA HABITUAL
+                    Collections.sort(personajesRicos, new Comparator<Personaje>() {
+                        @Override
+                        public int compare(Personaje pj1, Personaje pj2) {
+                            return  pj2.getOro() - pj1.getOro();
                         }
+                    });
+
+                    System.out.println("--- A. Top 3 más ricos ---");
+                    for (int i = 0; i < 3; i++) {
+                        Personaje p = personajesRicos.get(i);
+                        System.out.println((i+1) + ". " + p.getNombre() + " — " + p.getOro() + " oro");
                     }
 
-                    //SEPARADOR
-                    separador();
-                    //SEPARADOR
 
                     // FUNCIONA
                     // B. CONTAR CUANTOS HAY DE CADA CLASE
-
+                    System.out.println("--- B. Contar cada clase ---");
                     HashMap<String, Integer> clase_y_numero = new HashMap<>();
 
                     // EJ : MAGO:4 , ELFO: 5
@@ -241,8 +267,12 @@ public class MenuUtils {
                     }
 
                     for (String nombre : clase_y_numero.keySet()) {
-                        System.out.println("Clase: " + nombre + " Número: " + clase_y_numero.get(nombre));
+                        System.out.println("Clase: " + nombre + " | Cantidad: " + clase_y_numero.get(nombre));
                     }
+
+                    separador();
+
+                    enter();
 
                     break;
 
@@ -253,6 +283,8 @@ public class MenuUtils {
                     break;
             }
         } while (opcion != 0);
+        System.out.println("---SALIENDO---");
+        logger.escribirFichero("INFO","El usuario ha terminado la sesión");
     }
 
 
@@ -318,10 +350,26 @@ public class MenuUtils {
         }
     }
 
+    public void  mostrarHabilidades() {
+        habilidades = habilidadDAO.listarHabilidades();
+        for (Habilidades habilidad : habilidades) {
+            System.out.println(habilidad.toString());
+        }
+    }
+
     public void conectarListas() {
         personajes = personajeDAO.listarPersonajes();
         razas = razaDAO.listarRazas();
         clases = claseRPGDAO.listarClases();
         items = itemDAO.listarItems();
+        habilidades = habilidadDAO.listarHabilidades();
+    }
+
+
+
+    // METODO PARA QUE NO PASE EL MENÚ DIRECTAMENTE Y SE PUEDA LEER
+    public void enter() {
+        System.out.println("----PULSA ENTER PARA CONTINUAR----");
+        sc.nextLine();
     }
 }
