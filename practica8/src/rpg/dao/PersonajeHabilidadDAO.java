@@ -50,7 +50,9 @@ public class PersonajeHabilidadDAO {
         return personajesHabilidadesList;
     }
 
-    public List<Habilidades> actualizarHabilidades() {
+    public List<Habilidades> actualizarHabilidades(int idPersonaje,int idHabilidad, boolean equipada) {
+        // UN UPDATE PARA PODER QUITAR Y EQUIPAR HABILIDADES
+        // TODO: HACER EL UPDATE Y HACER EL CASE 6 ENTERO
         String sql = "";
     }
 }
