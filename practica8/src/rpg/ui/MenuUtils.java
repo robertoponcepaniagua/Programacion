@@ -60,6 +60,7 @@ public class MenuUtils {
 
     public void MostrarMenu() throws RPGException {
         int opcion;
+        int opcionhabilidades;
         do {
             cabecera();
             System.out.println(" 1. Crear Personaje");
@@ -67,7 +68,7 @@ public class MenuUtils {
             System.out.println(" 3. Comprar items");
             System.out.println(" 4. Combate PVP");
             System.out.println(" 5. Cobro de impuestos");
-            System.out.println(" 6. Equipar Habilidad");
+            System.out.println(" 6. Habilidades");
             System.out.println(" 7. Estadísticas");
             System.out.println(" 8. Ver Personajes");
             System.out.println(" 0. Salir");
@@ -218,6 +219,58 @@ public class MenuUtils {
                 case 6:
                     // 6. Equipar Habilidad
 
+                    // PRIMER PASO: MIRAR QUE CLASE ES EL PERSONAJE (consulta sql)
+                    // SEGUNDO PAS: MIRAR LAS HABILIDADES DE ESA CLASE (consulta sql)
+                    // TERCER PASO MIRAR LA RELACIÓN ( PERSONAJES_HABILIDADES ) (consulta sql) *TIENE UN TRUE O FALSE SI TIENE LA HABILIDAD EQUIPADA
+
+                    // DESPUÉS DE ESO HAY QUE HAY QUE HACER U MENÚ PARA QUE PUEDA EQUIPAR , QUITAR Y SALIR ( HAY QUE HACER UN UPDATE A LA BASE DE DATOS DEPENDIENDO DE LO QUE HAGA EL USUARIO )
+
+                    // PRIMER PASO:
+
+
+                    do {
+                        cabecerahabilidades();
+                        System.out.println(" 1. Equipar Habilidad");
+                        System.out.println(" 2. Desequipar Habilidad");
+                        System.out.println(" 3. Ver Habilidades");
+                        System.out.println(" 0. Salir");
+                        separador();
+
+                        opcionhabilidades = sc.nextInt();
+
+                        switch (opcionhabilidades) {
+                            case 1:
+                                // EQUIPAR HABILIDAD
+
+
+
+                                break;
+                            case 2:
+                                // DESEQUIPAR HABILIDAD
+                                break;
+                            case 3:
+                                // VER HABILIDADES
+                                System.out.println("Elige el personaje (id): ");
+                                mostrarPersonajes();
+
+                                int idpersonajeelegido = sc.nextInt();
+
+                                List<Habilidades> habilidadespersonaje = habilidadDAO.listarHabilidadesPersonaje(idpersonajeelegido);
+                                for (Habilidades habilidad : habilidadespersonaje) {
+                                    System.out.println(habilidad.toString());
+                                }
+
+                                enter();
+                                System.out.println();
+
+                                break;
+                            case 0:
+                                // SALIR
+                                MostrarMenu();
+                                break;
+                        }
+
+                    } while (opcionhabilidades != 0);
 
                     break;
                 case 7:
@@ -306,6 +359,15 @@ public class MenuUtils {
                 "  |____|   |___/_______  /\\____|__  /_______  /\\____|__  /\n" +
                 "                       \\/         \\/        \\/         \\/ \n" +
                 "                                                          \n");
+    }
+
+    public void cabecerahabilidades() {
+        System.out.println("  ___ ___    _____ __________.___.____    .___________      _____  ________  ___________ _________\n" +
+                " /   |   \\  /  _  \\\\______   \\   |    |   |   \\______ \\    /  _  \\ \\______ \\ \\_   _____//   _____/\n" +
+                "/    ~    \\/  /_\\  \\|    |  _/   |    |   |   ||    |  \\  /  /_\\  \\ |    |  \\ |    __)_ \\_____  \\ \n" +
+                "\\    Y    /    |    \\    |   \\   |    |___|   ||    `   \\/    |    \\|    `   \\|        \\/        \\\n" +
+                " \\___|_  /\\____|__  /______  /___|_______ \\___/_______  /\\____|__  /_______  /_______  /_______  /\n" +
+                "       \\/         \\/       \\/            \\/           \\/         \\/        \\/        \\/        \\/ ");
     }
 
     public void separador() {
