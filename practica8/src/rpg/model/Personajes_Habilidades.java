@@ -3,10 +3,12 @@ package rpg.model;
 public class Personajes_Habilidades {
     private int id_personaje;
     private int id_habilidad;
+    private boolean equipada_combate;
 
-    public Personajes_Habilidades(int id_personaje, int id_habilidad) {
+    public Personajes_Habilidades(int id_personaje, int id_habilidad, boolean equipada_combate) {
         this.id_personaje = id_personaje;
         this.id_habilidad = id_habilidad;
+        this.equipada_combate = false;
     }
 
     public int getId_personaje() {
@@ -23,5 +25,13 @@ public class Personajes_Habilidades {
 
     public void setId_habilidad(int id_habilidad) {
         this.id_habilidad = id_habilidad;
+    }
+
+    public boolean isEquipada_combate() {
+        return equipada_combate;
+    }
+
+    public void setEquipada_combate(boolean equipada_combate) {
+        this.equipada_combate = equipada_combate;
     }
 }

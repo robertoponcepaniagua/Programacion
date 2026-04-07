@@ -1,6 +1,7 @@
 package rpg.dao;
 
 import rpg.exception.RPGException;
+import rpg.model.Habilidades;
 import rpg.model.Personajes_Habilidades;
 import rpg.utils.ConexionBD;
 import rpg.utils.Log;
@@ -32,10 +33,11 @@ public class PersonajeHabilidadDAO {
             ResultSet rs = ps.executeQuery();
 
             while(rs.next()) {
-                //int id_personaje, int id_habilidad
+                //int id_personaje, int id_habilidad, boolean equipada_combate
                 Personajes_Habilidades personajes_habilidades = new Personajes_Habilidades(
                         rs.getInt("id_personaje"),
-                        rs.getInt("id_habilidad")
+                        rs.getInt("id_habilidad"),
+                        rs.getBoolean("equipada_combate")
                 );
                 personajesHabilidadesList.add(personajes_habilidades);
                 log.escribirFichero("INFO","El metodo listarPersonajesHabilidades se ha ejecutado");
@@ -46,5 +48,9 @@ public class PersonajeHabilidadDAO {
             throw new RuntimeException("El metodo listarPersonajesHabilidades ha fallado");
         }
         return personajesHabilidadesList;
+    }
+
+    public List<Habilidades> actualizarHabilidades() {
+        String sql = "";
     }
 }
