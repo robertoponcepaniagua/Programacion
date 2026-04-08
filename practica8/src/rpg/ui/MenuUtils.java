@@ -20,6 +20,7 @@ public class MenuUtils {
     private ItemDAO itemDAO;
     private InventarioDAO inventarioDAO;
     private HabilidadDAO habilidadDAO;
+    private PersonajeHabilidadDAO personajeHabilidadDAO;
 
     //LIST
     private List<Ciudades> ciudadesList;
@@ -28,6 +29,7 @@ public class MenuUtils {
     private List<Clases_RPG> clases;
     private List<Item> items;
     private List<Habilidades> habilidades;
+    private List<Personajes_Habilidades> habilidadesPJ;
 
     public MenuUtils() throws RPGException {
         this.sc = new Scanner(System.in);
@@ -41,6 +43,7 @@ public class MenuUtils {
         this.itemDAO = new ItemDAO();
         this.inventarioDAO = new InventarioDAO();
         this.habilidadDAO = new HabilidadDAO();
+        this.personajeHabilidadDAO = new PersonajeHabilidadDAO();
 
 
         //LISTAS
@@ -50,6 +53,7 @@ public class MenuUtils {
         this.clases = new ArrayList<>();
         this.items = new ArrayList<>();
         this.habilidades = new ArrayList<>();
+        this.habilidadesPJ = new ArrayList<>();
         //CONECTA LAS LISTAS CON LA DE LAS BASES DE DATOS
         conectarListas();
 
@@ -81,6 +85,7 @@ public class MenuUtils {
             switch (opcion)  {
                 case 1:
                     // FUNCIONA / TERMINADO
+                    // TODO: ESTÁ MAL NO INSERTA LAS HABILIDADES Y SEGURO QUE MÁS COSAS
                     // 1. Crear Personaje
                     // nombre,nivel,oro,vida_actual,id_raza,id_clase,id_ciudad_actual
                     try {
@@ -242,11 +247,40 @@ public class MenuUtils {
                             case 1:
                                 // EQUIPAR HABILIDAD
 
+                                mostrarPersonajes();
+                                int idpersonaje = sc.nextInt();
+                                sc.nextLine();
 
+                                habilidadesPJ = personajeHabilidadDAO.listarPersonajesHabilidades(idpersonaje);
+                                for (Personajes_Habilidades h : habilidadesPJ) {
+                                    System.out.println(h.toString());
+                                }
+
+                                System.out.println("Que habilidad quieres equiparte (id): ");
+                                int idhabilidad = sc.nextInt();
+                                sc.nextLine();
+
+                                personajeHabilidadDAO.actualizarHabilidades(idpersonaje, idhabilidad, true);
 
                                 break;
                             case 2:
                                 // DESEQUIPAR HABILIDAD
+
+                                mostrarPersonajes();
+                                int idpersonaje2 = sc.nextInt();
+                                sc.nextLine();
+
+                                habilidadesPJ = personajeHabilidadDAO.listarPersonajesHabilidades(idpersonaje2);
+                                for (Personajes_Habilidades h : habilidadesPJ) {
+                                    System.out.println(h.toString());
+                                }
+
+                                System.out.println("Que habilidad quieres desequiparte (id): ");
+                                int idhabilidad2 = sc.nextInt();
+                                sc.nextLine();
+
+                                personajeHabilidadDAO.actualizarHabilidades(idpersonaje2, idhabilidad2, false);
+
                                 break;
                             case 3:
                                 // VER HABILIDADES
@@ -254,10 +288,11 @@ public class MenuUtils {
                                 mostrarPersonajes();
 
                                 int idpersonajeelegido = sc.nextInt();
+                                sc.nextLine();
 
-                                List<Habilidades> habilidadespersonaje = habilidadDAO.listarHabilidadesPersonaje(idpersonajeelegido);
-                                for (Habilidades habilidad : habilidadespersonaje) {
-                                    System.out.println(habilidad.toString());
+                                habilidadesPJ = personajeHabilidadDAO.listarPersonajesHabilidades(idpersonajeelegido);
+                                for (Personajes_Habilidades h : habilidadesPJ) {
+                                    System.out.println(h.toString());
                                 }
 
                                 enter();

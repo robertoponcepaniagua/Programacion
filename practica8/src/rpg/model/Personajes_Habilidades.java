@@ -8,7 +8,7 @@ public class Personajes_Habilidades {
     public Personajes_Habilidades(int id_personaje, int id_habilidad, boolean equipada_combate) {
         this.id_personaje = id_personaje;
         this.id_habilidad = id_habilidad;
-        this.equipada_combate = false;
+        this.equipada_combate = equipada_combate;
     }
 
     public int getId_personaje() {
@@ -33,5 +33,14 @@ public class Personajes_Habilidades {
 
     public void setEquipada_combate(boolean equipada_combate) {
         this.equipada_combate = equipada_combate;
+    }
+
+    @Override
+    public String toString() {
+        return "Personajes_Habilidades{" +
+                "id_personaje=" + id_personaje +
+                ", id_habilidad=" + id_habilidad +
+                ", equipada_combate=" + equipada_combate +
+                '}';
     }
 }

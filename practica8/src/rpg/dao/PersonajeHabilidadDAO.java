@@ -23,26 +23,32 @@ public class PersonajeHabilidadDAO {
     }
 
 
-    public List<Personajes_Habilidades> listarPersonajesHabilidades() {
+    public List<Personajes_Habilidades> listarPersonajesHabilidades(int idPersonaje) {
         List<Personajes_Habilidades> personajesHabilidadesList = new ArrayList<>();
 
-        String sql = "SELECT * FROM Personajes_Habilidades";
+        String sql = "SELECT ph.id_personaje, ph.id_habilidad, ph.equipada_combate, " +
+                "h.nombre, h.dano_base, h.usos_maximos " +
+                "FROM Personajes_Habilidades ph " +
+                "JOIN Habilidades h ON ph.id_habilidad = h.id " +
+                "WHERE ph.id_personaje = ?";
 
         try (Connection con = conexionBD.conectar();
              PreparedStatement ps = con.prepareStatement(sql)) {
-            ResultSet rs = ps.executeQuery();
 
-            while(rs.next()) {
-                //int id_personaje, int id_habilidad, boolean equipada_combate
-                Personajes_Habilidades personajes_habilidades = new Personajes_Habilidades(
-                        rs.getInt("id_personaje"),
-                        rs.getInt("id_habilidad"),
-                        rs.getBoolean("equipada_combate")
-                );
-                personajesHabilidadesList.add(personajes_habilidades);
-                log.escribirFichero("INFO","El metodo listarPersonajesHabilidades se ha ejecutado");
+            ps.setInt(1, idPersonaje);
+
+            try(ResultSet rs = ps.executeQuery()) {
+                while(rs.next()) {
+                    //int id_personaje, int id_habilidad, boolean equipada_combate
+                    Personajes_Habilidades personajes_habilidades = new Personajes_Habilidades(
+                            rs.getInt("id_personaje"),
+                            rs.getInt("id_habilidad"),
+                            rs.getBoolean("equipada_combate")
+                    );
+                    personajesHabilidadesList.add(personajes_habilidades);
+                    log.escribirFichero("INFO","El metodo listarPersonajesHabilidades se ha ejecutado");
+                }
             }
-
         } catch (SQLException | ClassNotFoundException e) {
             log.escribirFichero("ERROR","El metodo listarPersonajesHabilidades ha fallado");
             throw new RuntimeException("El metodo listarPersonajesHabilidades ha fallado");
@@ -52,15 +58,14 @@ public class PersonajeHabilidadDAO {
 
     public boolean actualizarHabilidades(int idPersonaje,int idHabilidad, boolean equipada) {
         // UN UPDATE PARA PODER QUITAR Y EQUIPAR HABILIDADES
-        // TODO: HACER EL UPDATE Y HACER EL CASE 6 ENTERO FALTA EL WHERE ESTÁ MAL
-        String sql = "UPDATE Personajes_Habilidades SET id_personaje = ?, id_habilidad = ?, equipada_combate = ?";
+        String sql = "UPDATE Personajes_Habilidades SET equipada_combate = ? WHERE id_personaje = ? AND id_habilidad = ?";
 
         try (Connection con = conexionBD.conectar();
         PreparedStatement ps = con.prepareStatement(sql)) {
 
-            ps.setInt(1,idPersonaje);
-            ps.setInt(2,idHabilidad);
-            ps.setBoolean(3,equipada);
+            ps.setBoolean(1,equipada);
+            ps.setInt(2,idPersonaje);
+            ps.setInt(3,idHabilidad);
 
             log.escribirFichero("INFO","Se han actualizado las habilidades");
 
