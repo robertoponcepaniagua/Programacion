@@ -50,9 +50,25 @@ public class PersonajeHabilidadDAO {
         return personajesHabilidadesList;
     }
 
-    public List<Habilidades> actualizarHabilidades(int idPersonaje,int idHabilidad, boolean equipada) {
+    public boolean actualizarHabilidades(int idPersonaje,int idHabilidad, boolean equipada) {
         // UN UPDATE PARA PODER QUITAR Y EQUIPAR HABILIDADES
-        // TODO: HACER EL UPDATE Y HACER EL CASE 6 ENTERO
-        String sql = "";
+        // TODO: HACER EL UPDATE Y HACER EL CASE 6 ENTERO FALTA EL WHERE ESTÁ MAL
+        String sql = "UPDATE Personajes_Habilidades SET id_personaje = ?, id_habilidad = ?, equipada_combate = ?";
+
+        try (Connection con = conexionBD.conectar();
+        PreparedStatement ps = con.prepareStatement(sql)) {
+
+            ps.setInt(1,idPersonaje);
+            ps.setInt(2,idHabilidad);
+            ps.setBoolean(3,equipada);
+
+            log.escribirFichero("INFO","Se han actualizado las habilidades");
+
+            return ps.executeUpdate() > 0;
+
+        } catch (SQLException | ClassNotFoundException e) {
+            log.escribirFichero("ERROR","No se han actualizado las habilidades" + e.getMessage());
+            throw new RuntimeException(e);
+        }
     }
 }

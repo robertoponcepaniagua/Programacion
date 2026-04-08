@@ -333,6 +333,7 @@ public class MenuUtils {
                     //FUNCIONA / TERMINADO
                     // 8. Ver Personajes
                     mostrarPersonajes();
+                    enter();
                     break;
             }
         } while (opcion != 0);
