@@ -6,7 +6,9 @@ import rpg.exception.RPGException;
 import rpg.model.*;
 import rpg.utils.Log;
 
+import java.awt.*;
 import java.util.*;
+import java.util.List;
 
 public class MenuUtils {
     private Scanner sc;
@@ -85,7 +87,7 @@ public class MenuUtils {
             switch (opcion)  {
                 case 1:
                     // FUNCIONA / TERMINADO
-                    // TODO: ESTÁ MAL NO INSERTA LAS HABILIDADES Y SEGURO QUE MÁS COSAS
+                    // TODO: ESTÁ MAL NO INSERTA LAS HABILIDADES Y EL INVENTARIO
                     // 1. Crear Personaje
                     // nombre,nivel,oro,vida_actual,id_raza,id_clase,id_ciudad_actual
                     try {
@@ -133,6 +135,9 @@ public class MenuUtils {
                     break;
                 case 2:
                     // FUNCIONA / TERMINADO
+
+                    //TODO: FALTA EL NIVEL MÍNIMO ACCESO, TIENE QUE CUMPLIR CON EL NÍVEL
+
                     // 2. Viajar a Ciudad
                     System.out.println("Que personaje quieres que viaje? ");
 
@@ -152,7 +157,27 @@ public class MenuUtils {
 
                     int idDestino = sc.nextInt();
 
-                    personajeDAO.viajar(idViaja, idDestino);
+                    for (Personaje pj : personajes) {
+                        if (pj.getId() == idViaja) {
+
+                            for (Ciudades ciudad : ciudadesList) {
+                                if (ciudad.getId() == idDestino) {
+
+                                    if (pj.getNivel() >= ciudad.getNombre_minimo_acceso()) {
+                                        System.out.println("---VIAJE COMPLETADO---");
+                                        logger.escribirFichero("INFO","Viaje con exito");
+                                        personajeDAO.viajar(idViaja, idDestino);
+                                        enter();
+                                    } else {
+                                        System.out.println("Nível insuficiente, viaje no completado");
+                                        enter();
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    break;
+
                 case 3:
                     // FUNCIONA / TERMINADO
                     // 3. Comprar items
@@ -201,6 +226,7 @@ public class MenuUtils {
 
                                         System.out.println("---COMPRA REALIZADA CON EXITO!---");
                                         logger.escribirFichero("INFO","Compra realizada con exito Comprador: " +compradorpj.getId() + " Item comprado: " + itemventa.getId());
+                                        enter();
 
                                     } else {
                                         logger.escribirFichero("ERROR","El personaje no tiene suficiente oro");
@@ -468,6 +494,7 @@ public class MenuUtils {
     // METODO PARA QUE NO PASE EL MENÚ DIRECTAMENTE Y SE PUEDA LEER
     public void enter() {
         System.out.println("----PULSA ENTER PARA CONTINUAR----");
+        sc.nextLine();
         sc.nextLine();
     }
 }

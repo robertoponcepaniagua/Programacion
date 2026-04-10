@@ -16,10 +16,12 @@ import java.util.List;
 public class PersonajeDAO {
     private Log log;
     private ConexionBD conexionBD;
+    private PersonajeHabilidadDAO personajeHabilidadDAO;
 
     public PersonajeDAO() {
         this.conexionBD = new ConexionBD();
         this.log = new Log("practica8/src/rpg/dao/PersonajeDAO.java");
+        this.personajeHabilidadDAO = new PersonajeHabilidadDAO();
     }
 
     // FUNCIONA
@@ -59,6 +61,8 @@ public class PersonajeDAO {
     // FUNCIONA
     public boolean crearPJ(String nombre, int idRaza, int idClase, int idCiudadActual) throws RPGException {
         String sql = "INSERT INTO Personajes (nombre,nivel,oro,vida_actual,id_raza,id_clase,id_ciudad_actual) VALUES (?,1,100,100,?,?,?)"; // LOS VALORES ? SE RELLENAN MÁS TARDE, LOS PERSONAJES EMPEIZAN SIEMPRE CON NIVEL 1 SALUD 100 ORO 100 LO DEMÁS SE INTRODUCE DESPUÉS
+        String sqlId = "SELECT LASTVAL()";
+
         try (Connection con = conexionBD.conectar(); // INTENTAMOS ESTABLECER CONEXIÓN
              PreparedStatement ps = con.prepareStatement(sql)) {
             // SUSTITUYE CADA ? POR SU ATRIBUTO REAL
@@ -66,14 +70,25 @@ public class PersonajeDAO {
             ps.setInt(2, idRaza);
             ps.setInt(3, idClase);
             ps.setInt(4, idCiudadActual);
-            log.escribirFichero("INFO","El metodo crearPJ ha sido ejecutado con exito");
 
             ps.executeUpdate(); // EJECUTA EL INSERT
 
+            // PARA OBTERNER EL ULTIMO ID
+            PreparedStatement psId = con.prepareStatement(sqlId);
+            ResultSet rs = psId.executeQuery();
+            if (rs.next()) {
+                personajeHabilidadDAO.insertarPersonajeHabilidad(rs.getInt(1), idClase);
+            }
+
+            // TODO: FALTA AÑADIRLE EL INVENTARIO
+
+            log.escribirFichero("INFO","El metodo crearPJ ha sido ejecutado con exito");
+
+
             return true;
         } catch (SQLException | ClassNotFoundException e) {
-            log.escribirFichero("ERROR","El metodo crearPJ ha fallado");
-            throw new RPGException("El metodo crearPJ ha fallado");
+            log.escribirFichero("ERROR","El metodo crearPJ ha fallado" + e.getMessage());
+            throw new RPGException("El metodo crearPJ ha fallado" + e.getMessage());
         }
     }
 

@@ -76,4 +76,24 @@ public class PersonajeHabilidadDAO {
             throw new RuntimeException(e);
         }
     }
+
+    public boolean insertarPersonajeHabilidad(int idPJ, int idClase) {
+        String sql = "INSERT INTO Personajes_Habilidades (id_personaje, id_habilidad, equipada_combate) SELECT ?, id, false FROM Habilidades WHERE id_clase = ?";
+
+
+        try (Connection con = conexionBD.conectar();
+             PreparedStatement ps = con.prepareStatement(sql)) {
+
+            ps.setInt(1, idPJ);
+            ps.setInt(2,idClase);
+
+            log.escribirFichero("INFO","Se le han otorgado las habilidades de su clase al nuevo personaje" + idPJ);
+
+            return ps.executeUpdate() > 0;
+
+        } catch (SQLException | ClassNotFoundException e) {
+            log.escribirFichero("ERROR","No se le han podido otorgar las habilidades de su clase " + idPJ + " " +e.getMessage());
+            throw new RuntimeException("No se le han podido otorgar las habilidades de su clase " + idPJ + " " +e.getMessage());
+        }
+    }
 }

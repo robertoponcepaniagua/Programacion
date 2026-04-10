@@ -37,10 +37,9 @@ public class Personajes_Habilidades {
 
     @Override
     public String toString() {
-        return "Personajes_Habilidades{" +
-                "id_personaje=" + id_personaje +
-                ", id_habilidad=" + id_habilidad +
-                ", equipada_combate=" + equipada_combate +
-                '}';
+        return "[ Personajes-Habilidades ]\n" +
+                " > Personaje  : " + id_personaje + "\n" +
+                " > Habilidad  : " + id_habilidad + "\n" +
+                " > Equipada en combate : " + equipada_combate;
     }
 }
