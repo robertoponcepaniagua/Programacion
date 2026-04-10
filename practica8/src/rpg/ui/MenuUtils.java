@@ -136,8 +136,6 @@ public class MenuUtils {
                 case 2:
                     // FUNCIONA / TERMINADO
 
-                    //TODO: FALTA EL NIVEL MÍNIMO ACCESO, TIENE QUE CUMPLIR CON EL NÍVEL
-
                     // 2. Viajar a Ciudad
                     System.out.println("Que personaje quieres que viaje? ");
 
@@ -246,6 +244,24 @@ public class MenuUtils {
                     break;
                 case 5:
                     // 5. Cobro de impuestos
+
+                    // TODO: REPASAR ITERADORES CON VÍDEOS, ME CUESTA ENTENDERLO
+
+                    Iterator<Personaje> personajeIterator = personajes.iterator();
+
+                    while(personajeIterator.hasNext()) { //mientras que tenga otro objeto
+                        Personaje pj = personajeIterator.next();
+                        if (pj.getOro() < 20) {
+                            //ELIMINA PORQUE NO TIENE 20 MONEDAS DE ORO
+                            personajeIterator.remove();
+                            // TODO: HACER UN UPDATE DE LA BASE DE DATOS, HAY QUE ELIMINAR AL PERSONAJE QUE NO TENGA 20 MONEDAS DE ORO
+                            logger.escribirFichero("INFO","El personaje " + pj.getId() + " no tiene suficientes monedas, eliminando...");
+                        } else {
+                            pj.setOro(pj.getOro() - 20);
+                            logger.escribirFichero("INFO","El personaje " + pj.getId() + " ha pagado sus impuestos");
+                        }
+                    }
+
                     break;
                 case 6:
                     // 6. Equipar Habilidad
