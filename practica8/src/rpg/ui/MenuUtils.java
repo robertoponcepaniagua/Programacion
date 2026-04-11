@@ -255,13 +255,15 @@ public class MenuUtils {
                             //ELIMINA PORQUE NO TIENE 20 MONEDAS DE ORO
                             personajeIterator.remove();
                             // TODO: HACER UN UPDATE DE LA BASE DE DATOS, HAY QUE ELIMINAR AL PERSONAJE QUE NO TENGA 20 MONEDAS DE ORO
+                            System.out.println("El personaje " + pj.getId() + " no tiene suficientes monedas, eliminando...");
                             logger.escribirFichero("INFO","El personaje " + pj.getId() + " no tiene suficientes monedas, eliminando...");
                         } else {
                             pj.setOro(pj.getOro() - 20);
+                            System.out.println("El personaje " + pj.getId() + " ha pagado sus impuestos");
                             logger.escribirFichero("INFO","El personaje " + pj.getId() + " ha pagado sus impuestos");
                         }
                     }
-
+                    enter();
                     break;
                 case 6:
                     // 6. Equipar Habilidad
