@@ -3,6 +3,7 @@ package rpg.ui;
 import rpg.dao.*;
 import rpg.exception.FondosInsuficientesException;
 import rpg.exception.RPGException;
+import rpg.logic.GestorCombate;
 import rpg.model.*;
 import rpg.utils.Log;
 
@@ -13,6 +14,9 @@ import java.util.List;
 public class MenuUtils {
     private Scanner sc;
     private Log logger;
+
+    //COMBATE
+    GestorCombate gestorCombate;
 
     //DAO
     private PersonajeDAO personajeDAO;
@@ -36,6 +40,9 @@ public class MenuUtils {
     public MenuUtils() throws RPGException {
         this.sc = new Scanner(System.in);
         this.logger = new Log("practica8/src/rpg/dao/PersonajeDAO.java");
+
+        //COMBATE
+        this.gestorCombate = new GestorCombate();
 
         //DAO
         this.personajeDAO = new PersonajeDAO();
@@ -239,6 +246,7 @@ public class MenuUtils {
 
                 case 4:
                     // 4. Combate PVP
+                    gestorCombate.menu();
                     break;
                 case 5:
                     // 5. Cobro de impuestos
