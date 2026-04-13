@@ -81,7 +81,9 @@ public class PersonajeDAO {
             if (rs.next()) {
                 int nuevoId = rs.getInt(1);
                 personajeHabilidadDAO.insertarPersonajeHabilidad(nuevoId, idClase);
+                log.escribirFichero("INFO","El metodo crearPJ ha creado las habilidades");
                 inventarioDAO.crearInventarioVacio(nuevoId);
+                log.escribirFichero("INFO","El metodo crearPJ ha creado el inventario");
             }
             log.escribirFichero("INFO","El metodo crearPJ ha sido ejecutado con exito");
             return true;
@@ -123,5 +125,10 @@ public class PersonajeDAO {
             log.escribirFichero("ERROR","No se ha podido actualizar el oro del personaje [id] " + idPersonaje + " " + e.getMessage());
             throw new RPGException("No se ha podido actualizar el oro del personaje [id] " + idPersonaje + " " + e.getMessage());
         }
+    }
+
+    // TODO: HACER ESTA FUNCIÓN
+    public boolean eliminarPJ(int id) {
+        return false;
     }
 }

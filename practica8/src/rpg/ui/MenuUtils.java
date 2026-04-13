@@ -192,8 +192,6 @@ public class MenuUtils {
                     mostrarItems();
                     int iditemcompra = sc.nextInt();
 
-                    // TODO: FUNCIÓN Y DESPUÉS ACTUALIZAMOS CON CONSULTA SQL
-
                     //GUARDAMOS LOS PERSONAJES
                     List<Personaje> compradores = personajeDAO.listarPersonajes();
                     List<Item> itemsventa = itemDAO.listarItems();
@@ -255,6 +253,13 @@ public class MenuUtils {
                             //ELIMINA PORQUE NO TIENE 20 MONEDAS DE ORO
                             personajeIterator.remove();
                             // TODO: HACER UN UPDATE DE LA BASE DE DATOS, HAY QUE ELIMINAR AL PERSONAJE QUE NO TENGA 20 MONEDAS DE ORO
+
+                            pj.setOro(pj.getOro() - 20);
+                            personajeDAO.actualizarOro(pj.getId(), pj.getOro());
+
+                            personajeIterator.remove();
+                            personajeDAO.eliminarPJ(pj.getId());
+
                             System.out.println("El personaje " + pj.getId() + " no tiene suficientes monedas, eliminando...");
                             logger.escribirFichero("INFO","El personaje " + pj.getId() + " no tiene suficientes monedas, eliminando...");
                         } else {
@@ -367,7 +372,6 @@ public class MenuUtils {
                         personajesRicos.add(pj);
                     }
 
-                    // TODO: LO TENGO HECHO CON EL COLLECTIONS SORT, HAY QUE PREGUNTAR SI ESTÁ BIEN, SI NO HACERLO DE FORMA HABITUAL
                     Collections.sort(personajesRicos, new Comparator<Personaje>() {
                         @Override
                         public int compare(Personaje pj1, Personaje pj2) {
