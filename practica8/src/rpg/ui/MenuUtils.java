@@ -355,7 +355,6 @@ public class MenuUtils {
                                 break;
                             case 0:
                                 // SALIR
-                                MostrarMenu();
                                 break;
                         }
 
