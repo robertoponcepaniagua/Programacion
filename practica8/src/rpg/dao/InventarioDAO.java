@@ -21,6 +21,19 @@ public class InventarioDAO {
     }
 
 
+    public boolean crearInventarioVacio(int idPersonaje) {
+        String sql = "INSERT INTO Inventarios (id_personaje, id_item, cantidad) VALUES (?, NULL, 0)";
+        try (Connection con = conexionBD.conectar();
+             PreparedStatement ps = con.prepareStatement(sql)) {
+            ps.setInt(1, idPersonaje);
+            log.escribirFichero("INFO", "Se ha creado un inventario vacío para el PJ: " + idPersonaje);
+            return ps.executeUpdate() > 0;
+        } catch (SQLException | ClassNotFoundException e) {
+            log.escribirFichero("ERROR", "No se ha podido crear el inventario vacío: " + e.getMessage());
+            throw new RuntimeException("No se ha podido crear el inventario vacío: " + e.getMessage());
+        }
+    }
+
     public boolean añadirItem(Personaje pj, Item item) {
         String sql = "INSERT INTO Inventarios (id_personaje, id_item, cantidad) VALUES (?, ?, 1)"; //INSERTA UN NUEVO SITIO AL INVENTARIO
 

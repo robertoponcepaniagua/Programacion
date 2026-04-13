@@ -17,11 +17,13 @@ public class PersonajeDAO {
     private Log log;
     private ConexionBD conexionBD;
     private PersonajeHabilidadDAO personajeHabilidadDAO;
+    private InventarioDAO inventarioDAO;
 
     public PersonajeDAO() {
         this.conexionBD = new ConexionBD();
         this.log = new Log("practica8/src/rpg/dao/PersonajeDAO.java");
         this.personajeHabilidadDAO = new PersonajeHabilidadDAO();
+        this.inventarioDAO = new InventarioDAO();
     }
 
     // FUNCIONA
@@ -77,14 +79,11 @@ public class PersonajeDAO {
             PreparedStatement psId = con.prepareStatement(sqlId);
             ResultSet rs = psId.executeQuery();
             if (rs.next()) {
-                personajeHabilidadDAO.insertarPersonajeHabilidad(rs.getInt(1), idClase);
+                int nuevoId = rs.getInt(1);
+                personajeHabilidadDAO.insertarPersonajeHabilidad(nuevoId, idClase);
+                inventarioDAO.crearInventarioVacio(nuevoId);
             }
-
-            // TODO: FALTA AÑADIRLE EL INVENTARIO
-
             log.escribirFichero("INFO","El metodo crearPJ ha sido ejecutado con exito");
-
-
             return true;
         } catch (SQLException | ClassNotFoundException e) {
             log.escribirFichero("ERROR","El metodo crearPJ ha fallado" + e.getMessage());

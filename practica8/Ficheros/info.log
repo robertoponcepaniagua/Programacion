@@ -3687,3 +3687,77 @@
 [2026-04-13 13:03:37] [INFO] [rpg.ui.MenuUtils] [practica8/src/rpg/dao/PersonajeDAO.java] Viaje con exito
 [2026-04-13 13:03:37] [INFO] [rpg.dao.PersonajeDAO] [practica8/src/rpg/dao/PersonajeDAO.java] El personaje ha viajado con exito2
 [2026-04-13 13:03:41] [INFO] [rpg.ui.MenuUtils] [practica8/src/rpg/dao/PersonajeDAO.java] El usuario ha terminado la sesión
+[2026-04-13 13:45:31] [INFO] [rpg.dao.PersonajeDAO] [practica8/src/rpg/dao/PersonajeDAO.java] El metodo listarPersonajes se ha ejecutado
+[2026-04-13 13:45:31] [INFO] [rpg.dao.PersonajeDAO] [practica8/src/rpg/dao/PersonajeDAO.java] El metodo listarPersonajes se ha ejecutado
+[2026-04-13 13:45:31] [INFO] [rpg.dao.PersonajeDAO] [practica8/src/rpg/dao/PersonajeDAO.java] El metodo listarPersonajes se ha ejecutado
+[2026-04-13 13:45:31] [INFO] [rpg.dao.RazaDAO] [practica8/src/rpg/dao/RazaDAO.java] El metodo listarPersonajes se ha ejecutado
+[2026-04-13 13:45:31] [INFO] [rpg.dao.RazaDAO] [practica8/src/rpg/dao/RazaDAO.java] El metodo listarPersonajes se ha ejecutado
+[2026-04-13 13:45:31] [INFO] [rpg.dao.RazaDAO] [practica8/src/rpg/dao/RazaDAO.java] El metodo listarPersonajes se ha ejecutado
+[2026-04-13 13:45:31] [INFO] [rpg.dao.RazaDAO] [practica8/src/rpg/dao/RazaDAO.java] El metodo listarPersonajes se ha ejecutado
+[2026-04-13 13:45:31] [INFO] [rpg.dao.ClaseRPGDAO] [practica8/src/rpg/dao/ClaseRPGDAO.java] El metodo listarClases se ha ejecutado
+[2026-04-13 13:45:31] [INFO] [rpg.dao.ClaseRPGDAO] [practica8/src/rpg/dao/ClaseRPGDAO.java] El metodo listarClases se ha ejecutado
+[2026-04-13 13:45:31] [INFO] [rpg.dao.ClaseRPGDAO] [practica8/src/rpg/dao/ClaseRPGDAO.java] El metodo listarClases se ha ejecutado
+[2026-04-13 13:45:31] [INFO] [rpg.dao.ClaseRPGDAO] [practica8/src/rpg/dao/ClaseRPGDAO.java] El metodo listarClases se ha ejecutado
+[2026-04-13 13:45:31] [INFO] [rpg.dao.ItemDAO] [practica8/src/rpg/dao/ItemDAO.java] El metodo listarItems se ha ejecutado
+[2026-04-13 13:45:31] [INFO] [rpg.dao.ItemDAO] [practica8/src/rpg/dao/ItemDAO.java] El metodo listarItems se ha ejecutado
+[2026-04-13 13:45:31] [INFO] [rpg.dao.ItemDAO] [practica8/src/rpg/dao/ItemDAO.java] El metodo listarItems se ha ejecutado
+[2026-04-13 13:45:31] [INFO] [rpg.dao.ItemDAO] [practica8/src/rpg/dao/ItemDAO.java] El metodo listarItems se ha ejecutado
+[2026-04-13 13:45:31] [INFO] [rpg.dao.ItemDAO] [practica8/src/rpg/dao/ItemDAO.java] El metodo listarItems se ha ejecutado
+[2026-04-13 13:45:31] [INFO] [rpg.dao.ItemDAO] [practica8/src/rpg/dao/ItemDAO.java] El metodo listarItems se ha ejecutado
+[2026-04-13 13:45:31] [INFO] [rpg.dao.ItemDAO] [practica8/src/rpg/dao/ItemDAO.java] El metodo listarItems se ha ejecutado
+[2026-04-13 13:45:31] [INFO] [rpg.dao.HabilidadDAO] [practica8/src/rpg/dao/HabilidadDAO.java] El metodo listarHabilidades se ha ejecutado
+[2026-04-13 13:45:31] [INFO] [rpg.dao.HabilidadDAO] [practica8/src/rpg/dao/HabilidadDAO.java] El metodo listarHabilidades se ha ejecutado
+[2026-04-13 13:45:31] [INFO] [rpg.dao.HabilidadDAO] [practica8/src/rpg/dao/HabilidadDAO.java] El metodo listarHabilidades se ha ejecutado
+[2026-04-13 13:45:31] [INFO] [rpg.dao.HabilidadDAO] [practica8/src/rpg/dao/HabilidadDAO.java] El metodo listarHabilidades se ha ejecutado
+[2026-04-13 13:45:31] [INFO] [rpg.dao.HabilidadDAO] [practica8/src/rpg/dao/HabilidadDAO.java] El metodo listarHabilidades se ha ejecutado
+[2026-04-13 13:45:31] [INFO] [rpg.dao.HabilidadDAO] [practica8/src/rpg/dao/HabilidadDAO.java] El metodo listarHabilidades se ha ejecutado
+[2026-04-13 13:45:31] [INFO] [rpg.dao.HabilidadDAO] [practica8/src/rpg/dao/HabilidadDAO.java] El metodo listarHabilidades se ha ejecutado
+[2026-04-13 13:45:31] [INFO] [rpg.dao.HabilidadDAO] [practica8/src/rpg/dao/HabilidadDAO.java] El metodo listarHabilidades se ha ejecutado
+[2026-04-13 13:45:31] [INFO] [rpg.dao.HabilidadDAO] [practica8/src/rpg/dao/HabilidadDAO.java] El metodo listarHabilidades se ha ejecutado
+[2026-04-13 13:45:31] [INFO] [rpg.dao.HabilidadDAO] [practica8/src/rpg/dao/HabilidadDAO.java] El metodo listarHabilidades se ha ejecutado
+[2026-04-13 13:45:31] [INFO] [rpg.dao.HabilidadDAO] [practica8/src/rpg/dao/HabilidadDAO.java] El metodo listarHabilidades se ha ejecutado
+[2026-04-13 13:45:31] [INFO] [rpg.dao.HabilidadDAO] [practica8/src/rpg/dao/HabilidadDAO.java] El metodo listarHabilidades se ha ejecutado
+[2026-04-13 13:45:40] [INFO] [rpg.dao.RazaDAO] [practica8/src/rpg/dao/RazaDAO.java] El metodo listarPersonajes se ha ejecutado
+[2026-04-13 13:45:40] [INFO] [rpg.dao.RazaDAO] [practica8/src/rpg/dao/RazaDAO.java] El metodo listarPersonajes se ha ejecutado
+[2026-04-13 13:45:40] [INFO] [rpg.dao.RazaDAO] [practica8/src/rpg/dao/RazaDAO.java] El metodo listarPersonajes se ha ejecutado
+[2026-04-13 13:45:40] [INFO] [rpg.dao.RazaDAO] [practica8/src/rpg/dao/RazaDAO.java] El metodo listarPersonajes se ha ejecutado
+[2026-04-13 13:45:56] [INFO] [rpg.dao.ClaseRPGDAO] [practica8/src/rpg/dao/ClaseRPGDAO.java] El metodo listarClases se ha ejecutado
+[2026-04-13 13:45:56] [INFO] [rpg.dao.ClaseRPGDAO] [practica8/src/rpg/dao/ClaseRPGDAO.java] El metodo listarClases se ha ejecutado
+[2026-04-13 13:45:56] [INFO] [rpg.dao.ClaseRPGDAO] [practica8/src/rpg/dao/ClaseRPGDAO.java] El metodo listarClases se ha ejecutado
+[2026-04-13 13:45:56] [INFO] [rpg.dao.ClaseRPGDAO] [practica8/src/rpg/dao/ClaseRPGDAO.java] El metodo listarClases se ha ejecutado
+[2026-04-13 13:46:04] [INFO] [rpg.dao.CiudadDAO] [practica8/src/rpg/dao/CiudadDAO.java] El metodo listarCiudades se ha ejecutado
+[2026-04-13 13:46:04] [INFO] [rpg.dao.CiudadDAO] [practica8/src/rpg/dao/CiudadDAO.java] El metodo listarCiudades se ha ejecutado
+[2026-04-13 13:46:04] [INFO] [rpg.dao.CiudadDAO] [practica8/src/rpg/dao/CiudadDAO.java] El metodo listarCiudades se ha ejecutado
+[2026-04-13 13:46:04] [INFO] [rpg.dao.CiudadDAO] [practica8/src/rpg/dao/CiudadDAO.java] El metodo listarCiudades se ha ejecutado
+[2026-04-13 13:46:06] [INFO] [rpg.dao.PersonajeHabilidadDAO] [practica8/src/rpg/dao/PersonajeHabilidadDAO.java] Se le han otorgado las habilidades de su clase al nuevo personaje4
+[2026-04-13 13:46:06] [INFO] [rpg.dao.PersonajeDAO] [practica8/src/rpg/dao/PersonajeDAO.java] El metodo crearPJ ha sido ejecutado con exito
+[2026-04-13 13:46:06] [INFO] [rpg.ui.MenuUtils] [practica8/src/rpg/dao/PersonajeDAO.java] Personaje creado con exito
+[2026-04-13 13:46:12] [INFO] [rpg.dao.PersonajeDAO] [practica8/src/rpg/dao/PersonajeDAO.java] El metodo listarPersonajes se ha ejecutado
+[2026-04-13 13:46:12] [INFO] [rpg.dao.PersonajeDAO] [practica8/src/rpg/dao/PersonajeDAO.java] El metodo listarPersonajes se ha ejecutado
+[2026-04-13 13:46:12] [INFO] [rpg.dao.PersonajeDAO] [practica8/src/rpg/dao/PersonajeDAO.java] El metodo listarPersonajes se ha ejecutado
+[2026-04-13 13:46:12] [INFO] [rpg.dao.PersonajeDAO] [practica8/src/rpg/dao/PersonajeDAO.java] El metodo listarPersonajes se ha ejecutado
+[2026-04-13 13:46:25] [INFO] [rpg.dao.PersonajeDAO] [practica8/src/rpg/dao/PersonajeDAO.java] El metodo listarPersonajes se ha ejecutado
+[2026-04-13 13:46:25] [INFO] [rpg.dao.PersonajeDAO] [practica8/src/rpg/dao/PersonajeDAO.java] El metodo listarPersonajes se ha ejecutado
+[2026-04-13 13:46:25] [INFO] [rpg.dao.PersonajeDAO] [practica8/src/rpg/dao/PersonajeDAO.java] El metodo listarPersonajes se ha ejecutado
+[2026-04-13 13:46:25] [INFO] [rpg.dao.PersonajeDAO] [practica8/src/rpg/dao/PersonajeDAO.java] El metodo listarPersonajes se ha ejecutado
+[2026-04-13 13:46:33] [INFO] [rpg.dao.ItemDAO] [practica8/src/rpg/dao/ItemDAO.java] El metodo listarItems se ha ejecutado
+[2026-04-13 13:46:33] [INFO] [rpg.dao.ItemDAO] [practica8/src/rpg/dao/ItemDAO.java] El metodo listarItems se ha ejecutado
+[2026-04-13 13:46:33] [INFO] [rpg.dao.ItemDAO] [practica8/src/rpg/dao/ItemDAO.java] El metodo listarItems se ha ejecutado
+[2026-04-13 13:46:33] [INFO] [rpg.dao.ItemDAO] [practica8/src/rpg/dao/ItemDAO.java] El metodo listarItems se ha ejecutado
+[2026-04-13 13:46:33] [INFO] [rpg.dao.ItemDAO] [practica8/src/rpg/dao/ItemDAO.java] El metodo listarItems se ha ejecutado
+[2026-04-13 13:46:33] [INFO] [rpg.dao.ItemDAO] [practica8/src/rpg/dao/ItemDAO.java] El metodo listarItems se ha ejecutado
+[2026-04-13 13:46:33] [INFO] [rpg.dao.ItemDAO] [practica8/src/rpg/dao/ItemDAO.java] El metodo listarItems se ha ejecutado
+[2026-04-13 13:46:36] [INFO] [rpg.dao.PersonajeDAO] [practica8/src/rpg/dao/PersonajeDAO.java] El metodo listarPersonajes se ha ejecutado
+[2026-04-13 13:46:36] [INFO] [rpg.dao.PersonajeDAO] [practica8/src/rpg/dao/PersonajeDAO.java] El metodo listarPersonajes se ha ejecutado
+[2026-04-13 13:46:36] [INFO] [rpg.dao.PersonajeDAO] [practica8/src/rpg/dao/PersonajeDAO.java] El metodo listarPersonajes se ha ejecutado
+[2026-04-13 13:46:36] [INFO] [rpg.dao.PersonajeDAO] [practica8/src/rpg/dao/PersonajeDAO.java] El metodo listarPersonajes se ha ejecutado
+[2026-04-13 13:46:36] [INFO] [rpg.dao.ItemDAO] [practica8/src/rpg/dao/ItemDAO.java] El metodo listarItems se ha ejecutado
+[2026-04-13 13:46:36] [INFO] [rpg.dao.ItemDAO] [practica8/src/rpg/dao/ItemDAO.java] El metodo listarItems se ha ejecutado
+[2026-04-13 13:46:36] [INFO] [rpg.dao.ItemDAO] [practica8/src/rpg/dao/ItemDAO.java] El metodo listarItems se ha ejecutado
+[2026-04-13 13:46:36] [INFO] [rpg.dao.ItemDAO] [practica8/src/rpg/dao/ItemDAO.java] El metodo listarItems se ha ejecutado
+[2026-04-13 13:46:36] [INFO] [rpg.dao.ItemDAO] [practica8/src/rpg/dao/ItemDAO.java] El metodo listarItems se ha ejecutado
+[2026-04-13 13:46:36] [INFO] [rpg.dao.ItemDAO] [practica8/src/rpg/dao/ItemDAO.java] El metodo listarItems se ha ejecutado
+[2026-04-13 13:46:36] [INFO] [rpg.dao.ItemDAO] [practica8/src/rpg/dao/ItemDAO.java] El metodo listarItems se ha ejecutado
+[2026-04-13 13:46:36] [INFO] [rpg.dao.PersonajeDAO] [practica8/src/rpg/dao/PersonajeDAO.java] Se ha actualizado el oro del personaje [id]: 4
+[2026-04-13 13:46:36] [INFO] [rpg.dao.InventarioDAO] [practica8/src/rpg/dao/InventarioDAO.java] Se ha añadido el item correctamentre PJ: 4 Item: 1
+[2026-04-13 13:46:36] [INFO] [rpg.ui.MenuUtils] [practica8/src/rpg/dao/PersonajeDAO.java] Compra realizada con exito Comprador: 4 Item comprado: 1
