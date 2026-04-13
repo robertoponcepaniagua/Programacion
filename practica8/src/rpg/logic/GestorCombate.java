@@ -67,8 +67,38 @@ public class GestorCombate {
                     // EL QUE PIERDA , LE RESTAMOS MONEDAS Y MOSTRAMOS QUE HA PERDIDO TAMBIÉN
 
 
+                    System.out.println("Elige a 2 Personajes: ");
+                    List<Personaje> personajes = personajeDAO.listarPersonajes();
+                    //MOSTRAR PERSONAJES DISPONIBLES
+                    for (Personaje p : personajes) {
+                        System.out.println(p.toString());
+                    }
 
+                    System.out.print("ID del Jugador 1: ");
+                    int id1 = sc.nextInt(); sc.nextLine();
+                    System.out.print("ID del Jugador 2: ");
+                    int id2 = sc.nextInt(); sc.nextLine();
 
+                    Personaje jugador1 = buscarPersonajePorId(personajes, id1);
+                    Personaje jugador2 = buscarPersonajePorId(personajes, id2);
+
+                    // Aplicar bonificaciones de raza
+                    List<Raza> razas = razaDAO.listarRazas();
+                    Raza raza1 = buscarRazaPorId(razas, jugador1.getIdRaza());
+                    Raza raza2 = buscarRazaPorId(razas, jugador2.getIdRaza());
+                    if (raza1 != null) jugador1.aplicarBonificaciones(raza1);
+                    if (raza2 != null) jugador2.aplicarBonificaciones(raza2);
+
+                    // Calcular estadísticas de combate usando inventario
+                    //  PJ1
+                    int ataque1 = calcularAtaqueFisico(jugador1, raza1);
+                    int defensa1 = calcularDefensa(jugador1);
+                    // PJ2
+                    int ataque2 = calcularAtaqueFisico(jugador2, raza2);
+                    int defensa2 = calcularDefensa(jugador2);
+
+                    System.out.println("[ID: " + jugador1.getId() + "]" + "[NOMBRE: " + jugador1.getNombre() + "]" + " [ATQ:" + ataque1 + " | DEF:" + defensa1 + " | Vida:" + jugador1.getSalud() + "]");
+                    System.out.println("[ID: " + jugador2.getId() + "]" + "[NOMBRE: " + jugador2.getNombre() + "]" + " [ATQ:" + ataque1 + " | DEF:" + defensa1 + " | Vida:" + jugador2.getSalud() + "]");
 
                 case 0:
                     break;
@@ -99,5 +129,48 @@ public class GestorCombate {
         System.out.println("----PULSA ENTER PARA CONTINUAR----");
         sc.nextLine();
         sc.nextLine();
+    }
+
+    private Personaje buscarPersonajePorId(List<Personaje> lista, int id) {
+        for (Personaje p : lista) {
+            if (p.getId() == id) return p;
+        }
+        return null;
+    }
+
+    private Raza buscarRazaPorId(List<Raza> lista, int id) {
+        for (Raza r : lista) {
+            if (r.getId() == id) return r;
+        }
+        return null;
+    }
+
+    private Habilidades buscarHabilidadPorId(List<Habilidades> lista, int id) {
+        for (Habilidades h : lista) {
+            if (h.getId() == id) return h;
+        }
+        return null;
+    }
+
+    private int calcularAtaqueFisico(Personaje pj, Raza raza) {
+        int fuerzaBase = 0;
+        if (raza != null)  {
+            fuerzaBase = raza.getBonificador_fuerza();
+        }
+        int bonusItems = 0;
+        List<Item> items = inventarioDAO.listarItemsPersonaje(pj.getId());
+        for (Item item : items) {
+            bonusItems += item.getBonificador_ataque();
+        }
+        return fuerzaBase + bonusItems;
+    }
+
+    private int calcularDefensa(Personaje pj) {
+        int defensa = 0;
+        List<Item> items = inventarioDAO.listarItemsPersonaje(pj.getId());
+        for (Item item : items) {
+            defensa += item.getBonificador_defensa();
+        }
+        return defensa;
     }
 }
