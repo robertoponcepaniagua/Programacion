@@ -259,9 +259,6 @@ public class MenuUtils {
                         Personaje pj = personajeIterator.next();
                         if (pj.getOro() < 20) {
                             //ELIMINA PORQUE NO TIENE 20 MONEDAS DE ORO
-                            personajeIterator.remove();
-                            // TODO: HACER UN UPDATE DE LA BASE DE DATOS, HAY QUE ELIMINAR AL PERSONAJE QUE NO TENGA 20 MONEDAS DE ORO
-
                             pj.setOro(pj.getOro() - 20);
                             personajeDAO.actualizarOro(pj.getId(), pj.getOro());
 
