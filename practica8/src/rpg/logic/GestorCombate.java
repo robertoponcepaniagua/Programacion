@@ -97,8 +97,14 @@ public class GestorCombate {
                     int ataque2 = calcularAtaqueFisico(jugador2, raza2);
                     int defensa2 = calcularDefensa(jugador2);
 
-                    System.out.println("[ID: " + jugador1.getId() + "]" + "[NOMBRE: " + jugador1.getNombre() + "]" + " [ATQ:" + ataque1 + " | DEF:" + defensa1 + " | Vida:" + jugador1.getSalud() + "]");
-                    System.out.println("[ID: " + jugador2.getId() + "]" + "[NOMBRE: " + jugador2.getNombre() + "]" + " [ATQ:" + ataque1 + " | DEF:" + defensa1 + " | Vida:" + jugador2.getSalud() + "]");
+                    separador();
+
+                    imprimirFicha(jugador1, ataque1, defensa1);
+                    imprimirFicha(jugador2, ataque2, defensa2);
+
+                    separador();
+
+                    enter();
 
                 case 0:
                     break;
@@ -107,7 +113,23 @@ public class GestorCombate {
     }
 
 
+    public void imprimirFicha(Personaje j, int atq, int def) {
+        String nombre = j.getNombre().toUpperCase();
+        int id = j.getId();
+        int hp = j.getSalud();
+        int hpMax = j.getSaludMax();
 
+        String lineaHp = "║ HP:  " + hp + "/" + hpMax;
+
+        System.out.println("╔═══════════════════════════╗");
+        System.out.println("║ " + nombre);
+        System.out.println("║ ID: #" + id);
+        System.out.println("╠═══════════════════════════╣");
+        System.out.println("║ ATQ: " + atq);
+        System.out.println("║ DEF: " + def);
+        System.out.println(lineaHp);
+        System.out.println("╚═══════════════════════════╝");
+    }
 
 
     public void cabecera() {
