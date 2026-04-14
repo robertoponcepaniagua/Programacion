@@ -1,5 +1,6 @@
 package rpg.logic;
 
+import com.sun.source.tree.WhileLoopTree;
 import rpg.dao.*;
 import rpg.exception.RPGException;
 import rpg.model.*;
@@ -105,6 +106,29 @@ public class GestorCombate {
                     separador();
 
                     enter();
+
+                    int turnos = 0;
+
+                    while(jugador1.getSalud() > 0 || jugador2.getSalud() > 0) {
+                        turnos++;
+                        System.out.println("TURNO: " + turnos);
+
+                        // ELEGIR ATAQUE PJ1
+                        // MOSTRAR ATAQUES DE PJ1
+                        // COMPROBAR SI TIENE USOS DISPONIBLES EL ATAQUE, SI TIENE RESTAR USO, SI NO ELEGIR OTRO ATAQUE
+
+                        // ELEGIR ATAQUE PJ2
+                        // MOSTRAR ATAQUES PJ2
+                        // COMPROBAR SI TIENE USOS DISPONIBLES EL ATAQUE, SI TIENE RESTAR USO, SI NO ELEGIR OTRO ATAQUE
+
+                        // RESTAR VIDA AL OPONENTE PJ2
+                        // RESTAR VIDA AL OPONENTE PJ1
+
+                        //MOSTRAR FICHAS
+                        imprimirFicha(jugador1, ataque1, defensa1);
+                        imprimirFicha(jugador2, ataque2, defensa2);
+
+                    }
 
                 case 0:
                     break;
