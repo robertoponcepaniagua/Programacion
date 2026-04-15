@@ -109,6 +109,9 @@ public class GestorCombate {
 
                     int turnos = 0;
 
+                    List<Habilidades> habilidadesJugador1 = habilidadDAO.listarHabilidadesPersonaje(jugador1.getId());
+                    List<Habilidades> habilidadesJugador2 = habilidadDAO.listarHabilidadesPersonaje(jugador2.getId());
+
                     while(jugador1.getSalud() > 0 && jugador2.getSalud() > 0) {
                         turnos++;
                         System.out.println("TURNO: " + turnos);
@@ -122,7 +125,7 @@ public class GestorCombate {
                         System.out.println("-   ELIGA HABILIDAD     -");
                         System.out.println("-------------------------");
                         System.out.println(); // MENU PARA ELEGIR HABILIDAD
-                        List<Habilidades> habilidadesJugador1 = habilidadDAO.listarHabilidadesPersonaje(jugador1.getId());
+
                         for (Habilidades h : habilidadesJugador1) {
                             if (h.getUsos_maximos() > 0) {
                                 System.out.println(h.toString());
@@ -144,6 +147,7 @@ public class GestorCombate {
 
 
                         int dano1 = calcularDanoHabilidad(habilidadPJ1, jugador2);
+                        restarUso(habilidadPJ1);
 
                         // ELEGIR ATAQUE PJ2
                         // MOSTRAR ATAQUES PJ2
@@ -152,7 +156,7 @@ public class GestorCombate {
                         System.out.println("-------------------------");
                         System.out.println("    ELIGA HABILIDAD     ");
                         System.out.println("-------------------------");
-                        List<Habilidades> habilidadesJugador2 = habilidadDAO.listarHabilidadesPersonaje(jugador2.getId());
+
                         for (Habilidades h : habilidadesJugador2) {
                             if (h.getUsos_maximos() > 0) {
                                 System.out.println(h.toString());
@@ -173,6 +177,7 @@ public class GestorCombate {
                         }
 
                         int dano2 = calcularDanoHabilidad(habilidadPJ2, jugador1);
+                        restarUso(habilidadPJ2);
 
 
                         // RESTAR VIDA AL OPONENTE PJ2
@@ -337,9 +342,12 @@ public class GestorCombate {
     }
 
     public boolean verificarUsos(Habilidades habilidad) {
-        if (habilidad.getUsos_maximos() < 0) {
-            return true;
+        return habilidad.getUsos_maximos() <= 0;
+    }
+    private void restarUso(Habilidades habilidad) {
+        int usosActuales = habilidad.getUsos_maximos();
+        if (usosActuales > 0) {
+            habilidad.setUsos_maximos(usosActuales - 1);
         }
-        return false;
     }
 }
