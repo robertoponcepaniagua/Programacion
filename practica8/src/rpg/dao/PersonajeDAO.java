@@ -82,8 +82,6 @@ public class PersonajeDAO {
                 int nuevoId = rs.getInt(1);
                 personajeHabilidadDAO.insertarPersonajeHabilidad(nuevoId, idClase);
                 log.escribirFichero("INFO","El metodo crearPJ ha creado las habilidades");
-                inventarioDAO.crearInventarioVacio(nuevoId);
-                log.escribirFichero("INFO","El metodo crearPJ ha creado el inventario");
             }
             log.escribirFichero("INFO","El metodo crearPJ ha sido ejecutado con exito");
             return true;
@@ -163,8 +161,17 @@ public class PersonajeDAO {
         }
     }
 
-    // TODO: HACER ESTA FUNCIÓN
-    public boolean eliminarPJ(int id) {
-        return false;
+    public boolean eliminarPJ(int id) throws RPGException {
+        String sql = "DELETE FROM Personajes WHERE id = ?";
+        try (Connection con = conexionBD.conectar();
+             PreparedStatement ps = con.prepareStatement(sql)) {
+            ps.setInt(1, id);
+
+            log.escribirFichero("INFO", "PJ ID " + id + " eliminado ");
+            return ps.executeUpdate() > 0;
+        } catch (SQLException | ClassNotFoundException e) {
+            log.escribirFichero("ERROR", "Error eliminar: " + e.getMessage());
+            throw new RPGException("Error eliminar: " + e.getMessage());
+        }
     }
 }

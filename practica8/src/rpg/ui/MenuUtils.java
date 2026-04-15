@@ -90,11 +90,9 @@ public class MenuUtils {
             opcion = sc.nextInt();
             sc.nextLine();
 
-            // TODO: TERMINAR EL MENÚ
             switch (opcion)  {
                 case 1:
                     // FUNCIONA / TERMINADO
-                    // TODO: ESTÁ MAL NO INSERTA LAS HABILIDADES Y EL INVENTARIO
                     // 1. Crear Personaje
                     // nombre,nivel,oro,vida_actual,id_raza,id_clase,id_ciudad_actual
                     try {
@@ -121,6 +119,7 @@ public class MenuUtils {
 
                         separador();
 
+                        /*
                         System.out.println("Elige la Ciudad (id): ");
 
                         //MOSTRAR CIDUADES
@@ -129,9 +128,10 @@ public class MenuUtils {
                         int ciudad = Integer.parseInt(sc.nextLine());
 
                         separador();
+                        */
 
                         // CREAMOS EL PERSONAJE
-                        personajeDAO.crearPJ(nombre, raza, clase, ciudad);
+                        personajeDAO.crearPJ(nombre, raza, clase, 1);
                         System.out.println("--PERSONAJE CREADO CON EXITO--");
                         logger.escribirFichero("INFO","Personaje creado con exito");
 
@@ -251,8 +251,6 @@ public class MenuUtils {
                 case 5:
                     // 5. Cobro de impuestos
 
-                    // TODO: REPASAR ITERADORES CON VÍDEOS, ME CUESTA ENTENDERLO
-
                     Iterator<Personaje> personajeIterator = personajes.iterator();
 
                     while(personajeIterator.hasNext()) { //mientras que tenga otro objeto
@@ -267,6 +265,7 @@ public class MenuUtils {
 
                             System.out.println("El personaje " + pj.getId() + " no tiene suficientes monedas, eliminando...");
                             logger.escribirFichero("INFO","El personaje " + pj.getId() + " no tiene suficientes monedas, eliminando...");
+                            personajeDAO.eliminarPJ(pj.getId());
                         } else {
                             pj.setOro(pj.getOro() - 20);
                             System.out.println("El personaje " + pj.getId() + " ha pagado sus impuestos");
@@ -362,8 +361,6 @@ public class MenuUtils {
 
                     break;
                 case 7:
-                    //TODO: REVISAR
-
                     // FUNCIONA / SIN TERMINAR
 
                     // 7. Estadísticas
@@ -384,9 +381,13 @@ public class MenuUtils {
                     });
 
                     System.out.println("--- A. Top 3 más ricos ---");
-                    for (int i = 0; i < 3; i++) {
-                        Personaje p = personajesRicos.get(i);
-                        System.out.println((i+1) + ". " + p.getNombre() + " — " + p.getOro() + " oro");
+                    if (personajes.size() < 3) {
+                        System.out.println("NO HAY SUFICIENTES PERSONAJES");
+                    } else {
+                        for (int i = 0; i < 3; i++) {
+                            Personaje p = personajesRicos.get(i);
+                            System.out.println((i+1) + ". " + p.getNombre() + " — " + p.getOro() + " oro");
+                        }
                     }
 
 
@@ -401,7 +402,7 @@ public class MenuUtils {
                     for (Personaje pj : personajes) {
                         for (Clases_RPG clasesRpg : clases) {
                             if (pj.getIdClase() == clasesRpg.getId()) {
-                                clase_y_numero.put(clasesRpg.getNombre(),+1);
+                                clase_y_numero.put(clasesRpg.getNombre(), clase_y_numero.getOrDefault(clasesRpg.getNombre(), 0) + 1);
                             }
                         }
                     }
