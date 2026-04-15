@@ -42,7 +42,7 @@ public class GestorCombate {
     }
 
 
-    public void menu() {
+    public void menu() throws RPGException {
         int opcion;
 
         do {
@@ -109,24 +109,73 @@ public class GestorCombate {
 
                     int turnos = 0;
 
-                    while(jugador1.getSalud() > 0 || jugador2.getSalud() > 0) {
+                    while(jugador1.getSalud() > 0 && jugador2.getSalud() > 0) {
                         turnos++;
                         System.out.println("TURNO: " + turnos);
 
                         // ELEGIR ATAQUE PJ1
                         // MOSTRAR ATAQUES DE PJ1
                         // COMPROBAR SI TIENE USOS DISPONIBLES EL ATAQUE, SI TIENE RESTAR USO, SI NO ELEGIR OTRO ATAQUE
+                        System.out.println(); // MENU PARA ELEGIR HABILIDAD
+                        List<Habilidades> habilidadesJugador1 = habilidadDAO.listarHabilidadesPersonaje(jugador1.getId());
+                        for (Habilidades h : habilidadesJugador1) {
+                            System.out.println(h.toString());
+                        }
+                        int idElegidaPJ1 = sc.nextInt();
+                        Habilidades habilidadPJ1 = buscarHabilidadPorId(habilidadesJugador1, idElegidaPJ1);
+
+                        int dano1;
 
                         // ELEGIR ATAQUE PJ2
                         // MOSTRAR ATAQUES PJ2
                         // COMPROBAR SI TIENE USOS DISPONIBLES EL ATAQUE, SI TIENE RESTAR USO, SI NO ELEGIR OTRO ATAQUE
+                        List<Habilidades> habilidadesJugador2 = habilidadDAO.listarHabilidadesPersonaje(jugador2.getId());
+                        for (Habilidades h : habilidadesJugador2) {
+                            System.out.println(h.toString());
+                        }
+                        int idElegidaPJ2 = sc.nextInt();
+                        Habilidades habilidadPJ2 = buscarHabilidadPorId(habilidadesJugador2, idElegidaPJ2);
+
+                        int dano2;
 
                         // RESTAR VIDA AL OPONENTE PJ2
+                        jugador1.setSalud(jugador1.getSalud() - dano2);
                         // RESTAR VIDA AL OPONENTE PJ1
+                        jugador2.setSalud(jugador2.getSalud() - dano1);
+
+
+                        //COMPROBAMOS SI ALGUIEN HA GANADO
+                        if (jugador2.getSalud() <= 0) {
+                            System.out.println("---EL JUGADOR 1 HA GANADO---");
+                            System.out.println("---GANADOR---");
+                            imprimirFicha(jugador1, ataque1, defensa1);
+                            System.out.println("EL JUGADOR 1 HA SUBIDO DE NÍVEL");
+                            jugador1.setNivel(jugador1.getNivel() +1);
+                            //personajeDAO.actualizarNivel();
+                            personajeDAO.actualizarOro(jugador1.getId(), +50);
+                            personajeDAO.actualizarOro(jugador2.getId(), -50);
+
+                            break;
+                        }
+
+                        if (jugador1.getSalud() <= 0) {
+                            System.out.println("---EL JUGADOR 2 HA GANADO---");
+                            System.out.println("---GANADOR---");
+                            imprimirFicha(jugador2, ataque2, defensa2);
+                            System.out.println("EL JUGADOR 2 HA SUBIDO DE NÍVEL");
+                            jugador2.setNivel(jugador2.getNivel() +1);
+                            //personajeDAO.actualizarNivel();
+                            personajeDAO.actualizarOro(jugador2.getId(), +50);
+                            personajeDAO.actualizarOro(jugador1.getId(), -50);
+
+                            break;
+
+                        }
 
                         //MOSTRAR FICHAS
                         imprimirFicha(jugador1, ataque1, defensa1);
                         imprimirFicha(jugador2, ataque2, defensa2);
+
 
                     }
 

@@ -86,4 +86,32 @@ public class HabilidadDAO {
         }
         return habilidadesList;
     }
+
+    public Habilidades elegirHabilidad(int id_habilidad) {
+        String sql = "SELECT * " +
+                "FROM HABILIDADES" +
+                "WHERE ID = ?";
+
+        try (Connection con = conexionBD.conectar();
+             PreparedStatement ps = con.prepareStatement(sql)) {
+
+            ps.setInt(1,id_habilidad);
+
+            try (ResultSet rs = ps.executeQuery()) {
+                if (rs.next()) {
+                    Habilidades habilidades = new Habilidades(
+                            rs.getInt("id"),
+                            rs.getString("nombre"),
+                            rs.getInt("dano_base"),
+                            rs.getInt("usos_maximos"),
+                            rs.getInt("id_clase")
+                    );
+                    return habilidades;
+                }
+            }
+        } catch (SQLException | ClassNotFoundException e) {
+            throw new RuntimeException(e.getMessage());
+        }
+        return null;
+    }
 }
