@@ -158,8 +158,8 @@ public class PersonajeDAO {
             return ps.executeUpdate() > 0;
 
         } catch (SQLException | ClassNotFoundException e) {
-            log.escribirFichero("ERROR", "Nivel no actualizada " + idPersonaje + " " + e.getMessage());
-            throw new RPGException("Nivel no actualizada " + idPersonaje + " " + e.getMessage());
+            log.escribirFichero("ERROR", "Nivel no actualizado [ID_POERSONAJE] " + idPersonaje + " " + e.getMessage());
+            throw new RPGException("Nivel no actualizado [ID_POERSONAJE] " + idPersonaje + " " + e.getMessage());
         }
     }
 
