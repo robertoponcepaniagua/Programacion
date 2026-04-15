@@ -112,37 +112,57 @@ public class GestorCombate {
                     while(jugador1.getSalud() > 0 && jugador2.getSalud() > 0) {
                         turnos++;
                         System.out.println("TURNO: " + turnos);
+                        separador();
 
                         // ELEGIR ATAQUE PJ1
                         // MOSTRAR ATAQUES DE PJ1
                         // COMPROBAR SI TIENE USOS DISPONIBLES EL ATAQUE, SI TIENE RESTAR USO, SI NO ELEGIR OTRO ATAQUE
+                        imprimirFicha(jugador1,ataque1,defensa1);
+                        System.out.println("-------------------------");
+                        System.out.println("-   ELIGA HABILIDAD     -");
+                        System.out.println("-------------------------");
                         System.out.println(); // MENU PARA ELEGIR HABILIDAD
                         List<Habilidades> habilidadesJugador1 = habilidadDAO.listarHabilidadesPersonaje(jugador1.getId());
                         for (Habilidades h : habilidadesJugador1) {
-                            System.out.println(h.toString());
+                            if (h.getUsos_maximos() > 0) {
+                                System.out.println(h.toString());
+                            }
                         }
+                        separador();
                         int idElegidaPJ1 = sc.nextInt();
                         Habilidades habilidadPJ1 = buscarHabilidadPorId(habilidadesJugador1, idElegidaPJ1);
 
-                        int dano1;
+
+                        int dano1 = calcularDanoHabilidad(habilidadPJ1, jugador2);
 
                         // ELEGIR ATAQUE PJ2
                         // MOSTRAR ATAQUES PJ2
                         // COMPROBAR SI TIENE USOS DISPONIBLES EL ATAQUE, SI TIENE RESTAR USO, SI NO ELEGIR OTRO ATAQUE
+                        imprimirFicha(jugador2,ataque2,defensa2);
+                        System.out.println("-------------------------");
+                        System.out.println("    ELIGA HABILIDAD     ");
+                        System.out.println("-------------------------");
                         List<Habilidades> habilidadesJugador2 = habilidadDAO.listarHabilidadesPersonaje(jugador2.getId());
                         for (Habilidades h : habilidadesJugador2) {
-                            System.out.println(h.toString());
+                            if (h.getUsos_maximos() > 0) {
+                                System.out.println(h.toString());
+                            }
                         }
+                        separador();
                         int idElegidaPJ2 = sc.nextInt();
                         Habilidades habilidadPJ2 = buscarHabilidadPorId(habilidadesJugador2, idElegidaPJ2);
 
-                        int dano2;
+                        int dano2 = calcularDanoHabilidad(habilidadPJ2, jugador1);
+
 
                         // RESTAR VIDA AL OPONENTE PJ2
+                        vistaDanoHabilidad(habilidadPJ1, dano1);
                         jugador1.setSalud(jugador1.getSalud() - dano2);
+                        enter();
                         // RESTAR VIDA AL OPONENTE PJ1
+                        vistaDanoHabilidad(habilidadPJ2, dano2);
                         jugador2.setSalud(jugador2.getSalud() - dano1);
-
+                        enter();
 
                         //COMPROBAMOS SI ALGUIEN HA GANADO
                         if (jugador2.getSalud() <= 0) {
@@ -150,8 +170,13 @@ public class GestorCombate {
                             System.out.println("---GANADOR---");
                             imprimirFicha(jugador1, ataque1, defensa1);
                             System.out.println("EL JUGADOR 1 HA SUBIDO DE NÍVEL");
-                            jugador1.setNivel(jugador1.getNivel() +1);
-                            //personajeDAO.actualizarNivel();
+                            int nivel1 = jugador1.getNivel() +1;
+                            jugador1.setNivel(nivel1);
+
+                            personajeDAO.actualizarNivel(jugador1.getId(), jugador1.getNivel() + 1);
+
+                            // TODO: EL GANADOR ROBA UN 20% DEL PERDEDOR, CORREGIR
+
                             personajeDAO.actualizarOro(jugador1.getId(), +50);
                             personajeDAO.actualizarOro(jugador2.getId(), -50);
 
@@ -163,8 +188,11 @@ public class GestorCombate {
                             System.out.println("---GANADOR---");
                             imprimirFicha(jugador2, ataque2, defensa2);
                             System.out.println("EL JUGADOR 2 HA SUBIDO DE NÍVEL");
-                            jugador2.setNivel(jugador2.getNivel() +1);
-                            //personajeDAO.actualizarNivel();
+                            int nivel2 = jugador2.getNivel() +1;
+                            jugador1.setNivel(nivel2);
+
+                            personajeDAO.actualizarNivel(jugador2.getId(), jugador2.getNivel() + 1);
+
                             personajeDAO.actualizarOro(jugador2.getId(), +50);
                             personajeDAO.actualizarOro(jugador1.getId(), -50);
 
@@ -176,7 +204,7 @@ public class GestorCombate {
                         imprimirFicha(jugador1, ataque1, defensa1);
                         imprimirFicha(jugador2, ataque2, defensa2);
 
-
+                        enter();
                     }
 
                 case 0:
@@ -267,5 +295,18 @@ public class GestorCombate {
             defensa += item.getBonificador_defensa();
         }
         return defensa;
+    }
+
+    private int calcularDanoHabilidad(Habilidades habilidad, Personaje pj) {
+        // DAÑO BASE DE LA HABILIDAD - (DEFENSA TOTAL DEL ENEMIGO / 2)
+        return habilidad.getDano_base() - (calcularDefensa(pj) / 2);
+    }
+    private void restarUso() {
+        // TODO: HAY QUE RESTAR UN USO
+
+    }
+
+    private void vistaDanoHabilidad(Habilidades habilidad, int dano) {
+        System.out.println("Usa " + habilidad.getNombre() + " y provocas " + dano + " de daño.");
     }
 }

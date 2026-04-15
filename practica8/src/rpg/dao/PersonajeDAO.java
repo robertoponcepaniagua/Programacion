@@ -145,6 +145,24 @@ public class PersonajeDAO {
         }
     }
 
+    public boolean actualizarNivel(int idPersonaje, int nivel) throws RPGException {
+        String sql = "UPDATE PERSONAJE SET salud = ? WHERE id = ?";
+
+        try (Connection con = conexionBD.conectar();
+             PreparedStatement ps = con.prepareStatement(sql)) {
+
+            ps.setInt(1, nivel);
+            ps.setInt(2, idPersonaje);
+
+            log.escribirFichero("INFO", "Nivel actualizado a " + nivel + " PJ: " + idPersonaje);
+            return ps.executeUpdate() > 0;
+
+        } catch (SQLException | ClassNotFoundException e) {
+            log.escribirFichero("ERROR", "Nivel no actualizada " + idPersonaje);
+            throw new RPGException("Nivel no actualizada " + idPersonaje);
+        }
+    }
+
     // TODO: HACER ESTA FUNCIÓN
     public boolean eliminarPJ(int id) {
         return false;
