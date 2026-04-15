@@ -14,7 +14,5 @@ public class Main {
         ConexionBD bd = new ConexionBD();
         bd.conectar();
         MenuUtils menuUtils = new MenuUtils();
-        //menuUtils.MostrarMenu();
-        PersonajeDAO personajeDAO = new PersonajeDAO();
     }
 }
