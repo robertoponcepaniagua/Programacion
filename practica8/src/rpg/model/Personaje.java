@@ -134,6 +134,4 @@ public class Personaje {
             throw new NivelInvalidoException("El nível no puede ser < 0");
         }
     }
-
-    // TODO: TENGO QUE APLICARLE LAS BONIFICACIONES DE LOS OBJETOS / INVENTARIO
 }

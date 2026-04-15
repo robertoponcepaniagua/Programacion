@@ -128,7 +128,7 @@ public class PersonajeDAO {
     }
 
     public boolean actualizarVida(int idPersonaje, int vida) throws RPGException {
-        String sql = "UPDATE PERSONAJE SET salud = ? WHERE id = ?";
+        String sql = "UPDATE PERSONAJES SET salud = ? WHERE id = ?";
 
         try (Connection con = conexionBD.conectar();
              PreparedStatement ps = con.prepareStatement(sql)) {
@@ -146,7 +146,7 @@ public class PersonajeDAO {
     }
 
     public boolean actualizarNivel(int idPersonaje, int nivel) throws RPGException {
-        String sql = "UPDATE PERSONAJE SET salud = ? WHERE id = ?";
+        String sql = "UPDATE PERSONAJES SET nivel = ? WHERE id = ?";
 
         try (Connection con = conexionBD.conectar();
              PreparedStatement ps = con.prepareStatement(sql)) {
@@ -158,8 +158,8 @@ public class PersonajeDAO {
             return ps.executeUpdate() > 0;
 
         } catch (SQLException | ClassNotFoundException e) {
-            log.escribirFichero("ERROR", "Nivel no actualizada " + idPersonaje);
-            throw new RPGException("Nivel no actualizada " + idPersonaje);
+            log.escribirFichero("ERROR", "Nivel no actualizada " + idPersonaje + " " + e.getMessage());
+            throw new RPGException("Nivel no actualizada " + idPersonaje + " " + e.getMessage());
         }
     }
 
