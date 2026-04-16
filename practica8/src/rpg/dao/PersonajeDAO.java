@@ -174,4 +174,18 @@ public class PersonajeDAO {
             throw new RPGException("Error eliminar: " + e.getMessage());
         }
     }
+    public boolean desterrarPJ(int id) throws RPGException {
+        String sql = "UPDATE Personajes SET id_ciudad_actual = NULL WHERE id = ?";
+        try (Connection con = conexionBD.conectar();
+             PreparedStatement ps = con.prepareStatement(sql)) {
+            ps.setInt(1, id);
+
+            log.escribirFichero("INFO", "PJ ID " + id + " ha sido desterrado (Ciudad -> NULL)");
+            return ps.executeUpdate() > 0;
+        } catch (SQLException | ClassNotFoundException e) {
+            log.escribirFichero("ERROR", "Error al desterrar: " + e.getMessage());
+            throw new RPGException("Error al desterrar: " + e.getMessage());
+        }
+    }
+
 }

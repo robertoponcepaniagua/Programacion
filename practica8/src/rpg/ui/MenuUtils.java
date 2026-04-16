@@ -255,19 +255,18 @@ public class MenuUtils {
 
                     while(personajeIterator.hasNext()) { //mientras que tenga otro objeto
                         Personaje pj = personajeIterator.next();
-                        if (pj.getOro() < 20) {
-                            //ELIMINA PORQUE NO TIENE 20 MONEDAS DE ORO
-                            pj.setOro(pj.getOro() - 20);
+                        pj.setOro(pj.getOro() - 20);
+                        if (pj.getOro() < 0) {
+                            personajeIterator.remove(); // Elimina de la lista
+
+                            // Ponemos su ciudad a NULL en la base de datos y actualizamos oro
                             personajeDAO.actualizarOro(pj.getId(), pj.getOro());
+                            personajeDAO.desterrarPJ(pj.getId());
 
-                            personajeIterator.remove();
-                            personajeDAO.eliminarPJ(pj.getId());
-
-                            System.out.println("El personaje " + pj.getId() + " no tiene suficientes monedas, eliminando...");
-                            logger.escribirFichero("INFO","El personaje " + pj.getId() + " no tiene suficientes monedas, eliminando...");
-                            personajeDAO.eliminarPJ(pj.getId());
+                            System.out.println("El personaje " + pj.getNombre() + " (ID: " + pj.getId() + ") ha sido desterrado por insolvencia.");
+                            logger.escribirFichero("INFO", "Personaje desterrado (oro < 0): " + pj.getNombre() + " [ID: " + pj.getId() + "]");
                         } else {
-                            pj.setOro(pj.getOro() - 20);
+                            personajeDAO.actualizarOro(pj.getId(), pj.getOro());
                             System.out.println("El personaje " + pj.getId() + " ha pagado sus impuestos");
                             logger.escribirFichero("INFO","El personaje " + pj.getId() + " ha pagado sus impuestos");
                         }
