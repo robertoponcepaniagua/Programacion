@@ -188,4 +188,28 @@ public class PersonajeDAO {
         }
     }
 
+    public int contarHabilidadesEquipadas(int idPersonaje) throws RPGException {
+        String sql = "SELECT COUNT(*) FROM Personajes_Habilidades WHERE id_personaje = ? AND equipada_combate = 1";
+        int total = 0;
+
+        try (Connection con = conexionBD.conectar();
+             PreparedStatement ps = con.prepareStatement(sql)) {
+
+            ps.setInt(1, idPersonaje);
+
+            try (ResultSet rs = ps.executeQuery()) {
+                if (rs.next()) {
+                    total = rs.getInt(1);
+                }
+            }
+
+            log.escribirFichero("INFO", "Consuultadas habilidades equipadas del PJ ID: " + idPersonaje + " (Total: " + total + ")");
+            return total;
+
+        } catch (SQLException | ClassNotFoundException e) {
+            log.escribirFichero("ERROR", "Error al contar habilidades del PJ " + idPersonaje + ": " + e.getMessage());
+            throw new RPGException("Error al contar habilidades: " + e.getMessage());
+        }
+    }
+
 }

@@ -2,6 +2,7 @@ package rpg.ui;
 
 import rpg.dao.*;
 import rpg.exception.FondosInsuficientesException;
+import rpg.exception.LimiteHabilidadesException;
 import rpg.exception.RPGException;
 import rpg.logic.GestorCombate;
 import rpg.model.*;
@@ -263,7 +264,7 @@ public class MenuUtils {
                             personajeDAO.actualizarOro(pj.getId(), pj.getOro());
                             personajeDAO.desterrarPJ(pj.getId());
 
-                            System.out.println("El personaje " + pj.getNombre() + " (ID: " + pj.getId() + ") ha sido desterrado por insolvencia.");
+                            System.out.println("El personaje " + pj.getNombre() + " (ID: " + pj.getId() + ") ha sido desterrado.");
                             logger.escribirFichero("INFO", "Personaje desterrado (oro < 0): " + pj.getNombre() + " [ID: " + pj.getId() + "]");
                         } else {
                             personajeDAO.actualizarOro(pj.getId(), pj.getOro());
@@ -282,8 +283,6 @@ public class MenuUtils {
 
                     // DESPUÉS DE ESO HAY QUE HAY QUE HACER U MENÚ PARA QUE PUEDA EQUIPAR , QUITAR Y SALIR ( HAY QUE HACER UN UPDATE A LA BASE DE DATOS DEPENDIENDO DE LO QUE HAGA EL USUARIO )
 
-                    // PRIMER PASO:
-
 
                     do {
                         cabecerahabilidades();
@@ -297,23 +296,39 @@ public class MenuUtils {
 
                         switch (opcionhabilidades) {
                             case 1:
-                                // EQUIPAR HABILIDAD
 
                                 mostrarPersonajes();
-                                int idpersonaje = sc.nextInt();
-                                sc.nextLine();
+                                System.out.println("ID del personaje: ");
+                                int idPJ = sc.nextInt();
 
-                                habilidadesPJ = personajeHabilidadDAO.listarPersonajesHabilidades(idpersonaje);
-                                for (Personajes_Habilidades h : habilidadesPJ) {
-                                    System.out.println(h.toString());
+                                try {
+                                    // ANTES DE EQUIPAR COMPROBAMOS SI TIENE MÁS DE 3
+                                    int equipadas = personajeDAO.contarHabilidadesEquipadas(idPJ);
+
+                                    if (equipadas >= 3) {
+                                        // REQUISITO: Lanzar excepción personalizada
+                                        throw new LimiteHabilidadesException("El personaje ya tiene 3 habilidades equipadas (límite máximo).");
+                                    }
+
+                                    habilidadesPJ = personajeHabilidadDAO.listarPersonajesHabilidades(idPJ);
+                                    for (Personajes_Habilidades h : habilidadesPJ) {
+                                        System.out.println(h.toString());
+                                    }
+
+                                    System.out.println("ID de la habilidad a equipar: ");
+                                    int idHab = sc.nextInt();
+
+                                    personajeHabilidadDAO.actualizarHabilidades(idPJ, idHab, true);
+                                    System.out.println("¡Habilidad equipada con éxito!");
+                                    logger.escribirFichero("INFO", "Habilidad " + idHab + " equipada al PJ " + idPJ);
+
+                                } catch (LimiteHabilidadesException e) {
+
+                                    System.err.println("ERROR: " + e.getMessage());
+                                    logger.escribirFichero("ERROR", "Intento de equipar fallido: LimiteHabilidadesException");
+                                } catch (Exception e) {
+                                    System.err.println("Error inesperado: " + e.getMessage());
                                 }
-
-                                System.out.println("Que habilidad quieres equiparte (id): ");
-                                int idhabilidad = sc.nextInt();
-                                sc.nextLine();
-
-                                personajeHabilidadDAO.actualizarHabilidades(idpersonaje, idhabilidad, true);
-
                                 break;
                             case 2:
                                 // DESEQUIPAR HABILIDAD
@@ -360,7 +375,7 @@ public class MenuUtils {
 
                     break;
                 case 7:
-                    // FUNCIONA / SIN TERMINAR
+                    // FUNCIONA
 
                     // 7. Estadísticas
 

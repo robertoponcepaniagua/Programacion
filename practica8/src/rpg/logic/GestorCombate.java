@@ -27,7 +27,7 @@ public class GestorCombate {
 
     public GestorCombate() throws RPGException {
         this.sc = new Scanner(System.in);
-        this.logger = new Log("practica8/src/rpg/dao/PersonajeDAO.java");
+        this.logger = new Log("practica8/Ficheros/info.log");
 
         //DAO
         this.personajeDAO = new PersonajeDAO();
@@ -126,28 +126,37 @@ public class GestorCombate {
                         System.out.println("-------------------------");
                         System.out.println(); // MENU PARA ELEGIR HABILIDAD
 
+                        System.out.println(" 0. Ataque Básico (sin coste de usos)");
                         for (Habilidades h : habilidadesJugador1) {
                             if (h.getUsos_maximos() > 0) {
                                 System.out.println(h.toString());
                             }
                         }
                         separador();
+
                         int idElegidaPJ1 = sc.nextInt();
-                        Habilidades habilidadPJ1 = buscarHabilidadPorId(habilidadesJugador1, idElegidaPJ1);
-                        while (habilidadPJ1 == null || verificarUsos(habilidadPJ1)) {
+                        Habilidades habilidadPJ1 = null;
+                        int dano1;
 
-                            if (habilidadPJ1 == null) {
-                                System.out.println("NO VALIDA");
-                            } else {
-                                System.out.println("ELIGE OTRA HABILIDAD");
-                            }
-                            idElegidaPJ1 = sc.nextInt();
+                        if (idElegidaPJ1 == 0) {
+                            dano1 = calcularDanoBasico(ataque1, jugador2);
+                        } else {
                             habilidadPJ1 = buscarHabilidadPorId(habilidadesJugador1, idElegidaPJ1);
+                            while (habilidadPJ1 == null || verificarUsos(habilidadPJ1)) {
+                                if (habilidadPJ1 == null) {
+                                    System.out.println("NO VALIDA");
+                                } else {
+                                    System.out.println("ELIGE OTRA HABILIDAD");
+                                }
+                                idElegidaPJ1 = sc.nextInt();
+                                if (idElegidaPJ1 == 0) break; // Por si cambia de opinión
+                                habilidadPJ1 = buscarHabilidadPorId(habilidadesJugador1, idElegidaPJ1);
+                            }
+                            dano1 = (idElegidaPJ1 == 0)
+                                    ? calcularDanoBasico(ataque1, jugador2)
+                                    : calcularDanoHabilidad(habilidadPJ1, jugador2);
+                            if (idElegidaPJ1 != 0) restarUso(habilidadPJ1);
                         }
-
-
-                        int dano1 = calcularDanoHabilidad(habilidadPJ1, jugador2);
-                        restarUso(habilidadPJ1);
 
                         // ELEGIR ATAQUE PJ2
                         // MOSTRAR ATAQUES PJ2
@@ -157,36 +166,54 @@ public class GestorCombate {
                         System.out.println("    ELIGA HABILIDAD     ");
                         System.out.println("-------------------------");
 
+                        System.out.println(" 0. Ataque Básico (sin coste de usos)");
                         for (Habilidades h : habilidadesJugador2) {
                             if (h.getUsos_maximos() > 0) {
                                 System.out.println(h.toString());
                             }
                         }
                         separador();
-                        int idElegidaPJ2 = sc.nextInt();
-                        Habilidades habilidadPJ2 = buscarHabilidadPorId(habilidadesJugador2, idElegidaPJ2);
-                        while (habilidadPJ2 == null || verificarUsos(habilidadPJ2)) {
 
-                            if (habilidadPJ2 == null) {
-                                System.out.println("NO VALIDA");
-                            } else {
-                                System.out.println("ELIGE OTRA HABILIDAD");
-                            }
-                            idElegidaPJ2 = sc.nextInt();
+                        int idElegidaPJ2 = sc.nextInt();
+                        Habilidades habilidadPJ2 = null;
+                        int dano2;
+
+                        if (idElegidaPJ2 == 0) {
+                            dano2 = calcularDanoBasico(ataque2, jugador1);
+                        } else {
                             habilidadPJ2 = buscarHabilidadPorId(habilidadesJugador2, idElegidaPJ2);
+                            while (habilidadPJ2 == null || verificarUsos(habilidadPJ2)) {
+                                if (habilidadPJ2 == null) {
+                                    System.out.println("NO VALIDA");
+                                } else {
+                                    System.out.println("ELIGE OTRA HABILIDAD");
+                                }
+                                idElegidaPJ2 = sc.nextInt();
+                                if (idElegidaPJ2 == 0) break;
+                                habilidadPJ2 = buscarHabilidadPorId(habilidadesJugador2, idElegidaPJ2);
+                            }
+                            dano2 = (idElegidaPJ2 == 0)
+                                    ? calcularDanoBasico(ataque2, jugador1)
+                                    : calcularDanoHabilidad(habilidadPJ2, jugador1);
+                            if (idElegidaPJ2 != 0) restarUso(habilidadPJ2);
                         }
 
-                        int dano2 = calcularDanoHabilidad(habilidadPJ2, jugador1);
-                        restarUso(habilidadPJ2);
-
-
-                        // RESTAR VIDA AL OPONENTE PJ2
-                        vistaDanoHabilidad(habilidadPJ1, dano1);
-                        jugador1.setSalud(jugador1.getSalud() - dano2);
-                        enter();
-                        // RESTAR VIDA AL OPONENTE PJ1
-                        vistaDanoHabilidad(habilidadPJ2, dano2);
+                        // RESTAR VIDA Y MOSTRAR DAÑO PJ1 A PJ2
+                        if (habilidadPJ1 != null) {
+                            vistaDanoHabilidad(habilidadPJ1, dano1);
+                        } else {
+                            System.out.println(jugador1.getNombre() + " usa ATAQUE BÁSICO y hace " + dano1 + " de daño!");
+                        }
                         jugador2.setSalud(jugador2.getSalud() - dano1);
+                        enter();
+
+                        // RESTAR VIDA Y MOSTRAR DAÑO PJ2 A PJ1
+                        if (habilidadPJ2 != null) {
+                            vistaDanoHabilidad(habilidadPJ2, dano2);
+                        } else {
+                            System.out.println(jugador2.getNombre() + " usa ATAQUE BÁSICO y hace " + dano2 + " de daño!");
+                        }
+                        jugador1.setSalud(jugador1.getSalud() - dano2);
                         enter();
 
                         if (jugador1.getSalud() <= 0 && jugador2.getSalud() <= 0) {
@@ -237,6 +264,7 @@ public class GestorCombate {
 
                         enter();
                     }
+                    break;
 
                 case 0:
                     break;
@@ -332,10 +360,6 @@ public class GestorCombate {
         // DAÑO BASE DE LA HABILIDAD - (DEFENSA TOTAL DEL ENEMIGO / 2)
         return habilidad.getDano_base() - (calcularDefensa(pj) / 2);
     }
-    private void restarUso() {
-        // TODO: HAY QUE RESTAR UN USO
-
-    }
 
     private void vistaDanoHabilidad(Habilidades habilidad, int dano) {
         System.out.println("Usa " + habilidad.getNombre() + " y provocas " + dano + " de daño.");
@@ -349,5 +373,10 @@ public class GestorCombate {
         if (usosActuales > 0) {
             habilidad.setUsos_maximos(usosActuales - 1);
         }
+    }
+
+    private int calcularDanoBasico(int ataqueAtacante, Personaje defensor) {
+        int dano = ataqueAtacante - (calcularDefensa(defensor) / 2);
+        return Math.max(1, dano);  // PARA HACER MÍNIMO 1 DE DAÓ
     }
 }
