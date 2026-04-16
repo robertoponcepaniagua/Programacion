@@ -189,7 +189,7 @@ public class PersonajeDAO {
     }
 
     public int contarHabilidadesEquipadas(int idPersonaje) throws RPGException {
-        String sql = "SELECT COUNT(*) FROM Personajes_Habilidades WHERE id_personaje = ? AND equipada_combate = 1";
+        String sql = "SELECT COUNT(*) FROM Personajes_Habilidades WHERE id_personaje = ? AND equipada_combate = TRUE";
         int total = 0;
 
         try (Connection con = conexionBD.conectar();

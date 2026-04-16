@@ -300,6 +300,7 @@ public class MenuUtils {
                                 mostrarPersonajes();
                                 System.out.println("ID del personaje: ");
                                 int idPJ = sc.nextInt();
+                                sc.nextLine();
 
                                 try {
                                     // ANTES DE EQUIPAR COMPROBAMOS SI TIENE MÁS DE 3
